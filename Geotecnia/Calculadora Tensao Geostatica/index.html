@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/style.css" />
+  </head>
+  <body>
+    <div id="ctn_camadas"></div>
+    <div id="infocamadas">
+      <h2 id="info">Número de Camadas</h2>
+      <select name="camadas" id="cam">
+        <option value="1">1 Camada</option>
+        <option value="2">2 Camadas</option>
+        <option value="3">3 Camadas</option>
+        <option value="4">4 Camadas</option>
+        <option value="5">5 Camadas</option>
+        <option value="6">6 Camadas</option>
+        <option value="7">7 Camadas</option>
+        <option value="8">8 Camadas</option>
+        <option value="9">9 Camadas</option>
+        <option value="10">10 Camadas</option>
+      </select>
+      <input type="button" id="btn-camadas" value="Mostrar" />
+    </div>
+    <div id="ctn">
+      <div id="tabela">
+        <div id="tesquerda"></div>
+
+        <div id="ctncanvas">
+          <div id="centralizar">
+            <canvas id="myChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/desenhar.js"></script>
+    <script src="./scripts/NAmaior.js"></script>
+    <script src="scripts/NAmedio.js"></script>
+    <script src="scripts/NAmenor.js"></script>
+    <script src="./scripts/grafico.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </body>
+</html>
