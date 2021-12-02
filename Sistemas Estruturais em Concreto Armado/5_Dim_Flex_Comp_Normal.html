@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Verificações de seções retangulares à flexão-compressão normal -->
+    <!-- ############################################################## -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexo-compressão normal</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+        /* Trecho CSS do código */
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: 'Montserrat', sans-serif; 
+        }
+        #principal{
+            display: flex;
+        }
+        #esquerda{
+            flex:6;
+            margin: 10px;
+        }
+        #direita{
+            flex:4;
+            border-radius: 10px;
+            box-shadow: 7px 6px 8px 5px rgba(0,0,0,0.75);
+            margin: 5px;
+        }
+        section{
+            background-color: white;
+            margin: auto;
+        }
+
+        thead{
+            background-color: white;
+            color:black;
+            font-weight: bold;
+        }
+        td{
+            text-align: center;
+            padding:10px;
+            font-size: 12px;
+            
+        }
+
+        footer{
+            text-align: center;
+            padding-top: 50px;
+            font-style: italic;
+            font-size: 12px;
+        }
+
+        h1{
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            color:rgb(36, 10, 121);
+            padding-top: 10px;
+            font-size: 18px;
+            padding-bottom: 30px;
+            text-shadow: rgb(0, 0, 0) 1px 1px;
+        }
+
+        table{
+            margin: auto;
+            border-spacing: 0px;
+            box-shadow: rgba(0, 0, 0, 0.8) 2px 2px 5px 2px;
+        }
+
+        #conteinerbotao{
+            text-align: center;
+        }
+
+        input[type=number] {
+            width: 60px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        input[type=button]{
+            margin: 30px;
+            padding: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            border-radius: 5px;
+            transition: all 0.3s ease 0s;
+            cursor: pointer;
+            border:1px solid #052057;   
+            font-weight: bold;
+        }
+
+        h3{
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: 30px;
+            text-align: left;
+        }
+
+        input[type=button]:hover{
+        background-color: #05113d;
+        color: #ffffff;
+        }
+
+        
+        .texto{
+            text-align: center;
+            padding-top: 30px;
+        }
+
+        #res, #res1, #resultado{
+            text-align: center;
+            font-size: 12px;
+        }
+
+        tbody>tr:nth-child(odd) {
+        background-color:rgb(94, 148, 193);
+        }
+
+        tbody>tr:nth-child(even) {
+        background-color: rgba(170, 173, 196, 0.4);
+        }
+
+        #autores{
+            display: flex;    
+            text-align: left;
+            margin-left: 30px;
+            margin-top: 10px;
+        }
+        .rec{
+            width: 5px;
+            height: 30px;
+            margin-right:5px;
+            background-color: rgb(10, 10, 95);
+            margin-bottom: 5px;
+            
+        }
+        #autor1{
+            
+            flex-basis: 250px;
+            
+        }
+        #autor2{
+            flex-basis:250px;
+        }
+        .titulo{
+            font-size:10px;
+        }
+        @media (max-width: 1000px){
+            #principal{
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="principal">
+        <div id="esquerda">   
+            <h1>Dimensionamento à flexão-compressão normal</h1>
+
+                <section id="idname">
+                    <table id="tabela1">
+                        <thead>
+                            <td>Informação</td>
+                            <td>Valor</td>
+                            <td>Unidade</td>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="info" >Resistência Característica a Compressão do Concreto </td>
+                                <td class="valor"><input type="number" name="fck" id="fck"></td>
+                                <td class="unidade">MPa</td>
+                            </tr>
+                        
+
+                            <tr>
+                                <td class="info" >Tensão de escoamento característica do aço </td>
+                                <td class="valor"><input type="number" name="fyk" id="fyk"></td>
+                                <td class="unidade">MPa</td>
+                            </tr>
+
+                            <tr>
+                                <td class="info" >Módulo de elasticidade do aço</td>
+                                <td class="valor"><input type="number" name="es" id="es"></td>
+                                <td class="unidade">GPa</td>
+                            </tr>
+
+                            <tr>
+                                <td class="info" >Coeficiente parcial de segurança para o concreto</td>
+                                <td class="valor"><input type="number" name="gamac" id="gamac"></td>
+                                <td class="unidade"> --- </td>
+                            </tr>
+
+                            <tr>
+                                <td class="info" >Coeficiente parcial de segurança para o aço</td>
+                                <td class="valor"><input type="number" name="gamas" id="gamas"></td>
+                                <td class="unidade"> --- </td>
+                            </tr>
+
+                            <tr>
+                                <td class="info" >Coeficiente parcial de segurança para os esforços</td>
+                                <td class="valor"><input type="number" name="gamaf" id="gamaf"></td>
+                                <td class="unidade"> --- </td>
+                            </tr>
+
+                            <tr>
+                                <td class="info" >Largura da seção transversal</td>
+                                <td class="valor"><input type="number" name="b" id="b"></td>
+                                <td class="unidade"> cm </td>
+                            </tr>
+
+                            <tr>
+                                <td class="info" >Altura da seção transversal</td>
+                                <td class="valor"><input type="number" name="h" id="h"></td>
+                                <td class="unidade"> cm </td>
+                            </tr>
+
+                            <tr>
+                                <td class="info" >Parâmetro d'</td>
+                                <td class="valor"><input type="number" name="dl" id="dl"></td>
+                                <td class="unidade"> cm </td>
+                            </tr>
+
+                            <tr>
+                                <td class="info" >Esforço normal de serviço</td>
+                                <td class="valor"><input type="number" name="ank" id="ank"></td>
+                                <td class="unidade"> kN </td>
+                            </tr>
+
+                            <tr>
+                                <td class="info" >Momento fletor de serviço</td>
+                                <td class="valor"><input type="number" name="amk" id="amk"></td>
+                                <td class="unidade"> kN.m </td>
+                            </tr>
+
+                            <tr>
+                                <td class="info" >Número de camadas da armadura</td>
+                                <td class="valor" id="test"><input type="number" name="n" id="n" oninput="addelemento()">
+                                <td class="unidade"> --- </td>
+                            </tr>
+
+                            <tr>
+                                <td class="info" >Número de barras da camada 1</td>
+                                <td class="valor"><input type="number" name="ns" id="ns">
+                                <td class="unidade"> --- </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                    <div id="conteinerbotao">
+                        <td><input type="button" value="Calcular" onclick="calcular()"> </td>
+                    </div>
+
+                </section> 
+        </div>
+
+        <div id="direita">
+            <p></p>
+            <div id = 'res' class="texto">Qual a área de aço??</div>
+            <p></p>
+            <div id = 'res1' class="texto"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Rotinas computacionais adaptadas do livro: Programas para dimensionamento e verificação de concreto armado - José Milton de Araújo</p>
+        <div id="creditos">
+            <h3>Desenvolvedores:</h3>
+            <div id="autores">
+                <div class="rec"></div>
+                <div id="autor1">
+                    <p>Márcio Wrague Moura
+                    <p class="titulo">Professor EE - FURG</p>
+                </div>
+                <div class="rec"></div>
+                <div id="autor2">
+                <p>Bruno Teixeira Santos</p>
+                <p class="titulo">Acadêmico EE - FURG</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<script>
+    // Trecho JS do código
+    function addelemento() {
+
+        var tabela = document.getElementById('tabela1');
+        var camadasarmadura = document.getElementById('n').value;
+        var repeticoes = camadasarmadura -1;
+        var verifica = !!document.getElementById('2altura');
+        console.log(verifica);
+
+        //Faz a verificação se o elemento existe antes, se existir ele deleta
+        while(verifica == true) {
+            document.getElementById('tabela1').deleteRow(-1);
+            var verifica = !!document.getElementById('2altura');
+        }
+
+        for (let contador=0;contador<repeticoes;contador++){
+
+            //Inserindo linhas a cada repetição
+            var novalinha1 = tabela.insertRow(-1);
+
+            //Inserindo as Células para a Altura útil da da camada de armadura
+            var novacoluna1 = novalinha1.insertCell(0);
+            var novacoluna2 = novalinha1.insertCell(1);
+            var novacoluna3 = novalinha1.insertCell(2);
+
+            //Criando arrays para colocar todos os botões em um só array
+            var novoinput1 =[];
+            
+            //O array 1 - novoinput1 fica responsável por todos os botões referente a Altura útil da da camada de armadura enquanto o novoinput2 fica responsavel pelos botões da Área de aço da camada de armadura
+            novoinput1[contador] = document.createElement("input");
+
+            //É por aqui que tu acessa o id dos elementos, por exemplo o id da altura útil da camada de armadura 2 será: 2altura enquanto o id da área de aço da camada 3 será: 3area;
+            novoinput1[contador].id = (contador+2)+'altura';
+            
+            //Identificando o tipo do botão, nesse caso é number
+            novoinput1[contador].type = "number";
+
+            //Colocando Classe
+            novoinput1[contador].classList.add("novoinput");
+
+            novacoluna2.appendChild(novoinput1[contador]); //Aqui eu to anexando o input no campo do meio para altura útil da da camada de armadura 
+            novacoluna1.innerHTML = "Número de barras da camada "+(contador+2) //Aqui fica a descrição do campo para altura útil da da camada de armadura
+            novacoluna3.innerHTML = "---" //Aqui fica a unidade 
+        }
+    }
+
+    function calcular() {
+        // Dimensionamento à Flexo-Compressão Normal
+        // Seções retangulares com várias camadas de armadura
+
+        function funcao(qsi) {
+            // Calcula o valor da função f(qsi) dada na equação (2.5.11)
+            // do Volume 3 de Curso de Concreto Armado
+            // rc é a resultante de compressão do concreto adimensional dada na equação (2.4.4)
+            // bc é a posição da resultante adimensional dada na equação (2.4.5)
+            // soma1 é o somatório contido no denominador da equação (2.5.9)
+            // soma2 é o somatatório contido no denominador da equação (2.5.10)
+            // f é o resultado da equação (2.5.11)
+            
+            ql = eu * beta[0] / (eu + 10)
+            if (qsi <= ql) {
+                // A linha neutra está no domínio 2
+                c = 0.01 / (beta[0] - qsi)
+            } else if (qsi <= 1) {
+                // A linha neutra está nos domínios 3,4 e 4a
+                c = eu / (1000 * qsi)
+            } else {
+                // A linha neutra está no domínio 5
+                c = (e0 / 1000) / (qsi - akapa)
+            }
+            // Resultante de compressão no concreto
+            if (qsi < 1 / alamb) {
+                rc = alamb * qsi
+                bc = 0.5 * alamb * qsi
+            } else {
+                rc = 1
+                bc = 0.5
+            }
+            soma1 = 0
+            soma2 = 0
+            for (i = 0; i < nl; i++) {
+                esi = c * (qsi - beta[i])
+                tsl = tensao(esi)
+                tsi = tsl
+                soma1 = soma1 + ni[i] * tsi
+                soma2 = soma2 + ni[i] * beta[i] * tsi
+            }
+            // Funcao f(qsi)
+            f = (ami - 0.5 * ani + rc * bc) * soma1 + (ani - rc) * soma2
+            return [f, rc, bc, soma1, soma2]
+        }
+
+        // Inserir função tensão
+        function tensao(esl) {
+            // Calcula a tensao no aço
+            // es = módulo de elasticidade do aço em kN/cm2
+            // esl = deformação de entrada
+            // fyd = tensão de escoamento de cálculo em kN/cm2
+            // tsl = tensão de saída em kN/cm2
+            // Trabalhando com deformação positiva
+            ess = Math.abs(esl)
+            eyd = fyd / es
+            if (ess < eyd) {
+                tsl = es * ess
+            } else {
+                tsl = fyd
+            }
+            // Trocando o sinal se necessário
+            if (esl < 0) {
+                tsl = -tsl
+            }
+            return tsl
+        }
+
+        // ENTRADA DE DADOS
+
+        var fck = Number(document.getElementById('fck').value); 
+        var fyk = Number(document.getElementById('fyk').value);
+        var es = Number(document.getElementById('es').value);
+        var gamac = Number(document.getElementById('gamac').value);
+        var gamas = Number(document.getElementById('gamas').value);
+        var gamaf = Number(document.getElementById('gamaf').value);
+        var b = Number(document.getElementById('b').value);
+        var h = Number(document.getElementById('h').value);
+        var dl = Number(document.getElementById('dl').value);
+        var ank = Number(document.getElementById('ank').value);
+        var amk = Number(document.getElementById('amk').value);
+        var nl = Number(document.getElementById('n').value);
+        var ni = [];
+
+        var bar = document.getElementById('ns')
+        ni[0] = Number(bar.value)
+
+        if (nl >= 2){
+            i = 1
+            for (i;i <= nl -1;1) {
+                var bar = document.getElementById((i+1)+'altura')
+                ni[i] = Number(bar.value)
+                i++
+            }
+        }
+        //res.innerHTML = amk
+        //  INÍCIO DOS CÁLCULOS
+
+        // Parâmetros do diagrama retangular
+        if (fck <= 50) {
+            alamb = 0.8
+            alfac = 0.85
+            eu = 3.5
+            e0 = 2.
+        } else {
+            alamb = 0.8 - (fck - 50) / 400
+            alfac = 0.85 * (1 - (fck - 50) / 200)
+            eu = 2.6 + 35 * ((90 - fck) / 100) ** 4
+            e0 = 2 + 0.085 * ((fck - 50) ** 0.53)
+        }
+        // Parâmetro kapa que define o ponto com deformação igual a eo no domínio 5
+        akapa = 1 - e0 / eu
+        // Conversão de unidades: transformando para kN e cm
+        fck = fck / 10
+        fyk = fyk / 10
+        es = 100 * es
+        amk = 100 * amk
+        // Resistências de cálculo
+        fcd = fck / gamac
+        tcd = alfac * fcd
+        fyd = fyk / gamas
+        // Esforços solicitantes de cálculo
+        aand = gamaf * ank
+        amd = gamaf * amk
+        // Cálculo do número total de barras na seção
+        n = 0
+        for (i = 0; i < nl; i++) {
+            n = n + ni[i]
+        }
+        // Parâmetro geométrico
+        delta = dl / h
+        // Área da seção de concreto
+        ac = b * h
+        // Esforcos reduzidos
+        ani = aand / (ac * tcd)
+        ami = amd / (ac * h * tcd)
+        // Caso particular de compressão centrada
+        if (ami == 0) {
+            esi = e0 / 1000
+            tsl = tensao(esi)
+            tsd0 = tsl
+            w = (ani - 1) * fyd / tsd0
+            if (w < 0) {
+                w = 0
+            }
+            // Cálculo da área de armadura total
+            aas = w * ac * tcd / fyd
+            // Armadura mínima da NBR-6118 para pilares
+            ani0 = aand / (ac * fcd)
+            romin = 0.15 * fcd * ani0 / fyd
+            if (romin < 0.004) {
+                romin = 0.004
+            }
+            asmin = romin * ac
+            // Armadura a ser adotada
+            ase = aas
+            if (ase < asmin) {
+                ase = asmin
+            }
+            // Mostrando os resultados
+            res.innerHTML = `A área calculada é ${aas.toFixed(2)} cm²`
+            res1.innerHTML = `A área mínima é ${asmin.toFixed(2)} cm²`
+            res2.innerHTML = `A área efetiva é ${ase.toFixed(2)} cm²`
+            // Encerra o programa ##################################################################
+        } else {
+            // Flexo-compressão normal
+            // Montagem do vetor beta
+            // Ver equação (2.2.5) do Volume 3 de Curso de Concreto Armado
+            // Aqui a primeira camada tem índice = 0 
+            // A equação foi modificada para compatibilizar
+            var beta = [] 
+            for (i = 0; i < nl; i++) {
+                beta[i] = (delta + (nl - 1 - i) * (1 - 2 * delta) / (nl - 1))
+            }
+            // Processo iterativo da bissecante
+            // Determinação do intervalo solução
+            // Valor inicial para a linha neutra adimensional qsi=x/h
+            qi = 0
+            // Chamar sub-rotina para calcular o valor da função fi=f(qi)
+
+            func = funcao(qi)
+            f = func[0]
+            fi = f
+
+            // Valor final para a linha neutra adimensional qsi=x/h
+            qf = 1000
+            // Chamar sub-rotina para calcular o valor da função ff=f(qf)
+
+            func = funcao(qf)
+            f = func[0]
+            ff = f
+            prod = fi * ff
+
+            // Modificando os extremos do intervalo solução até que prod<=0
+            while (prod > 0) {
+                qi = qf
+                fi = ff
+                qf = 10 * qf
+                func = funcao(qf)
+                f = func[0]
+                ff = f
+                prod = fi * ff
+            }
+            // O intervalo solução foi definido
+            // A linha neutra qsi fica entre [qi,qf]
+
+            // Processo iterativo da bissecante
+            fk = 1
+            while (Math.abs(fk) > 0.001) {
+                qk = (qi * ff - qf * fi) / (ff - fi)
+                func = funcao(qk)
+                f = func[0]
+                fk = f
+                prod = fk * fi
+                if (prod >= 0) {
+                    qi = qk
+                    fi = fk
+                } else {
+                    qf = qk
+                    ff = fk
+                }
+            }
+            // Convergência alcançada
+            // qk é a raiz da função f(qsi)dada na equação (2.5.11) do Volume 3 de Curso de Concreto Armado
+            // Cálculo da taxa mecânica de armadura
+            if (Math.abs(func[3]) >= Math.abs(func[4])) {
+                // Uso da equação (2.5.9)do Volume 3
+                w = n * fyd * (ani - rc) / soma1
+            } else {
+                // Uso da equação (2.5.10) do Volume 3
+                w = n * fyd * (0.5 * ani - ami - rc * bc) / soma2
+            }
+            if (w < 0) {
+                w = 0
+            }
+            // Cálculo da área de armadura total
+            aas = w * ac * tcd / fyd
+
+            // Armadura mínima da NBR-6118 para pilares
+
+            ani0 = aand / (ac * fcd)
+            romin = 0.15 * fcd * ani0 / fyd
+            if (romin < 0.004) {
+                romin = 0.004
+            }
+            asmin = romin * ac
+
+            // Armadura a ser adotada
+            ase = aas
+            if (ase < asmin) {
+                ase = asmin
+            }
+            // Convertendo a saída para duas casas decimais
+            // Mostrando os resultados
+            res.innerHTML = `A área calculada é ${aas.toFixed(2)} cm²`
+            res1.innerHTML = `A área mínima é ${asmin.toFixed(2)} cm²`
+            res2.innerHTML = `A área efetiva é ${ase.toFixed(2)} cm²`
+            // Encerra o programa ##################################################################
+        }
+    }
+
+</script>
+
+</body>
+
+</html>

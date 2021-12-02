@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+    <!-- Diagrama Momento fletor x Curvatura -->
+    <!-- ################################### -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexão</title>
+
+    <style>
+        /* Trecho CSS do código */
+
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+        
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body{
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            background: rgb(255, 255, 255);
+            display: flex;
+            
+        }
+
+        #esquerda{
+            flex:6
+        }
+        
+        #direita{
+            flex:4;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.397);
+            margin: 10px 10px 0px 0px;
+        }
+
+        section{
+            background-color: white;
+            border-radius: 10px;
+            
+            
+        }
+
+        tbody>tr:nth-child(even) {
+        background-color: rgb(231, 231, 231);
+        }
+
+        td{
+            text-align: center;
+            padding:10px
+            
+        }
+
+        thead{
+            font-weight: bold;
+        }
+        thead>tr>td{
+            border:1px solid black;
+        }
+
+        tbody>tr:nth-child(odd) {
+            background-color: rgb(94, 148, 193);
+        }
+
+        thead{
+            background-color: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
+        }
+
+        footer{
+            text-align: center;
+            padding-top: 50px;
+            font-style: italic;
+        }
+
+        h1{
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            color: rgb(36, 10, 121);
+            text-shadow: rgb(0, 0, 0) 1px 1px;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        table{
+            margin: auto;
+            border-spacing: 0px;
+            box-shadow: rgba(0, 0, 0, 0.8) 2px 2px 5px 2px;
+        }
+        #grafico1{ 
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+        }
+        #myChart{
+            
+            min-width: max-content;
+            max-width: max-content;
+
+        }
+        #conteinerbotao{
+            text-align: center;
+        }
+
+        input[type=number] {
+            width: 45px;
+            font: normal 12pt;
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            border:none;
+        }
+
+        .novoinput{
+            border-width: 0px;
+        }
+
+        input[type=button], input[type=submit], input[type=reset] {
+            padding: 10px 20px;
+            margin-top: 16px;
+            font: normal 12pt;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease 0s;
+            cursor: pointer;
+            border:1px solid #052057; 
+        }
+
+        input[type=button]:hover{
+        background-color: #05113d;
+        color: #ffffff;
+        }
+
+        .texto{
+            text-align: center;
+            padding-top: 30px;
+        }
+        p{
+            margin-bottom: 5px;
+        }
+        .titulo{
+            font-size: 11px;
+        }
+        #res, #res1, #resultado{
+            text-align: center;
+        }
+
+        @media (max-width: 1000px)
+        {
+            body{
+                display: block;
+            }
+        }
+        #autores{
+            display: flex;
+            
+        }
+        .rec{
+            width: 5px;
+            height: 35px;
+            margin-right:5px;
+            background-color: rgb(10, 10, 95);
+        }
+        h3{
+            margin-bottom: 5px;
+        }
+ 
+        #autor2{
+            flex:1;
+        }
+        #autor3{
+            flex:1;
+        }
+
+
+    </style>
+
+</head>
+
+<body>
+    
+    <section id="esquerda">
+        <h1>Diagrama Momento fletor x Curvartura</h1>
+        <table id="tabela1">
+        <thead>
+            
+                <td>Informação</td>
+                <td>Valor</td>
+                <td>Unidade</td>
+            
+        </thead>
+        <tbody>
+            <tr>
+                <td class="info" >Resistência Característica a Compressão do Concreto </td>
+                <td class="valor"><input type="number" name="fck" id="fck"></td>
+                <td class="unidade">MPa</td>
+            </tr>
+        
+
+            <tr>
+                <td class="info" >Tensão de escoamento característica do aço </td>
+                <td class="valor"><input type="number" name="fyk" id="fyk"></td>
+                <td class="unidade">MPa</td>
+            </tr>
+
+            <tr>
+                <td class="info" >Módulo de elasticidade do aço</td>
+                <td class="valor"><input type="number" name="es" id="es"></td>
+                <td class="unidade">GPa</td>
+            </tr>
+
+            <tr>
+                <td class="info" >Coeficientes parciais de segurança para o concreto</td>
+                <td class="valor"><input type="number" name="gamac" id="gamac"></td>
+                <td class="unidade"> --- </td>
+            </tr>
+
+            <tr>
+                <td class="info" >Coeficientes parciais de segurança para o aço</td>
+                <td class="valor"><input type="number" name="gamas" id="gamas"></td>
+                <td class="unidade"> --- </td>
+            </tr>
+
+            <tr>
+                <td class="info" >Largura da seção transversal</td>
+                <td class="valor"><input type="number" name="b" id="b"></td>
+                <td class="unidade"> cm </td>
+            </tr>
+
+            <tr>
+                <td class="info" >Número de camadas da armadura</td>
+                <td class="valor" id="test"><input type="number" name="n" id="n" oninput="addelemento()">
+                <td class="unidade"> --- </td>
+            </tr>
+
+            <tr>
+                <td class="info" >Altura útil da da camada de armadura 1</td>
+                <td class="valor"><input type="number" name="d" id="d">
+                <td class="unidade"> cm </td>
+            </tr>
+
+            <tr>
+                <td class="info" >Área de aço da camada de armadura 1</td>
+                <td class="valor"><input type="number" name="as" id="as">
+                <td class="unidade"> cm² </td>
+            </tr>
+        </tbody>
+        </table>
+
+        <div id="conteinerbotao">
+            <td><input type="button" value="Calcular" onclick="calcular()"> </td>
+        </div>
+
+        <div id="creditos">
+            <h3>Desenvolvedores:</h3>
+            <div id="autores">
+                <div class="rec"></div>
+                <div id="autor2">
+                    <p>Márcio Wrague Moura
+                    <p class="titulo">Professor EE - FURG</p>
+                </div>
+                <div class="rec"></div>
+                <div id="autor3">
+                <p>Bruno Teixeira Santos</p>
+                <p class="titulo">Acadêmico EE - FURG</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <div id="direita">
+            <div id="grafico1">
+                <canvas id="myChart" ></canvas>
+            </div>  
+        </div>
+
+ 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <script>
+
+
+
+function addelemento() {
+
+var tabela = document.getElementById('tabela1');
+var camadasarmadura = document.getElementById('n').value;
+var repeticoes = camadasarmadura -1;
+var verifica = !!document.getElementById('2area');
+console.log(verifica);
+
+    //Faz a verificação se o elemento existe antes, se existir ele deleta
+    while(verifica == true){
+    var verifica = !!document.getElementById('2area');
+    document.getElementById('tabela1').deleteRow(-1);
+    }
+
+
+    for (let contador=0;contador<repeticoes;contador++){
+
+        //Inserindo 2 linhas a cada repetição, uma para a Altura útil da da camada de armadura e a outra para a Área de aço da camada de armadura
+        var novalinha1 = tabela.insertRow(-1);
+        var novalinha2 = tabela.insertRow(-1);
+
+        //Inserindo as Células para a Altura útil da da camada de armadura
+        var novacoluna1 = novalinha1.insertCell(0);
+        var novacoluna2 = novalinha1.insertCell(1);
+        var novacoluna3 = novalinha1.insertCell(2);
+
+        //Inserindo as células para a Área de aço da camada de armadura
+        var novacoluna4 = novalinha2.insertCell(0);
+        var novacoluna5 = novalinha2.insertCell(1);
+        var novacoluna6 = novalinha2.insertCell(2);
+
+        //Criando arrays para colocar todos os botões em um só array
+        var novoinput1 =[];
+        var novoinput2=[];
+        
+        //O array 1 - novoinput1 fica responsável por todos os botões referente a Altura útil da da camada de armadura enquanto o novoinput2 fica responsavel pelos botões da Área de aço da camada de armadura
+        novoinput1[contador] = document.createElement("input");
+        novoinput2[contador] = document.createElement("input");
+
+        //É por aqui que tu acessa o id dos elementos, por exemplo o id da altura útil da camada de armadura 2 será: 2altura enquanto o id da área de aço da camada 3 será: 3area;
+        novoinput1[contador].id = (contador+2)+'altura';
+        novoinput2[contador].id = (contador+2)+'area';
+        
+        //Identificando o tipo do botão, nesse caso é number
+        novoinput1[contador].type = "number";
+        novoinput2[contador].type = "number";
+
+        //Colocando Classe
+        novoinput1[contador].classList.add("novoinput");
+        novoinput2[contador].classList.add("novoinput");
+
+        novacoluna2.appendChild(novoinput1[contador]); //Aqui eu to anexando o input no campo do meio para altura útil da da camada de armadura 
+        novacoluna1.innerHTML = "Altura útil da da camada de armadura "+(contador+2) //Aqui fica a descrição do campo para altura útil da da camada de armadura
+        novacoluna3.innerHTML = "cm" //Aqui fica a unidade 
+
+        novacoluna5.appendChild(novoinput2[contador]); //Aqui eu to anexando o input no campo do meio para a area de aço da camada de armadura
+        novacoluna4.innerHTML = "Área de aço da camada de armadura "+(contador+2) //Aqui fica a descrição do campo para Área de aço da camada de armadura
+        novacoluna6.innerHTML = "cm²" //Aqui fica a unidade 
+    }
+}  
+
+var clique = 0;
+console.log(clique)
+
+        function calcular() {
+
+
+        //Deletar o grafico
+
+        if(clique != "0"){
+            console.log(clique)
+    document.getElementById('myChart').remove();
+    let createcanvas1 = document.createElement('canvas');
+    createcanvas1.id="myChart";
+    let ctn1 = document.getElementById('grafico1');
+    ctn1.appendChild(createcanvas1);
+    console.log(clique)
+    }
+    clique++;
+    
+
+    //Cálculo das tensões no aço
+    function tensao(esl) {
+        ess = Math.abs(esl)
+        eyd = fyd / es
+        if (ess < eyd) {
+            tsl = es * ess
+        } else {
+            tsl = fyd
+        }
+        // Trocando o sinal se necessário
+        if (esl < 0) {
+            tsl = -tsl
+        }
+        return tsl;
+    }
+
+    //Cálculo da função no método da bissecante
+    function funcao(x) {
+        xl = eu * di[0] / (eu + 10)
+        if (x <= xl) {
+            // A linha neutra está no domínio 2
+            c = 0.01 / (di[0] - x)
+            dom = 2
+        } else {
+            // A linha neutra está nos domínios 3 ou 4
+            c = eu / (1000 * x)
+            dom = 3
+        }
+        // Resultante de compressão no concreto
+        rc = alamb * b * x * tcd
+        f = rc
+        // Superpondo a contribuição das armaduras
+        i = 0
+        for (i; i <= n - 1; 1) {
+            esi = c * (x - di[i])
+            tsl = tensao(esi)
+            tens[i] = tsl
+            f = f + asi[i] * tsl
+            i++
+        }
+        // Transformando f em adimensional para testar a convergência
+        f = f / (b * di[0] * tcd)
+        return f;
+    }
+
+function funcao2(x) {
+
+    afi = curv * di[0]
+    ksi = x / di[0]
+    delta = di[n - 1] / di[0]
+    alfa = 0.002 / afi
+    gamma = ksi - 1 - delta
+    if (gamma < 0) {
+        gamma = 0
+    }
+    if (ksi < alfa) {
+        alfa = ksi
+    }
+    h = di[n - 1] + di[0]
+    kc = ((aa * (afi ** 2)) / 3 * (alfa ** 3 - gamma ** 3) + bb * afi / 2 * (alfa ** 2 - gamma ** 2) + ksi - alfa)
+    rc = kc * b * di[0] * alfac * fcd
+    ko = 1 / kc * ((aa * afi ** 2) / 4 * (alfa ** 4 - gamma ** 4) + bb * afi / 3 * (alfa ** 3 - gamma ** 3) + (ksi ** 2 - alfa ** 2) / 2)
+    yc = ko * di[0]
+    h = di[0] + di[n - 1]
+    s = x - h
+    zc = yc - s
+    kc1 = ko - gamma
+    f = rc
+    // Superpondo a contribuição das armaduras
+    i = 0
+    for (i; i <= n - 1; 1) {
+        esi = -(di[i] - x) * curv
+        tsl = tensao(esi)
+        tens[i] = tsl
+        f = f + asi[i] * tsl
+        i++
+    }
+    // Transformando f em adimensional para testar a convergência
+    f = f / (b * di[0] * tcd)
+    return f;
+}
+
+//Deletar e recriar o grafico
+
+
+
+
+// Entrada de dados
+
+var fck = Number(document.getElementById('fck').value); 
+var fyk = Number(document.getElementById('fyk').value);
+var es = Number(document.getElementById('es').value);
+var gamac = Number(document.getElementById('gamac').value);
+var gamas = Number(document.getElementById('gamas').value);
+var b = Number(document.getElementById('b').value);
+var n = Number(document.getElementById('n').value);
+var di = [];
+var asi = [];
+
+var d = document.getElementById('d')
+di[0] = Number(d.value)
+var as = document.getElementById('as')
+asi[0] = Number(as.value)
+if (n >= 2){
+    i = 1
+    for (i; i <= n -1; 1) {
+        var d = document.getElementById((i+1)+'altura')
+        di[i] = Number(d.value)
+        var as = document.getElementById((i+1)+'area')
+        asi[i] = Number(as.value)
+        i++
+    }
+
+}
+
+//var fck = 20
+//var fyk = 500
+//var es = 200
+//var gamac = 1.4
+//var gamas = 1.15
+//var b = 15
+//var n = 2
+//var di = [36, 4];
+//var asi = [4, 2];
+
+// Parâmetros do diagrama retangular
+if (fck <= 50) {
+    var alamb = 0.8
+    var alfac = 0.85
+    var eu = 3.5
+    var aa = -250000
+    var bb = 1000
+} else {
+    var alamb = 0.8 - (fck - 50) / 400
+    var alfac = 0.85 * (1 - (fck - 50) / 200)
+    var eu = 2.6 + 35 * ((90 - fck) / 100) ** 4
+    var epsc2 = 0.002 + 0.000085 * (fck - 50) ** 0.53
+    var nn = 1.4 + 23.4 * ((90 - fck) / 100) ** 4 
+    var ddx = epsc2 / 1000                      
+    var x = 0
+    var x2 = 0
+    var x3 = 0
+    var x4 = 0
+    var xy = 0
+    var x2y = 0
+    for (c = 0; c < 1000; c++) {
+        y = 1 - (1 - x / epsc2) ** nn
+        x2 += x * x
+        x3 += x * x * x
+        x4 += x * x * x * x
+        xy += x * y
+        x2y += x * x * y
+        x += ddx
+    }
+    bb = (x2y - x4 * xy / x3) / (x3 - x2 * x4 / x3) 
+    aa = (x2y - x3 * bb) / x4
+}
+// Conversão de unidades: transformando para kN e cm
+fck = fck / 10
+fyk = fyk / 10
+es = 100 * es
+// Resistências de cálculo
+fcd = fck / gamac
+tcd = alfac * fcd
+fyd = fyk / gamas
+// Cálculo do momento de ruína através do processo iterativo da bissecante
+// Valor inicial para a linha neutra
+xi = 0.001 * di[0]
+// Definir as variáveis tens, tsl e f
+var tens = []
+tsl = 0.0
+f = 0.0
+
+// Chamar sub-rotina
+f = funcao(xi)
+fi = f
+//res.innerHTML = fi
+// Valor final para a linha neutra
+xf = 0.999 * di[0]
+// Chamar sub-rotina
+f = funcao(xf)
+ff = f
+//res1.innerHTML = ff
+// Processo iterativo da bissecante
+fk = 1
+while (Math.abs(fk) > 0.001) {
+    xk = (xi * ff - xf * fi) / (ff - fi)
+    f = funcao(xk)
+    fk = f
+    //console.log(fk)
+    prod = fk * fi
+    if (prod > 0) {
+        xi = xk
+        fi = fk
+    } else {
+        xf = xk
+        ff = fk
+    }
+}
+// Convergência alcançada
+// xk é a raiz da função f(x) dada na equação (6.3.10) do Volume 1 de Curso de Concreto Armado
+// Momento de ruina de cálculo
+x = xk
+rc = alamb * b * x * tcd
+zc = di[0] - 0.5 * alamb * x
+amu = rc * zc
+i = 0
+for (i; i <= n - 1; 1) {
+    amu = amu + asi[i] * tens[i] * (di[0] - di[i])
+    i++
+}
+
+// Passando o momento para kN.m
+amu = amu / 100
+//console.log(amu)
+//console.log(dom)
+if (dom == 2) {
+    ecc = 0.01 * x / (di[0] - x)
+    ess = 0.01
+} else {
+    ecc = eu / 1000
+    ess = eu * (di[0] - x) / (1000 * x)
+}
+//console.log(x/di[0])
+//console.log(ecc.toFixed(5))
+console.log(ess.toFixed(5))
+divcurv = (ecc + ess) / (di[0] * 100)   // n° de divisões ou pontos do gráfico.
+
+console.log(divcurv.toFixed(8))
+var amd = []
+var curvat = []
+amd[0] = 0							// COLOQUEI O PONTO ZERO
+curvat[0] = 0						// COLOQUEI O PONTO ZERO
+for (cont = 1; cont < 100; cont++) {
+    xi = 0.001 * di[0]
+    curv = divcurv * cont
+    // Definir as variáveis tens, tsl e f
+    tsl = 0.0
+    f = 0.0
+
+    // Chamar sub-rotina
+    f = funcao2(xi)
+    fi = f
+    //res.innerHTML = fi
+    // Valor final para a linha neutra
+    xf = 0.999 * di[0]
+    // Chamar sub-rotina
+    f = funcao2(xf)
+    ff = f
+    //res1.innerHTML = ff
+    // Processo iterativo da bissecante
+    fk = 1
+    while (Math.abs(fk) > 0.001) {
+        xk = (xi * ff - xf * fi) / (ff - fi)
+        f = funcao2(xk)
+        fk = f
+        //console.log(fk)
+        prod = fk * fi
+        if (prod > 0) {
+            xi = xk
+            fi = fk
+        } else {
+            xf = xk
+            ff = fk
+        }
+    }
+    x = xk
+    amu = rc * zc
+    i = 0
+    for (i; i <= n - 1; 1) {
+        amu = amu + asi[i] * tens[i] * (di[0] - di[i])
+        i++
+    }
+    // Passando o momento para kN.m
+    amd[cont] = amu / 100          // COLOQUEI ESSE +1
+    curvat[cont] = curv            // COLOQUEI ESSE +1
+
+    //console.log(curvat[cont])
+    //console.log(amd[cont])
+
+}
+
+let ctx = document.getElementById('myChart').getContext('2d');
+
+myChart = new Chart(ctx, {
+    data: {
+        labels: curvat,
+        datasets: [{
+            type: 'line',
+            label: "Momento x Curvatura",
+            data: amd,
+            backgroundColor: [
+                'rgba(0, 0, 255, 0.4)',   
+            ],
+            borderColor: [
+                'rgba(0, 0, 255, 1)',     
+            ],
+            borderWidth: 1
+        }, 
+    ]   
+    },
+    options: {
+        aspectRatio:1,
+        scales: {
+            x:{ 
+                type: 'linear',
+                display:true,
+                title:{
+                    display:true,
+                    text:"Curvatura",
+                },
+            },
+            y:{                
+                display:true,
+                title:{
+                    display:true,
+                    text:"Momento"
+                },
+            },
+        },
+        animation:{
+            duration: 1500,
+        }, 
+    }
+});
+        }
+
+    </script>
+</body>
+</html>

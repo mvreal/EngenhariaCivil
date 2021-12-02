@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Dimensionamento de seções retangulares ao esforço cortante -->
+    <!-- ########################################################## -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esforço cortante - Dimensionamento</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+        /* Trecho CSS do código */
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: 'Montserrat', sans-serif; 
+        }
+        #principal{
+            display: flex;
+        }
+        #esquerda{
+            flex:6;
+            margin: 10px;
+        }
+        #direita{
+            flex:4;
+            border-radius: 10px;
+            box-shadow: 7px 6px 8px 5px rgba(0,0,0,0.75);
+            margin: 5px;
+        }
+        section{
+            background-color: white;
+            margin: auto;
+        }
+
+        thead{
+            background-color: white;
+            color:black;
+            font-weight: bold;
+        }
+        td{
+            text-align: center;
+            padding:10px;
+            font-size: 12px;
+            
+        }
+
+        footer{
+            text-align: center;
+            padding-top: 50px;
+            font-style: italic;
+            font-size: 12px;
+        }
+
+        h1{
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            color:rgb(36, 10, 121);
+            padding-top: 10px;
+            font-size: 18px;
+            padding-bottom: 30px;
+            text-shadow: rgb(0, 0, 0) 1px 1px;
+        }
+
+        table{
+            margin: auto;
+            border-spacing: 0px;
+            box-shadow: rgba(0, 0, 0, 0.8) 2px 2px 5px 2px;
+        }
+
+        #conteinerbotao{
+            text-align: center;
+        }
+
+        input[type=number] {
+            width: 60px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        input[type=button]{
+            margin: 30px;
+            padding: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            border-radius: 5px;
+            transition: all 0.3s ease 0s;
+            cursor: pointer;
+            border:1px solid #052057;   
+            font-weight: bold;
+        }
+
+        h3{
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: 30px;
+            text-align: left;
+        }
+
+        input[type=button]:hover{
+        background-color: #05113d;
+        color: #ffffff;
+        }
+
+        
+        .texto{
+            text-align: center;
+            padding-top: 30px;
+        }
+
+        #res, #res1, #resultado{
+            text-align: center;
+            font-size: 12px;
+        }
+
+        tbody>tr:nth-child(odd) {
+        background-color:rgb(94, 148, 193);
+        }
+
+        tbody>tr:nth-child(even) {
+        background-color: rgba(170, 173, 196, 0.4);
+        }
+
+        #autores{
+            display: flex;    
+            text-align: left;
+            margin-left: 30px;
+            margin-top: 10px;
+        }
+        .rec{
+            width: 5px;
+            height: 30px;
+            margin-right:5px;
+            background-color: rgb(10, 10, 95);
+            margin-bottom: 5px;
+            
+        }
+        #autor1{
+            
+            flex-basis: 250px;
+            
+        }
+        #autor2{
+            flex-basis:250px;
+        }
+        .titulo{
+            font-size:10px;
+        }
+        @media (max-width: 1000px){
+            #principal{
+                display: block;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="principal">
+        <div id="esquerda">
+            <h1>Dimensionamento ao esforço cortante</h1>
+
+            <section>
+                <table id="tabela1">
+                    <thead>
+                        <tr>
+                            <td>Informação</td>
+                            <td>Valor</td>
+                            <td>Unidade</td>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td class="info" >Resistência característica à compressão do concreto </td>
+                            <td class="valor"><input type="number" name="fck" id="fck"></td>
+                            <td class="unidade">MPa</td>
+                        </tr>
+
+                        <tr>
+                            <td class="info" >Tensão de escoamento característica do aço </td>
+                            <td class="valor"><input type="number" name="fyk" id="fyk"></td>
+                            <td class="unidade">MPa</td>
+                        </tr>
+
+                        <tr>
+                            <td class="info" >Coeficiente parcial de segurança para o concreto</td>
+                            <td class="valor"><input type="number" name="gamac" id="gamac"></td>
+                            <td class="unidade"> --- </td>
+                        </tr>
+
+                        <tr>
+                            <td class="info" >Coeficiente parcial de segurança para o aço</td>
+                            <td class="valor"><input type="number" name="gamas" id="gamas"></td>
+                            <td class="unidade"> --- </td>
+                        </tr>
+
+                        <tr>
+                            <td class="info" >Coeficiente parcial de segurança para o esforço cortante</td>
+                            <td class="valor"><input type="number" name="gamaf" id="gamaf"></td>
+                            <td class="unidade"> --- </td>
+                        </tr>
+
+                        <tr>
+                            <td class="info" >Largura da seção transversal</td>
+                            <td class="valor"><input type="number" name="b" id="b"></td>
+                            <td class="unidade"> cm </td>
+                        </tr>
+
+                        <tr>
+                            <td class="info" >Altura útil da seção transversal</td>
+                            <td class="valor"><input type="number" name="d" id="d">
+                            <td class="unidade"> cm </td>
+                        </tr>
+
+                        <tr>
+                            <td class="info" >Esforço cortante de serviço em kN</td>
+                            <td class="valor"><input type="number" name="amk" id="amk">
+                            <td class="unidade"> KN </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div id="conteinerbotao">
+                    <td><input type="button" value="Calcular" onclick="calcular()"> </td>
+                </div>
+            </section>
+        </div>
+
+        <div id="direita">
+            <p></p>
+            <div id = 'res' class="texto">Qual a área de aço transversal??</div>
+            <p></p>
+            <div id = 'res1' class="texto"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Rotinas computacionais adaptadas do livro: Programas para dimensionamento e verificação de concreto armado - José Milton de Araújo</p>
+        <div id="creditos">
+            <h3>Desenvolvedores:</h3>
+            <div id="autores">
+                <div class="rec"></div>
+                <div id="autor1">
+                    <p>Márcio Wrague Moura
+                    <p class="titulo">Professor EE - FURG</p>
+                </div>
+                <div class="rec"></div>
+                <div id="autor2">
+                <p>Bruno Teixeira Santos</p>
+                <p class="titulo">Acadêmico EE - FURG</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // Trecho JS do código
+        function calcular() {
+            // Entrada de dados
+            var fck = document.getElementById('fck')
+            var fyk = document.getElementById('fyk')
+            var gamac = document.getElementById('gamac')
+            var gamas = document.getElementById('gamas')
+            var gamaf = document.getElementById('gamaf')
+            var bw = document.getElementById('b')
+            var d = document.getElementById('d')
+            var vk = document.getElementById('amk')
+            var fck1 = Number(fck.value)
+            var fyk1 = Number(fyk.value)
+            var gamac1 = Number(gamac.value)
+            var gamas1 = Number(gamas.value)
+            var gamaf1 = Number(gamaf.value)
+            var b1 = Number(bw.value)
+            var d1 = Number(d.value)
+            var vk1 = Number(vk.value)    
+            var test = 0   
+            // Resistências e cortante de cálculo
+            fcd = fck1 / gamac1
+            fyd = fyk1 / gamas1
+            vd = gamaf1 * vk1
+            // Tensão convencional de cisalhamento
+            twd = vd / (b1 * d1)
+            // Passando para MPa
+            twd = 10 * twd
+            // Tensão de cisalhamento última
+            av = 1 - fck1 / 250
+            twu = 0.27 * av * fcd
+            // Verificação do esmagamento das bielas
+            if (twd > twu) {
+                // Está ocorrendo ruptura das bielas
+                var test = 1
+                var aviso = "Esmagamento da biela de compressão. Aumentar a seção transversal!"
+            }
+            // Tensão Talc complementar de redução da armadura
+            if (fck1 <= 50) {
+                a = 2 / 3
+                tc = 0.126 * (fck1 ** a) / gamac1
+            } else {
+                tc = 0.8904 * Math.log10(1 + 0.11 * fck1) / gamac1
+            }
+            // Tensão Tald para cálculo da armadura
+            td = 1.11 * (twd - tc)
+            if (td < 0) {
+                td = 0
+            }
+            // Limitação da tensão de escoamento do aço conforme a NBR-6118
+            if (fyd > 435) {
+                fyd = 435
+            }
+            // Cálculo da armadura
+            asw = 100 * b1 * td / fyd
+            // Cálculo da armadura mínima:
+            // A tensão fyk deve ser menor ou igual a 500 MPa
+            fykmax = fyk1
+            if (fykmax > 500) {
+                fykmax = 500
+            }
+            // Resistência média à tração do concreto
+            if (fck1 <= 50) {
+                a = 2 / 3
+                fctm = 0.3 * (fck1 ** a)
+            } else {
+                fctm = 2.12 * Math.log10(1 + 0.11 * fck1)
+            }
+            // Taxa mínima de armadura
+            romin = 0.2 * fctm / fykmax
+            aswmin = romin * 100 * b1
+            // Verificação
+            if (asw < aswmin) {
+                asw = aswmin
+            }
+            // Verificação de erros e saída de resultados
+            while (fck1 == 0 || fyk1 == 0 || gamac1 == 0 || gamas1 == 0 || gamaf1 == 0 || b1 == 0 || d1 == 0 || vk1 == 0) {
+                test = 2
+                window.alert('[ERRO] Problema na inserção dos dados de entrada!')
+                break
+            }    
+            if (test == 1) {
+                res.innerHTML = `<strong>${aviso}</strong>`
+            } else if (test == 2) {
+                res.innerHTML = `<strong>Entre com os dados corretamente!</strong>`
+            } else {
+                res.innerHTML = `<strong>A área da armadura tranversal é ${asw.toFixed(2)} cm²/m.</strong>`
+            }
+        }
+    </script>
+</body>
+</html>

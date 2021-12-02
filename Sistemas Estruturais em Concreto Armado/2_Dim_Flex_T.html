@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Dimensionamento de seções T à flexão normal simples -->
+    <!-- ################################################### -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexão Normal - Dimensionamento seções T</title>
+
+    <style>
+        /* Trecho CSS do código */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+        /* Trecho CSS do código */
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: 'Montserrat', sans-serif; 
+        }
+        #principal{
+            display: flex;
+        }
+        #esquerda{
+            flex:6;
+            margin: 10px;
+        }
+        #direita{
+            flex:4;
+            border-radius: 10px;
+            box-shadow: 7px 6px 8px 5px rgba(0,0,0,0.75);
+            margin: 5px;
+        }
+        section{
+            background-color: white;
+            margin: auto;
+        }
+
+        thead{
+            background-color: white;
+            color:black;
+            font-weight: bold;
+        }
+        td{
+            text-align: center;
+            padding:10px;
+            font-size: 12px;
+            
+        }
+
+        footer{
+            text-align: center;
+            padding-top: 50px;
+            font-style: italic;
+            font-size: 12px;
+        }
+
+        h1{
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            color:rgb(36, 10, 121);
+            padding-top: 10px;
+            font-size: 18px;
+            padding-bottom: 30px;
+            text-shadow: rgb(0, 0, 0) 1px 1px;
+        }
+
+        table{
+            margin: auto;
+            border-spacing: 0px;
+            box-shadow: rgba(0, 0, 0, 0.8) 2px 2px 5px 2px;
+        }
+
+        #conteinerbotao{
+            text-align: center;
+        }
+
+        input[type=number] {
+            width: 60px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        input[type=button]{
+            margin: 30px;
+            padding: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            border-radius: 5px;
+            transition: all 0.3s ease 0s;
+            cursor: pointer;
+            border:1px solid #052057;   
+            font-weight: bold;
+        }
+
+        h3{
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: 30px;
+            text-align: left;
+        }
+
+        input[type=button]:hover{
+        background-color: #05113d;
+        color: #ffffff;
+        }
+
+        
+        .texto{
+            text-align: center;
+            padding-top: 30px;
+        }
+
+        #res, #res1, #resultado{
+            text-align: center;
+            font-size: 12px;
+        }
+
+        tbody>tr:nth-child(odd) {
+        background-color:rgb(94, 148, 193);
+        }
+
+        tbody>tr:nth-child(even) {
+        background-color: rgba(170, 173, 196, 0.4);
+        }
+
+        #autores{
+            display: flex;    
+            text-align: left;
+            margin-left: 30px;
+            margin-top: 10px;
+        }
+        .rec{
+            width: 5px;
+            height: 30px;
+            margin-right:5px;
+            background-color: rgb(10, 10, 95);
+            margin-bottom: 5px;
+            
+        }
+        #autor1{
+            
+            flex-basis: 250px;
+            
+        }
+        #autor2{
+            flex-basis:250px;
+        }
+        .titulo{
+            font-size:10px;
+        }
+        @media (max-width: 1000px){
+            #principal{
+                display: block;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="principal">
+        <div id="esquerda">
+            <h1>Dimensionamento à flexão normal de seções T</h1>
+
+            <section>
+                <table>
+                    <tr>
+                        <td>Informação</td>
+                        <td>Valor</td>
+                        <td>Unidade</td>
+                    </tr>
+
+                    <tr>
+                        <td class="info" >Resistência característica à compressão do concreto </td>
+                        <td class="valor"><input type="number" name="fck" id="fck"></td>
+                        <td class="unidade">MPa</td>
+                    </tr>
+
+                    <tr>
+                        <td class="info" >Tensão de escoamento característica do aço </td>
+                        <td class="valor"><input type="number" name="fyk" id="fyk"></td>
+                        <td class="unidade">MPa</td>
+                    </tr>
+
+                    <tr>
+                        <td class="info" >Módulo de elasticidade do aço</td>
+                        <td class="valor"><input type="number" name="es" id="es"></td>
+                        <td class="unidade">GPa</td>
+                    </tr>
+
+                    <tr>
+                        <td class="info" >Coeficiente parcial de segurança para o concreto</td>
+                        <td class="valor"><input type="number" name="gamac" id="gamac"></td>
+                        <td class="unidade"> --- </td>
+                    </tr>
+
+                    <tr>
+                        <td class="info" >Coeficiente parcial de segurança para o aço</td>
+                        <td class="valor"><input type="number" name="gamas" id="gamas"></td>
+                        <td class="unidade"> --- </td>
+                    </tr>
+
+                    <tr>
+                        <td class="info" >Coeficiente parcial de segurança para o momento</td>
+                        <td class="valor"><input type="number" name="gamaf" id="gamaf"></td>
+                        <td class="unidade"> --- </td>
+                    </tr>
+
+                    <tr>
+                        <td class="info" >Coeficiente beta de redistribuição de momentos</td>
+                        <td class="valor"><input type="number" name="bduct" id="bduct"></td>
+                        <td class="unidade"> --- </td>
+                    </tr>
+
+                    <tr>
+                        <td class="info" >Largura da mesa da seção transversal</td>
+                        <td class="valor"><input type="number" name="bf" id="bf"></td>
+                        <td class="unidade"> cm </td>
+                    </tr>
+
+                    <tr>
+                        <td class="info" >Espessura da mesa da seção transversal</td>
+                        <td class="valor"><input type="number" name="hf" id="hf"></td>
+                        <td class="unidade"> cm </td>
+                    </tr>
+
+                    <tr>
+                        <td class="info" >Largura da alma da seção transversal</td>
+                        <td class="valor"><input type="number" name="b" id="b"></td>
+                        <td class="unidade"> cm </td>
+                    </tr>
+
+                    <tr>
+                        <td class="info" >Altura da seção transversal</td>
+                        <td class="valor"><input type="number" name="h" id="h">
+                        <td class="unidade"> cm </td>
+                    </tr>
+
+                    <tr>
+                        <td class="info" >Altura útil da seção transversal</td>
+                        <td class="valor"><input type="number" name="d" id="d">
+                        <td class="unidade"> cm </td>
+                    </tr>
+
+                    <tr>
+                        <td class="info" >Parâmetro d'</td>
+                        <td class="valor"><input type="number" name="dl" id="dl">
+                        <td class="unidade"> cm </td>
+                    </tr>
+
+                    <tr>
+                        <td class="info" >Momento fletor de serviço em kN.m</td>
+                        <td class="valor"><input type="number" name="amk" id="amk">
+                        <td class="unidade"> KN.m </td>
+                    </tr>
+                </table>
+
+                <div id="conteinerbotao">
+                    <td><input type="button" value="Calcular" onclick="calcular()"> </td>
+                </div>
+
+            </section> 
+        </div> 
+    
+        <div id="direita">
+            <p></p>
+            <div id = 'res' class="texto">Qual a área de aço??</div>
+            <p></p>
+            <div id = 'res1' class="texto"></div>
+        </div>
+    </div>
+
+</section>
+
+<footer>
+    <p>Rotinas computacionais adaptadas do livro: Programas para dimensionamento e verificação de concreto armado - José Milton de Araújo</p>
+    <div id="creditos">
+        <h3>Desenvolvedores:</h3>
+        <div id="autores">
+            <div class="rec"></div>
+            <div id="autor1">
+                <p>Márcio Wrague Moura
+                <p class="titulo">Professor EE - FURG</p>
+            </div>
+            <div class="rec"></div>
+            <div id="autor2">
+            <p>Bruno Teixeira Santos</p>
+            <p class="titulo">Acadêmico EE - FURG</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script>
+    // Trecho JS do código
+
+    function calcular() {
+        // Entrada de dados
+        var fck = document.getElementById('fck')
+        var fyk = document.getElementById('fyk')
+        var es = document.getElementById('es')
+        var gamac = document.getElementById('gamac')
+        var gamas = document.getElementById('gamas')
+        var gamaf = document.getElementById('gamaf')
+        var bduct = document.getElementById('bduct')
+        var bf = document.getElementById('bf')
+        var hf = document.getElementById('hf')
+        var b = document.getElementById('b')
+        var h = document.getElementById('h')
+        var d = document.getElementById('d')
+        var dl = document.getElementById('dl')
+        var amk = document.getElementById('amk')
+        var fck1 = Number(fck.value)
+        var fyk1 = Number(fyk.value)
+        var es1 = Number(es.value)
+        var gamac1 = Number(gamac.value)
+        var gamas1 = Number(gamas.value)
+        var gamaf1 = Number(gamaf.value)
+        var bduct1 = Number(bduct.value)
+        var bf1 = Number(bf.value)
+        var hf1 = Number(hf.value)
+        var b1 = Number(b.value)
+        var h1 = Number(h.value)
+        var d1 = Number(d.value)
+        var dl1 = Number(dl.value)
+        var amk1 = Number(amk.value)       
+        // Parâmetros do diagrama retangular
+        if (fck1 <= 50) {
+            var alamb = 0.8
+            var alfac = 0.85
+            var eu = 3.5
+            var qlim = 0.8 * bduct1 - 0.35
+        } else {
+            var alamb = 0.8 - (fck1 - 50) / 400
+            var alfac = 0.85 * (1 - (fck1 - 50) / 200)
+            var eu = 2.6 + 35 * ((90 - fck1) / 100) ** 4
+            var qlim = 0.8 * bduct1 - 0.45
+        }
+        // Conversão de unidades: transformando para kN e cm
+        amk = 100 * amk1
+        fck = fck1 / 10
+        fyk = fyk1 / 10
+        es = 100 * es1
+        // Resistências de cálculo
+        fcd = fck / gamac1
+        tcd = alfac * fcd
+        fyd = fyk / gamas1
+        amd = gamaf1 * amk
+        // Parâmetro geométrico
+        delta = dl1 / d1
+        // Parâmetros da seção T
+        betaf = hf1 / d1
+        betaw = b1 / bf1
+        // Verifica se a seção funciona como T
+        if (alamb * qlim <= betaf) {
+            var test = 1
+            var aviso = "A mesa é muito espessa. A seção funciona como seção retangular de largura bf e altura h."
+        }
+        // Momento reduzido solicitante
+        ami = amd / (bf1 * d1 * d1 * tcd)
+        // Momento limite
+        rcclim = betaf + betaw * (alamb * qlim - betaf)
+        amilim = betaf * (1 - 0.5 * betaf)
+        amilim = amilim + betaw * (alamb * qlim - betaf) * (1 - 0.5 * (alamb * qlim + betaf))
+        var omega1 = 0
+        if (ami <= amilim) {
+            // Armadura simples
+            // Momento resistido pela mesa
+            var amif = betaf * (1 - 0.5 * betaf)
+            if (ami <= amif) {
+                omega = 1 - Math.sqrt(1 - 2 * ami)
+            } else {
+                ami0 = amif + (ami - amif) / betaw
+                omega = betaf * (1 - betaw) + betaw * (1 - Math.sqrt(1 - 2 * ami0))
+            }
+            omega1 = 0
+        } else {
+            // Armadura dupla
+            qsia = eu / (eu + 10)
+            if (qlim < qsia) {
+                 // Evitando armadura dupla no domínio 2
+                var test = 1
+                var aviso = "Aumentar a seção transversal!"
+            }
+            if (qlim <= delta) {
+                // Evitando armadura comprimida sob tração
+                var test = 1
+                var aviso = "Aumentar a seção transversal!"
+            }
+            // Deformação da armadura de compressão
+            esl = eu * (qlim - delta) / qlim
+            esl = esl / 1000
+            // Trabalhando com deformação positiva
+            ess = Math.abs(esl)
+            eyd = fyd / es
+            // Cálculo da tensão no aço
+            if (ess < eyd) {
+                tsl = es * ess
+            } else {
+                tsl = fyd
+            }
+            if (esl < 0) {
+                tsl = -tsl
+            }
+            // Cálculo das taxas mecânicas de armadura
+            omega1 = (ami - amilim) * fyd / ((1 - delta) * tsl)
+            omega = rcclim + (ami - amilim) / (1 - delta)
+        }
+        // Cálculo das áreas de aço
+        asl = omega1 * bf1 * d1 * tcd / fyd
+        aas = omega * bf1 * d1 * tcd / fyd
+        // Armadura mínima    
+        a = 2 / 3
+        fck = 10 * fck
+        fyd = 10 * fyd
+        if (fck <= 50) {
+            romin = 0.078 * (fck ** a) / fyd
+        } else {
+            romin = 0.5512 * Math.log10(1 + 0.11 * fck) / fyd
+        }
+        if (romin < 0.0015) {
+            romin = 0.0015
+        }
+        // Área da seção de concreto
+        ac = bf1 * hf1 + b1 * (h1 - hf1)
+        asmin = romin * ac
+        if (aas < asmin) {
+            aas = asmin
+        }
+        // Verificação de erros e saída de resultados
+        while (fck == 0 || fyk == 0 || es == 0 || gamac == 0 || gamas == 0 || gamaf == 0 || bduct == 0 || b == 0 || bf == 0 || hf == 0 || h == 0 || d == 0 || dl == 0 || amk == 0) {
+            test = 2
+            window.alert('[ERRO] Problema na inserção dos dados de entrada!')
+            break
+        }    
+        if (test == 1) {
+            res.innerHTML = `<strong>${aviso}</strong>`
+        } else if (test == 2) {
+            res.innerHTML = `<strong>Entre com os dados corretamente!</strong>`
+        } else {
+            res.innerHTML = `<strong>A área de aço tracionada é ${aas.toFixed(2)} cm².</strong>`
+            res1.innerHTML = `<strong>A área de aço comprimida é ${asl.toFixed(2)} cm².</strong>`
+        }
+    }
+</script>
+</body>
+</html>

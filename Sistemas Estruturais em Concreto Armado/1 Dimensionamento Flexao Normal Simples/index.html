@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <!-- Dimensionamento de seções retangulares à flexão normal simples -->
+    <!-- ############################################################## -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexão Normal - Dimensionamento</title>
+    <link href="./styles/estilo.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div id="principal">
+      <div id="esquerda">
+        <h1>Dimensionamento à flexão normal simples</h1>
+
+        <section>
+          <table>
+            <thead>
+              <tr>
+                <td>Informação</td>
+                <td>Valor</td>
+                <td>Unidade</td>
+              </tr>
+            </thead>
+
+            <tr>
+              <td class="info">
+                Resistência característica à compressão do concreto
+              </td>
+              <td class="valor"><input type="number" name="fck" id="fck" /></td>
+              <td class="unidade">MPa</td>
+            </tr>
+
+            <tr>
+              <td class="info">Tensão de escoamento característica do aço</td>
+              <td class="valor"><input type="number" name="fyk" id="fyk" /></td>
+              <td class="unidade">MPa</td>
+            </tr>
+
+            <tr>
+              <td class="info">Módulo de elasticidade do aço</td>
+              <td class="valor"><input type="number" name="es" id="es" /></td>
+              <td class="unidade">GPa</td>
+            </tr>
+
+            <tr>
+              <td class="info">
+                Coeficiente parcial de segurança para o concreto
+              </td>
+              <td class="valor">
+                <input type="number" name="gamac" id="gamac" />
+              </td>
+              <td class="unidade">---</td>
+            </tr>
+
+            <tr>
+              <td class="info">Coeficiente parcial de segurança para o aço</td>
+              <td class="valor">
+                <input type="number" name="gamas" id="gamas" />
+              </td>
+              <td class="unidade">---</td>
+            </tr>
+
+            <tr>
+              <td class="info">
+                Coeficiente parcial de segurança para o momento
+              </td>
+              <td class="valor">
+                <input type="number" name="gamaf" id="gamaf" />
+              </td>
+              <td class="unidade">---</td>
+            </tr>
+
+            <tr>
+              <td class="info">
+                Coeficiente beta de redistribuição de momentos
+              </td>
+              <td class="valor">
+                <input type="number" name="bduct" id="bduct" />
+              </td>
+              <td class="unidade">---</td>
+            </tr>
+
+            <tr>
+              <td class="info">Largura da seção transversal</td>
+              <td class="valor"><input type="number" name="b" id="b" /></td>
+              <td class="unidade">cm</td>
+            </tr>
+
+            <tr>
+              <td class="info">Altura da seção transversal</td>
+              <td class="valor"><input type="number" name="h" id="h" /></td>
+              <td class="unidade">cm</td>
+            </tr>
+
+            <tr>
+              <td class="info">Altura útil da seção transversal</td>
+              <td class="valor"><input type="number" name="d" id="d" /></td>
+              <td class="unidade">cm</td>
+            </tr>
+
+            <tr>
+              <td class="info">Parâmetro d'</td>
+              <td class="valor"><input type="number" name="dl" id="dl" /></td>
+              <td class="unidade">cm</td>
+            </tr>
+
+            <tr>
+              <td class="info">Momento fletor de serviço em kN.m</td>
+              <td class="valor"><input type="number" name="amk" id="amk" /></td>
+              <td class="unidade">KN.m</td>
+            </tr>
+          </table>
+
+          <div id="conteinerbotao">
+            <td>
+              <input type="button" value="Calcular" onclick="calcular()" />
+            </td>
+          </div>
+        </section>
+      </div>
+
+      <div id="direita">
+        <p></p>
+        <div id="res" class="texto">Qual a área de aço??</div>
+        <p></p>
+        <div id="res1" class="texto"></div>
+
+        <div id="ctndesenhos">
+          <div id="ctndesenho1">
+            <p>SEÇÃO</p>
+            <canvas id="desenho1" width="300px" height="400px"></canvas>
+          </div>
+          <div id="ctndesenho2">
+            <p>DEFORMAÇÃO</p>
+            <div id="ctncanvas">
+              <canvas id="desenho2" width="300px" height="400px"></canvas>
+            </div>
+          </div>
+          <div id="ctndesenho3">
+            <p>TENSÃO &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESULTANTES</p>
+            <canvas id="desenho3" width="300px" height="400px"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>
+        Rotinas computacionais adaptadas do livro: Programas para
+        dimensionamento e verificação de concreto armado - José Milton de Araújo
+      </p>
+      <div id="creditos">
+        <h3>Desenvolvedores:</h3>
+        <div id="autores">
+          <div class="rec"></div>
+          <div id="autor1">
+            <p>Márcio Wrague Moura</p>
+            <p class="titulo">Professor EE - FURG</p>
+          </div>
+          <div class="rec"></div>
+          <div id="autor2">
+            <p>Bruno Teixeira Santos</p>
+            <p class="titulo">Acadêmico EE - FURG</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./scripts/desenhar.js"></script>
+    <script src="./scripts/dimensionamento.js"></script>
+    <script src="./scripts/redesenhar.js"></script>
+  </body>
+</html>
