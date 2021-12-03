@@ -86,6 +86,7 @@ criardiv3=document.createElement('div');
 ctncanvas.classList.add("ctn2");
 criardiv.id='divcriada1';
 criardiv2.id="divcriada2";
+criardiv2.classList.add("bold")
 criardiv3.id="divcriada3"
 
 ctncanvas.appendChild(criardiv);
@@ -100,6 +101,7 @@ criardiv6 = document.createElement('div');
 
 criardiv4.id='divcriada4';
 criardiv5.id="divcriada5";
+criardiv5.classList.add("bold")
 criardiv6.id="divcriada6"
 
 ctncanvas.appendChild(criardiv4);

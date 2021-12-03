@@ -1,6 +1,9 @@
 // Trecho JS do código
 
 function calcular() {
+
+  reset(); //Reseta os gráficos caso não seja a primeira vez que o usuário aperta no calcular
+
   // Entrada de dados
   var fck = document.getElementById("fck");
   var fyk = document.getElementById("fyk");
@@ -138,6 +141,7 @@ function calcular() {
       2
     )} cm².</strong>`;
   }
-
+  cliques = 0; //Vai contar quantas vezes a função foi executada;
+  
   redesenhar();
 }

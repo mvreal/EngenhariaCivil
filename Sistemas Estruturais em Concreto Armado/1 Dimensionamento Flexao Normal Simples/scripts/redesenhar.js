@@ -109,8 +109,4 @@ function redesenhar() {
   ctx1.fillStyle = '#808080'
   ctx1.fillText(`L.N.`,-145, 75 + ((230 * Math.min(xa, xlim)) / h1));
 
-
-
-
-
 }
