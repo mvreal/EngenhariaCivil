@@ -56,6 +56,7 @@ function redesenhar() {
   //Linha neutra
   ctx1.beginPath();
   ctx1.strokeStyle = '#808080'
+  ctx1.setLineDash([5, 3]);
   ctx1.lineWidth = "2";
   ctx1.moveTo(150, 80 + ((230 * Math.min(xa, xlim)) / h1));
   ctx1.lineTo(-150, 80 + ((230 * Math.min(xa, xlim)) / h1));
@@ -63,6 +64,7 @@ function redesenhar() {
 
   ctx2.beginPath();
   ctx2.strokeStyle = '#808080'
+  ctx2.setLineDash([5, 3]);
   ctx2.lineWidth = "2";
   ctx2.moveTo(150, 80 + ((230 * Math.min(xa, xlim)) / h1));
   ctx2.lineTo(-150, 80 + ((230 * Math.min(xa, xlim)) / h1));
@@ -70,6 +72,7 @@ function redesenhar() {
 
   ctx3.beginPath();
   ctx3.strokeStyle = '#808080'
+  ctx3.setLineDash([5, 3]);
   ctx3.lineWidth = "2";
   ctx3.moveTo(150, 80 + ((230 * Math.min(xa, xlim)) / h1));
   ctx3.lineTo(-150, 80 + ((230 * Math.min(xa, xlim)) / h1));
@@ -89,7 +92,7 @@ function redesenhar() {
   ctx1.beginPath();
   ctx1.fillRect(-20,280,40,10);
 
-  ctx1.font="14px Montserrat";
+  ctx1.font="bold 14px Montserrat";
   ctx1.fillText(aas.toFixed(2) + ' cm²',-28,275);
   
 
@@ -102,7 +105,7 @@ function redesenhar() {
   ctx2.stroke();
 
   //escrevendo LN
-  ctx1.font="bold 20px Arial";
+  ctx1.font="bold 12px Arial";
   ctx1.fillStyle = '#808080'
   ctx1.fillText(`L.N.`,-145, 75 + ((230 * Math.min(xa, xlim)) / h1));
 

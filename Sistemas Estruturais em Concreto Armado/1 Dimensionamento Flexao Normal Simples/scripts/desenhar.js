@@ -57,7 +57,7 @@ ctx3.stroke()
 
 
 
-ctx2.font="14px Montserrat";
+ctx2.font="bold 14px Montserrat";
 ctx2.fillText('3,5',-70,70)
 ctx2.fillText('2',-35,70)
 

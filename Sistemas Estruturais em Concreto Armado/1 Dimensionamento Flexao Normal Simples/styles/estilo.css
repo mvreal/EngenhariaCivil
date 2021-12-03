@@ -56,6 +56,10 @@ h1{
     text-shadow: rgb(0, 0, 0) 1px 1px;
 }
 
+.tituloquadro{
+    font-weight: 600;
+}
+
 table{
     margin: auto;
     border-spacing: 0px;
