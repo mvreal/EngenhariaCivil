@@ -1,0 +1,35 @@
+
+h1{
+    text-align: center;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    margin-bottom: 30px;
+
+}
+
+#grafico1{
+    display: block;
+    max-width: 900px;
+    margin: auto;
+    
+   
+}
+
+h2{
+    text-align: center;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    color: rgb(75, 75, 75);
+    margin-top: 20px;
+    display: block;
+}
+
+#grafico2{
+    margin-top: 50px;
+    max-width: 900px;
+    margin: auto;
+}
+
+#myChart2,#myChart{
+    max-height: 600px;
+}
