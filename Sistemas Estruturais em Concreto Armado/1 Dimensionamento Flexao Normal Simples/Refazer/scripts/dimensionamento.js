@@ -3,7 +3,11 @@
 function dimensionamento() {
 
     reset(); //Reseta os gráficos caso não seja a primeira vez que o usuário aperta no calcular
-  
+    
+    if(typeof dominio !== "undefined"){ //Essa variável só é definida no final do processo, de modo que haverá o reset quando o operador apertar o calcular da segunda vez em diante
+    desenhoinicial();
+    }
+
     // Entrada de dados
     var fck = document.getElementById("fck");
     var fyk = document.getElementById("fyk");
@@ -143,6 +147,6 @@ function dimensionamento() {
     }
     cliques = 0; //Vai contar quantas vezes a função foi executada;
     
-    redesenhar();
+    segundodesenho();
   }
   

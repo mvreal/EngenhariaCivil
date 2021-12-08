@@ -1,4 +1,4 @@
-function redesenhar() {
+function segundodesenho() {
 
     fck = Number(document.getElementById("fck").value);
     d = Number(document.getElementById("d").value);
@@ -90,6 +90,7 @@ function redesenhar() {
     //Escrevendo area de aço na figura 1
   
     ctx1.beginPath();
+    ctx2.strokeStyle = 'black'
     ctx1.fillRect(-20,280,40,10);
   
     ctx1.font="bold 14px Montserrat";

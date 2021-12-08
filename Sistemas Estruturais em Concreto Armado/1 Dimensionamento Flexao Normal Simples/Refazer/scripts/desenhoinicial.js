@@ -14,6 +14,8 @@ function desenhoinicial(){
     ctx3.translate(150,0);
     
     ctx1.beginPath();
+    ctx1.setLineDash([]);
+    ctx1.strokeStyle = 'black'
     ctx1.lineWidth="2";
     ctx1.moveTo(50,80);
     ctx1.lineTo(50,310);
@@ -24,6 +26,8 @@ function desenhoinicial(){
     
     //14 pixels para cada 1/1000
     ctx2.beginPath();
+    ctx2.setLineDash([]);
+    ctx2.strokeStyle = 'black'
     ctx2.lineWidth="2";
     ctx2.moveTo(-49,80);
     ctx2.lineTo(0,80);
@@ -48,6 +52,8 @@ function desenhoinicial(){
     ctx2.stroke()
     
     ctx3.beginPath();
+    ctx3.setLineDash([]);
+    ctx3.strokeStyle = 'black'
     ctx3.lineWidth="2";
     ctx3.moveTo(-120,80);
     ctx3.lineTo(-20,80);
@@ -69,6 +75,7 @@ function desenhoinicial(){
     ctx3.stroke();
     
     ctx3.beginPath();
+    ctx3.setLineDash([]);
     ctx3.moveTo(85,130);
     ctx3.lineTo(85,152);
     ctx3.lineTo(65,141);
@@ -76,3 +83,5 @@ function desenhoinicial(){
     ctx3.stroke();
     
     }
+
+    desenhoinicial();

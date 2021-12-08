@@ -8,6 +8,6 @@ function reset(){
 
         ctx1.translate(-150,0);
         ctx2.translate(-150,0);
-        ctx3.translate(150,0);
+        ctx3.translate(-150,0);
     }
 }

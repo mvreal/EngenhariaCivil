@@ -143,5 +143,5 @@ function calcular() {
   }
   cliques = 0; //Vai contar quantas vezes a função foi executada;
   
-  redesenhar();
+  segundodesenho();
 }
