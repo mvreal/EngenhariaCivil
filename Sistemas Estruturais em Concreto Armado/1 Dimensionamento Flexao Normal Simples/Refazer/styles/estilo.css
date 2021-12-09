@@ -188,6 +188,7 @@ p{
     top:100px;
     left: 40px;
     border:1px solid black;
+    font-size: 14px;
 }
 
 #divcriada2{
@@ -196,6 +197,7 @@ p{
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 14px;
 
 }
 
@@ -206,8 +208,8 @@ p{
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100%;
+    font-size: 14px;
     
-
 }
 
 #divcriada4{
@@ -218,6 +220,7 @@ p{
     bottom:80px;
     right: 20px;
     border:1px solid black;
+    font-size: 14px;
 }
 
 #divcriada5{

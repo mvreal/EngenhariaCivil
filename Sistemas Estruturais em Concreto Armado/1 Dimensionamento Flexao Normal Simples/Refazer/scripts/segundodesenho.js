@@ -90,7 +90,7 @@ function segundodesenho() {
     //Escrevendo area de aço na figura 1
   
     ctx1.beginPath();
-    ctx2.strokeStyle = 'black'
+    ctx1.fillStyle = "#7F0000";
     ctx1.fillRect(-20,280,40,10);
   
     ctx1.font="bold 14px Montserrat";
