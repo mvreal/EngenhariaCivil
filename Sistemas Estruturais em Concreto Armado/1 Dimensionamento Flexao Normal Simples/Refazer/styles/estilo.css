@@ -243,8 +243,17 @@ p{
 }
 
 
-@media (max-width: 1000px){
+@media (max-width: 1400px){
     #principal{
+        display: block;
+    }
+    #ctndesenhos{
+        display: block;
+    }
+    #ctndesenho1{
+        display: block;
+    }
+    #ctndesenho2{
         display: block;
     }
 }
