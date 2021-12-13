@@ -134,11 +134,11 @@ function dimensionamento() {
       break;
     }
     if (test == 1) {
-      res.innerHTML = `<strong>${aviso}</strong>`;
+      resAco.innerHTML = `<strong>${aviso}</strong>`;
     } else if (test == 2) {
-      res.innerHTML = `<strong>Entre com os dados corretamente!</strong>`;
+      resAco.innerHTML = `<strong>Entre com os dados corretamente!</strong>`;
     } else {
-      res.innerHTML = `<strong>A área de aço tracionada é ${aas.toFixed(
+      resAco.innerHTML = `<strong>A área de aço tracionada é ${aas.toFixed(
         2
       )} cm².</strong>`;
       res1.innerHTML = `<strong>A área de aço comprimida é ${asl.toFixed(

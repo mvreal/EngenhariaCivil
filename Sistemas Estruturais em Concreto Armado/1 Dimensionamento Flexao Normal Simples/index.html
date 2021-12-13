@@ -116,18 +116,17 @@
 
           <div id="conteinerbotao">
             <td>
-              <input type="button" value="Calcular" onclick="dimensionamento()" />
+              <input
+                type="button"
+                value="Calcular"
+                onclick="dimensionamento()"
+              />
             </td>
           </div>
         </section>
       </div>
 
       <div id="direita">
-        <p></p>
-        <div id="res" class="texto">Qual a área de aço??</div>
-        <p></p>
-        <div id="res1" class="texto"></div>
-
         <div id="ctndesenhos">
           <div id="ctndesenho1">
             <p class="tituloquadro">SEÇÃO</p>
@@ -140,9 +139,21 @@
             </div>
           </div>
           <div id="ctndesenho3">
-            <p class="tituloquadro">TENSÃO &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESULTANTES</p>
+            <p class="tituloquadro">
+              TENSÃO &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESULTANTES
+            </p>
             <canvas id="desenho3" width="300px" height="400px"></canvas>
           </div>
+        </div>
+        <hr>
+        <p></p>
+        <div id="resultados">
+          <div id="resDominio" class="texto">
+            Domínio: 
+          </div>
+          <div id="resAco" class="texto">Área de aço:</div>
+          <p></p>
+          <div id="res1" class="texto"></div>
         </div>
       </div>
     </div>
@@ -174,6 +185,5 @@
     <script src="./scripts/desenhoinicial.js"></script>
     <script src="./scripts/dimensionamento.js"></script>
     <script src="./scripts/segundodesenho.js"></script>
-    
   </body>
 </html>
