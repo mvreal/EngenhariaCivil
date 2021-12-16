@@ -33,13 +33,13 @@ function segundodesenho() {
     );
   
     if (xa > xlim) {
-      dominio = "Domínio 3";
+      dominio = "3";
       ruptura = " A ruptura acontece no concreto";
       xa = xlim;
       eps = (eu * (d - 1)) / xa;
       epc = eu;
     } else {
-      dominio = "Domínio 2";
+      dominio = "2";
       ruptura = "A ruptura acontece no aço";
       eps = 10 / 1000;
       epc = (0.01 * xa) / (d - xa);
@@ -87,7 +87,7 @@ function segundodesenho() {
     ctx1.lineTo(-50, 80 + alamb*(230 * Math.min(xa, xlim)) / h1);
     ctx1.stroke();
   
-    //Escrevendo area de aço na figura 1
+    //Escrevendo area de aço tracionada na figura 1
   
     ctx1.beginPath();
     ctx1.fillStyle = "#7F0000";
@@ -95,8 +95,18 @@ function segundodesenho() {
   
     ctx1.font="bold 14px Montserrat";
     ctx1.fillText(aas.toFixed(2) + ' cm²',-28,275);
-    
-  
+
+    //Escrevendo a área de aço comprimida na figura 1, desenha apenas se estiver com armadura dupla
+
+    if(asl>0){
+    ctx1.beginPath();
+    ctx1.fillStyle = "#000080";
+    ctx1.fillRect(-20,103,40,10);
+
+    ctx1.font="bold 14px Montserrat";
+    ctx1.fillText(asl.toFixed(2) + ' cm²',-28,98);
+    }
+
     //Linha de deformação - Desenho 2 
     ctx2.beginPath();
     ctx2.strokeStyle = '#0000ff'
@@ -109,6 +119,8 @@ function segundodesenho() {
     ctx1.font="bold 12px Arial";
     ctx1.fillStyle = '#808080'
     ctx1.fillText(`L.N.`,-145, 75 + ((230 * Math.min(xa, xlim)) / h1));
-  
+
+    //Escrevendo o domínio 
+    document.getElementById('resDominio').innerHTML = "Domínio: " + dominio;
   }
 

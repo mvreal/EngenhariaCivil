@@ -144,9 +144,7 @@ function dimensionamento() {
       res1.innerHTML = `<strong>A área de aço comprimida é ${asl.toFixed(
         2
       )} cm².</strong>`;
-    }
-    cliques = 0; //Vai contar quantas vezes a função foi executada;
-    
+    }  
     segundodesenho();
   }
   

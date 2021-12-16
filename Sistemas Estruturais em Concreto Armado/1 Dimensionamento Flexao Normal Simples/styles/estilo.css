@@ -20,7 +20,9 @@ body{
     flex:6;
     border-radius: 10px;
     box-shadow: 7px 6px 8px 5px rgba(0,0,0,0.75);
-    margin: 5px;
+    margin-right: 15px;
+    margin-top: 15px;
+    background-color: rgb(94, 148, 193)
 }
 section{
     background-color: white;
@@ -144,6 +146,7 @@ background-color: rgba(170, 173, 196, 0.4);
 #ctndesenhos{
     display: flex;
     padding-top: 10px;
+    background-color: white;
 }
 
 #ctndesenho1{
@@ -223,14 +226,6 @@ background-color: rgba(170, 173, 196, 0.4);
 
 #resultados{
     min-height: 100px;
-}
-
-#resDominio{
-   
-}
-
-#resAco{
-    
 }
 
 .texto{
