@@ -86,6 +86,17 @@ function segundodesenho() {
     ctx1.moveTo(50, 80 + alamb*(230 * Math.min(xa, xlim)) / h1);
     ctx1.lineTo(-50, 80 + alamb*(230 * Math.min(xa, xlim)) / h1);
     ctx1.stroke();
+
+    //Tensão no concreto - Desenho 3 
+    ctx3.beginPath();
+    ctx3.strokeStyle = '#ffa500'
+    ctx3.lineWidth = "2";
+    ctx3.moveTo(-20, 80 + alamb*(230 * Math.min(xa, xlim)) / h1);
+    ctx3.lineTo(20, 80 + alamb*(230 * Math.min(xa, xlim)) / h1);
+    ctx3.lineTo(20, 80);
+    ctx3.lineTo(-20, 80);
+    ctx3.stroke();
+
   
     //Escrevendo area de aço tracionada na figura 1
   
