@@ -11,9 +11,9 @@ function segundodesenho() {
   
     //Concreto do tipo 1
     if (fck <= 50) {
-      eu = 3.5;
+      eu = 3.5/1000;
     } else {
-      eu = 2.6 + 35 * ((90 - fck) / 100) ** 4;
+      eu = (2.6 + 35 * ((90 - fck) / 100) ** 4)/1000;
     }
   
     //Verificar se a posição da linha neutra está acima do limite permitido pela NBR
@@ -23,20 +23,20 @@ function segundodesenho() {
       xlim = 0.35 * d;
     }
   
-    console.log("A posição da linha neutra é de " + xa + " cm");
-    console.log(
-      "É necessário comparar a linha neutra com o seu valor limite, o valor limite é de:" +
-        xlim +
-        " cm, nesse caso a posicao da linha neutra será:" +
-        Math.min(xa, xlim) +
-        " cm"
-    );
+    //console.log("A posição da linha neutra é de " + xa + " cm");
+    //console.log(
+    //   "É necessário comparar a linha neutra com o seu valor limite, o valor limite é de:" +
+    //     xlim +
+    //     " cm, nesse caso a posicao da linha neutra será:" +
+    //     Math.min(xa, xlim) +
+    //     " cm"
+    // );
   
     if (xa > xlim) {
       dominio = "3";
       ruptura = " A ruptura acontece no concreto";
       xa = xlim;
-      eps = (eu * (d - 1)) / xa;
+      eps = (eu * ((d-xa)/xa));
       epc = eu;
     } else {
       dominio = "2";
@@ -45,9 +45,9 @@ function segundodesenho() {
       epc = (0.01 * xa) / (d - xa);
     }
   
-    console.log("A peça se encontra no " + dominio);
-    console.log("A deformação no concreto é de " + epc);
-    console.log("A deformação no aço é de " + eps);
+    //console.log("A peça se encontra no " + dominio);
+    //console.log("A deformação no concreto é de " + epc);
+    //console.log("A deformação no aço é de " + eps);
   
     //Colocando os textos de deformação do aço e do concreto
     criardiv2.innerText = (epc*1000).toFixed(3);
