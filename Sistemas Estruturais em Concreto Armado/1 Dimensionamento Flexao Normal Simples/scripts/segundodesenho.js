@@ -38,12 +38,23 @@ function segundodesenho() {
       xa = xlim;
       eps = (eu * ((d-xa)/xa));
       epc = eu;
-    } else {
+    }
+    else {
       dominio = "2";
       ruptura = "A ruptura acontece no aço";
       eps = 10 / 1000;
       epc = (0.01 * xa) / (d - xa);
+      if(epc>=0.0035){
+        dominio = "3"; 
+        ruptura = " A ruptura acontece no concreto";
+        epc = 0.0035;
+        eps = (eu * ((d-xa)/xa));
+      }
+      
+      
     }
+
+
   
     //console.log("A peça se encontra no " + dominio);
     //console.log("A deformação no concreto é de " + epc);
