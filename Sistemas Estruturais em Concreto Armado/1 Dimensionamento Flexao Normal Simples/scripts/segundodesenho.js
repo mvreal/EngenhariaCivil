@@ -54,8 +54,7 @@ function segundodesenho() {
       
     }
 
-
-  
+    
     //console.log("A peça se encontra no " + dominio);
     //console.log("A deformação no concreto é de " + epc);
     //console.log("A deformação no aço é de " + eps);
@@ -144,5 +143,30 @@ function segundodesenho() {
 
     //Escrevendo o domínio 
     document.getElementById('resDominio').innerHTML = "Domínio: " + dominio;
+    
+    //Fazendo as setas e escrevendo as forças no desenho 3
+    ctx3.beginPath();
+    ctx3.strokeStyle = '#191970';
+    ctx3.lineWidth = "2";
+    ctx3.setLineDash([]);
+
+    //Criando a seta de cima - Desenho 3
+    ctx3.moveTo(40,80 + alamb*(230 * Math.min(xa, xlim)) / (2*h1))
+    ctx3.lineTo(-20,80 + alamb*(230 * Math.min(xa, xlim)) / (2*h1));
+    ctx3.lineTo(-15,85 + alamb*(230 * Math.min(xa, xlim)) / (2*h1))
+    ctx3.moveTo(-20,80 + alamb*(230 * Math.min(xa, xlim)) / (2*h1));
+    ctx3.lineTo(-15,75 + alamb*(230 * Math.min(xa, xlim)) / (2*h1))
+    ctx3.stroke();
+
+    //Colocando o valor comprimido no desenho 3
+    // ctx3.font="bold 12px Arial";
+    // ctx3.fillStyle = '##191970';
+
+    // ctx3.fillText(`L.N.`,-145, 75 + ((230 * Math.min(xa, xlim)) / h1));
+
+
+
+    
+    
   }
 
