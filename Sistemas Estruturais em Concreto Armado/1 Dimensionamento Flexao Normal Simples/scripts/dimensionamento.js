@@ -28,7 +28,7 @@ function dimensionamento() {
   var gamas1 = Number(gamas.value);
   var gamaf1 = Number(gamaf.value);
   var bduct1 = Number(bduct.value);
-  var b1 = Number(b.value);
+  b1 = Number(b.value);
   h1 = Number(h.value);
   var d1 = Number(d.value);
   var dl1 = Number(dl.value);
@@ -54,6 +54,7 @@ function dimensionamento() {
   // Resistências de cálculo
   fcd = fck / gamac1;
   tcd = alfac * fcd;
+  console.log(tcd)
   fyd = fyk / gamas1;
   amd = gamaf1 * amk;
   // Parâmetro geométrico

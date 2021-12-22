@@ -112,17 +112,17 @@ function segundodesenho() {
   
     ctx1.beginPath();
     ctx1.fillStyle = "#7F0000";
-    ctx1.fillRect(-20,280,40,10);
+    ctx1.fillRect(-20,287,40,5);
   
     ctx1.font="bold 14px Montserrat";
-    ctx1.fillText(aas.toFixed(2) + ' cm²',-28,275);
+    ctx1.fillText(aas.toFixed(2) + ' cm²',-28,282);
 
     //Escrevendo a área de aço comprimida na figura 1, desenha apenas se estiver com armadura dupla
 
     if(asl>0){
     ctx1.beginPath();
     ctx1.fillStyle = "#000080";
-    ctx1.fillRect(-20,103,40,10);
+    ctx1.fillRect(-20,103,40,5);
 
     ctx1.font="bold 14px Montserrat";
     ctx1.fillText(asl.toFixed(2) + ' cm²',-28,98);
@@ -146,7 +146,7 @@ function segundodesenho() {
     
     //Fazendo as setas e escrevendo as forças no desenho 3
     ctx3.beginPath();
-    ctx3.strokeStyle = '#191970';
+    ctx3.strokeStyle = '#ffa500';
     ctx3.lineWidth = "2";
     ctx3.setLineDash([]);
 
@@ -158,15 +158,51 @@ function segundodesenho() {
     ctx3.lineTo(-15,75 + alamb*(230 * Math.min(xa, xlim)) / (2*h1))
     ctx3.stroke();
 
-    //Colocando o valor comprimido no desenho 3
-    // ctx3.font="bold 12px Arial";
-    // ctx3.fillStyle = '##191970';
+    //Resultante de tração
+    resTracao = aas * fyd / 10; //Divide por 10 para deixar em kN
+    console.log(resTracao);
 
-    // ctx3.fillText(`L.N.`,-145, 75 + ((230 * Math.min(xa, xlim)) / h1));
-
-
-
+    //Fazendo a representação da armadura no desenho 3 e colocando a resultante
+    ctx3.beginPath();
+    ctx3.lineWidth = "2";
+    ctx3.strokeStyle = '#7F0000';
+    ctx3.fillStyle = '#7F0000';
+    ctx3.fillRect(-20,287,-40, 5);
+    ctx3.moveTo(-20,289);
+    ctx3.lineTo(40,289);
+    ctx3.lineTo(35,284);
+    ctx3.moveTo(40,289);
+    ctx3.lineTo(35,293);
+    ctx3.font="bold 12px Arial";
+    ctx3.fillText(resTracao.toFixed(2) + " kN",45,294);
+    ctx3.stroke();
     
+    //Escrevendo a resultante de compressão
     
+    if(asl==0){
+      resCompressao = resTracao;
+    }
+    else{
+      resCompressaoAco = asl * fyd / 10; //Divide por 10 para transformar em kN
+      resCompressao = resTracao - resCompressaoAco
+      ctx3.beginPath();
+      ctx3.fillStyle = '#000080';
+      ctx3.strokeStyle = '#000080';
+      ctx3.fillRect(-20,103,-40, 5);
+      ctx3.moveTo(40,105);
+      ctx3.lineTo(-20,105);
+      ctx3.lineTo(-15,110);
+      ctx3.moveTo(-20,105);
+      ctx3.lineTo(-15,100);
+      //Escrevendo texto da força do aço na seção comprimida
+      ctx3.font="bold 12px Arial";
+      ctx3.fillText(resCompressaoAco.toFixed(2) + " kN",45,110);
+      ctx3.stroke();
+
+    }
+    ctx3.beginPath();
+    ctx3.fillStyle = '#ffa500';
+    ctx3.fillText(resCompressao.toFixed(2) + " kN",45,85 + alamb*(230 * Math.min(xa, xlim)) / (2*h1));
+    ctx3.stroke();
   }
 
