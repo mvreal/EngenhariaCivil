@@ -114,8 +114,8 @@ function segundodesenho() {
     ctx1.fillStyle = "#7F0000";
     ctx1.fillRect(-20,287,40,5);
   
-    ctx1.font="bold 14px Montserrat";
-    ctx1.fillText(aas.toFixed(2) + ' cm²',-28,282);
+    ctx1.font="bold 12px Montserrat";
+    ctx1.fillText(aas.toFixed(2) + ' cm²',-26,282);
 
     //Escrevendo a área de aço comprimida na figura 1, desenha apenas se estiver com armadura dupla
 
@@ -124,8 +124,8 @@ function segundodesenho() {
     ctx1.fillStyle = "#000080";
     ctx1.fillRect(-20,103,40,5);
 
-    ctx1.font="bold 14px Montserrat";
-    ctx1.fillText(asl.toFixed(2) + ' cm²',-28,98);
+    ctx1.font="bold 12px Montserrat";
+    ctx1.fillText(asl.toFixed(2) + ' cm²',-26,98);
     }
 
     //Linha de deformação - Desenho 2 
@@ -204,5 +204,20 @@ function segundodesenho() {
     ctx3.fillStyle = '#ffa500';
     ctx3.fillText(resCompressao.toFixed(2) + " kN",45,85 + alamb*(230 * Math.min(xa, xlim)) / (2*h1));
     ctx3.stroke();
+
+    //Desenhando o valor do momento resultante na figura 3
+    ctx3.beginPath();
+    ctx3.fillStyle="black";
+    ctx3.font="bold 14px Arial"
+    ctx3.fillText("M",50,200);
+    ctx3.font="bold 12px Arial";
+    ctx3.fillText("Rd",63,205);
+    ctx3.fillText((amd/100)+"kN.m",88,200);
+    ctx3.stroke();
+
+    //fazendo as cotas do desenho 1
+    ctx1.beginPath();
+    ctx1.strokeStyle = '#808080';
+    
   }
 

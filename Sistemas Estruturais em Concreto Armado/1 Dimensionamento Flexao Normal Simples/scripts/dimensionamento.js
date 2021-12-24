@@ -54,9 +54,10 @@ function dimensionamento() {
   // Resistências de cálculo
   fcd = fck / gamac1;
   tcd = alfac * fcd;
-  console.log(tcd)
+  
   fyd = fyk / gamas1;
   amd = gamaf1 * amk;
+  
   // Parâmetro geométrico
   delta = dl1 / d1;
   // Momento limite

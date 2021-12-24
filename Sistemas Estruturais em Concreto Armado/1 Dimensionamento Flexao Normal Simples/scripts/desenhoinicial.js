@@ -71,15 +71,15 @@ function desenhoinicial(){
     ctx2.fillText('2,07',20,270)
     
     ctx3.beginPath();
-    ctx3.arc(85,200,60,1.5*Math.PI,2.5*Math.PI);
+    ctx3.arc(45,200,40,1.5*Math.PI,2.5*Math.PI);
     ctx3.stroke();
     
     ctx3.beginPath();
     ctx3.setLineDash([]);
-    ctx3.moveTo(85,130);
-    ctx3.lineTo(85,152);
-    ctx3.lineTo(65,141);
-    ctx3.lineTo(85,130)
+    ctx3.moveTo(45,148);
+    ctx3.lineTo(45,170);
+    ctx3.lineTo(25,159);
+    ctx3.lineTo(45,148)
     ctx3.stroke();
     
     }
