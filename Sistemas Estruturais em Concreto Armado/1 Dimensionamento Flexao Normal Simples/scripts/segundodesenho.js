@@ -23,15 +23,6 @@ function segundodesenho() {
       xlim = 0.35 * d;
     }
   
-    //console.log("A posição da linha neutra é de " + xa + " cm");
-    //console.log(
-    //   "É necessário comparar a linha neutra com o seu valor limite, o valor limite é de:" +
-    //     xlim +
-    //     " cm, nesse caso a posicao da linha neutra será:" +
-    //     Math.min(xa, xlim) +
-    //     " cm"
-    // );
-  
     if (xa > xlim) {
       dominio = "3";
       ruptura = " A ruptura acontece no concreto";
@@ -50,15 +41,8 @@ function segundodesenho() {
         epc = 0.0035;
         eps = (eu * ((d-xa)/xa));
       }
-      
-      
     }
 
-    
-    //console.log("A peça se encontra no " + dominio);
-    //console.log("A deformação no concreto é de " + epc);
-    //console.log("A deformação no aço é de " + eps);
-  
     //Colocando os textos de deformação do aço e do concreto
     criardiv2.innerText = (epc*1000).toFixed(3);
     criardiv5.innerText = (eps*1000).toFixed(3);
@@ -66,7 +50,7 @@ function segundodesenho() {
     //Linha neutra
     ctx1.beginPath();
     ctx1.strokeStyle = '#808080'
-    ctx1.setLineDash([5, 3]);
+    ctx1.setLineDash([5, 5]);
     ctx1.lineWidth = "2";
     ctx1.moveTo(150, 80 + ((230 * Math.min(xa, xlim)) / h1));
     ctx1.lineTo(-150, 80 + ((230 * Math.min(xa, xlim)) / h1));
@@ -74,7 +58,7 @@ function segundodesenho() {
   
     ctx2.beginPath();
     ctx2.strokeStyle = '#808080'
-    ctx2.setLineDash([5, 3]);
+    ctx2.setLineDash([5, 5]);
     ctx2.lineWidth = "2";
     ctx2.moveTo(150, 80 + ((230 * Math.min(xa, xlim)) / h1));
     ctx2.lineTo(-150, 80 + ((230 * Math.min(xa, xlim)) / h1));
@@ -82,15 +66,15 @@ function segundodesenho() {
   
     ctx3.beginPath();
     ctx3.strokeStyle = '#808080'
-    ctx3.setLineDash([5, 3]);
+    ctx3.setLineDash([5, 5]);
     ctx3.lineWidth = "2";
     ctx3.moveTo(150, 80 + ((230 * Math.min(xa, xlim)) / h1));
     ctx3.lineTo(-150, 80 + ((230 * Math.min(xa, xlim)) / h1));
     ctx3.stroke();
   
-  
     //Alamb
     ctx1.beginPath();
+    ctx1.setLineDash([5, 3]);
     ctx1.strokeStyle = '#ffa500'
     ctx1.lineWidth = "2";
     ctx1.moveTo(50, 80 + alamb*(230 * Math.min(xa, xlim)) / h1);
@@ -215,9 +199,34 @@ function segundodesenho() {
     ctx3.fillText((amd/100)+"kN.m",88,200);
     ctx3.stroke();
 
-    //fazendo as cotas do desenho 1
+    //Fazendo as cotas do desenho 1 e colocando os textos
     ctx1.beginPath();
-    ctx1.strokeStyle = '#808080';
-    
+    ctx1.setLineDash([]);
+
+      //Criando a cota da linah neutra 
+      ctx1.strokeStyle = 'black';
+      ctx1.moveTo(70,80);
+      ctx1.lineTo(70,80 + ((230 * Math.min(xa, xlim)) / h1));
+      ctx1.moveTo(65,80);
+      ctx1.lineTo(75,80);
+      ctx1.moveTo(65,80 + ((230 * Math.min(xa, xlim)) / h1));
+      ctx1.lineTo(75,80 + ((230 * Math.min(xa, xlim)) / h1));
+      ctx1.fillText(xa.toFixed(2) + ' cm',75,85 + ((230 * Math.min(xa, xlim)) / (2*h1)))
+
+      //Criando a cota da seção comprimida lambida * x
+      ctx1.moveTo(-80,80);
+      ctx1.lineTo(-70,80);
+      ctx1.moveTo(-75,80);
+      ctx1.lineTo(-75,80 + alamb*(230*xa) / h1);
+      ctx1.moveTo(-70,80 + alamb*(230*xa) / h1);
+      ctx1.lineTo(-80,80 + alamb*(230*xa) / h1);
+
+      //Criando o texto do lambida multiplicado por X
+      ctx1.fillText(alamb.toFixed(2)+' x',-113,85 + alamb*(230*xa) / (2*h1))
+
+      
+
+      ctx1.stroke();
+
   }
 
