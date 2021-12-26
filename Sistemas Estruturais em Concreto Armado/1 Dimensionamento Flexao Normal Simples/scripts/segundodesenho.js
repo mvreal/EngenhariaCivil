@@ -12,8 +12,10 @@ function segundodesenho() {
     //Concreto do tipo 1
     if (fck <= 50) {
       eu = 3.5/1000;
+      eo = 0.002;
     } else {
       eu = (2.6 + 35 * ((90 - fck) / 100) ** 4)/1000;
+      eo = (2 + 0.0085 * ((fck1 - 50)**0.53))/1000;
     }
   
     //Verificar se a posição da linha neutra está acima do limite permitido pela NBR
@@ -35,18 +37,62 @@ function segundodesenho() {
       ruptura = "A ruptura acontece no aço";
       eps = 10 / 1000;
       epc = (0.01 * xa) / (d - xa);
-      if(epc>=0.0035){
-        dominio = "3"; 
+      if(epc>eu){
+        dominio = "3";
+        epc = eu; 
         ruptura = " A ruptura acontece no concreto";
-        epc = 0.0035;
         eps = (eu * ((d-xa)/xa));
       }
+          
+
+    }
+
+    if(fyk1==500){
+      eoaco = 2.07/1000;
+    }else if(fyk1==600){
+      eoaco = 2.48/1000;
+    }else{
+      console.log("Não foi utilizado aço CA-50 nem CA-60")
     }
 
     //Colocando os textos de deformação do aço e do concreto
     criardiv2.innerText = (epc*1000).toFixed(3);
     criardiv5.innerText = (eps*1000).toFixed(3);
-  
+
+    //refazendo o segundo desenho com as deformações ultimas e de escoamento do aço e do concreto
+    ctx2.clearRect(-300, -300, 600, 600);
+
+   //Fazendo o desenho 2 novamente apos a inserção de dados 14 pixels para cada 1/1000
+    ctx2.beginPath();
+    ctx2.setLineDash([]);
+    ctx2.strokeStyle = 'black'
+    ctx2.lineWidth="2";
+    ctx2.moveTo(-eu*14000,80);
+    ctx2.lineTo(0,80);
+    ctx2.lineTo(0,287);
+    ctx2.lineTo(140,287);
+
+    //deformações ultimas
+    ctx2.moveTo(-eu*14000,80);
+    ctx2.lineTo(-eu*14000,88);
+    ctx2.moveTo(140,287);
+    ctx2.lineTo(140,279);
+
+    //deformações para inicio do patamar de escoamento
+    ctx2.moveTo(-eo*14000,80);
+    ctx2.lineTo(-eo*14000,88);
+    ctx2.moveTo(eoaco*14000,287);
+    ctx2.lineTo(eoaco*14000,279);
+    ctx2.stroke()
+
+    ctx2.font="bold 12px Montserrat";
+    ctx2.fillText((eu*1000).toFixed(2),-60,70);
+    ctx2.fillText((eo*1000).toFixed(2),-25,70);
+    ctx2.fillText((eoaco*1000).toFixed(2),20,270);
+    ctx2.fillText(10,130,270);
+
+
+
     //Linha neutra
     ctx1.beginPath();
     ctx1.strokeStyle = '#808080'

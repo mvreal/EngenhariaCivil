@@ -10,7 +10,7 @@ function dimensionamento() {
 
   // Entrada de dados
   var fck = document.getElementById("fck");
-  var fyk = document.getElementById("fyk");
+   fyk = document.getElementById("fyk");
   var es = document.getElementById("es");
   var gamac = document.getElementById("gamac");
   var gamas = document.getElementById("gamas");
@@ -21,8 +21,8 @@ function dimensionamento() {
   var d = document.getElementById("d");
   var dl = document.getElementById("dl");
   var amk = document.getElementById("amk");
-  var fck1 = Number(fck.value);
-  var fyk1 = Number(fyk.value);
+  fck1 = Number(fck.value);
+  fyk1 = Number(fyk.value);
   var es1 = Number(es.value);
   var gamac1 = Number(gamac.value);
   var gamas1 = Number(gamas.value);

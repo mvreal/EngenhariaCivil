@@ -41,6 +41,10 @@ td{
     
 }
 
+table{
+    min-width: 500px;
+}
+
 footer{
     text-align: center;
     padding-top: 50px;

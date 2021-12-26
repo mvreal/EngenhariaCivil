@@ -37,9 +37,6 @@ function desenhoinicial(){
     ctx2.moveTo(-49,80);
     ctx2.lineTo(-49,88);
     
-    ctx2.moveTo(-49,80);
-    ctx2.lineTo(-49,88);
-    
     ctx2.moveTo(-28,80);
     ctx2.lineTo(-28,88);
     
@@ -63,12 +60,12 @@ function desenhoinicial(){
     
     
     
-    ctx2.font="bold 14px Montserrat";
-    ctx2.fillText('3,5',-70,70)
-    ctx2.fillText('2',-35,70)
+    ctx2.font="bold 12px Montserrat";
+    ctx2.fillText('3.50',-60,70)
+    ctx2.fillText('2.00',-25,70)
     
     ctx2.fillText('10',130,270)
-    ctx2.fillText('2,07',20,270)
+    ctx2.fillText('2.07',20,270)
     
     ctx3.beginPath();
     ctx3.arc(45,200,40,1.5*Math.PI,2.5*Math.PI);
