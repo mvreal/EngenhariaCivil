@@ -81,14 +81,22 @@ function segundodesenho() {
     //deformações para inicio do patamar de escoamento
     ctx2.moveTo(-eo*14000,80);
     ctx2.lineTo(-eo*14000,88);
+
+    if(fyk1 ==500 || fyk1 ==600){
     ctx2.moveTo(eoaco*14000,287);
     ctx2.lineTo(eoaco*14000,279);
+  }
+
     ctx2.stroke()
 
     ctx2.font="bold 12px Montserrat";
     ctx2.fillText((eu*1000).toFixed(2),-60,70);
     ctx2.fillText((eo*1000).toFixed(2),-25,70);
+
+    if(fyk1 ==500 || fyk1 ==600){
     ctx2.fillText((eoaco*1000).toFixed(2),20,270);
+    }
+
     ctx2.fillText(10,130,270);
 
 
@@ -226,13 +234,13 @@ function segundodesenho() {
       ctx3.lineTo(-15,100);
       //Escrevendo texto da força do aço na seção comprimida
       ctx3.font="bold 12px Arial";
-      ctx3.fillText(resCompressaoAco.toFixed(2) + " kN",45,110);
+      ctx3.fillText(resCompressaoAco.toFixed(2) + " kN",45,100);
       ctx3.stroke();
 
     }
     ctx3.beginPath();
     ctx3.fillStyle = '#ffa500';
-    ctx3.fillText(resCompressao.toFixed(2) + " kN",45,85 + alamb*(230 * Math.min(xa, xlim)) / (2*h1));
+    ctx3.fillText(resCompressao.toFixed(2) + " kN",45,95 + alamb*(230 * Math.min(xa, xlim)) / (2*h1));
     ctx3.stroke();
 
     //Desenhando o valor do momento resultante na figura 3
