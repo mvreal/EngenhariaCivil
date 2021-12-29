@@ -30,7 +30,7 @@ function dimensionamento() {
   var bduct1 = Number(bduct.value);
   b1 = Number(b.value);
   h1 = Number(h.value);
-  var d1 = Number(d.value);
+  d1 = Number(d.value);
   var dl1 = Number(dl.value);
   var amk1 = Number(amk.value);
   // Parâmetros do diagrama retangular
@@ -66,7 +66,8 @@ function dimensionamento() {
   ami = amd / (b1 * d1 * d1 * tcd);
   if (ami <= amilim) {
     // Armadura simples
-    var qsi = (1 - Math.sqrt(1 - 2 * ami)) / alamb;
+   qsi = (1 - Math.sqrt(1 - 2 * ami)) / alamb;
+
     aas = (alamb * qsi * b1 * d1 * tcd) / fyd;
     asl = 0;
   } else {

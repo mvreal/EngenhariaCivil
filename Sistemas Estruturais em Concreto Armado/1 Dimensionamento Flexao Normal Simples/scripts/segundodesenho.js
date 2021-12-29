@@ -4,10 +4,15 @@ function segundodesenho() {
     d = Number(document.getElementById("d").value);
   
     //Cálculo do qsi
-    qsi = (1 - Math.sqrt(1 - 2 * ami)) / alamb;
+    if(ami>amilim){
+    qsi = (1 - Math.sqrt(1 - 2 * amilim)) / alamb;
+    }else{
+      qsi = (1 - Math.sqrt(1 - 2 * ami)) / alamb;
+    }
   
     //linha neutra
     xa = qsi * d;
+    
   
     //Concreto do tipo 1
     if (fck <= 50) {
@@ -198,8 +203,7 @@ function segundodesenho() {
 
     //Resultante de tração
     resTracao = aas * fyd / 10; //Divide por 10 para deixar em kN
-    console.log(resTracao);
-
+   
     //Fazendo a representação da armadura no desenho 3 e colocando a resultante
     ctx3.beginPath();
     ctx3.lineWidth = "2";
@@ -277,10 +281,26 @@ function segundodesenho() {
 
       //Criando o texto do lambida multiplicado por X
       ctx1.fillText(alamb.toFixed(2)+' x',-113,85 + alamb*(230*xa) / (2*h1))
+      ctx1.stroke();
 
+      //Fazendo a cota do desenho 3
+      ctx3.beginPath();
+      ctx3.strokeStyle = 'black';
+      ctx3.moveTo(-80,80 + alamb*(230 * Math.min(xa, xlim)) / (2*h1));
+      ctx3.lineTo(-80,289);
+      ctx3.moveTo(-75,80 + alamb*(230 * Math.min(xa, xlim)) / (2*h1));
+      ctx3.lineTo(-85,80 + alamb*(230 * Math.min(xa, xlim)) / (2*h1));
+      ctx3.moveTo(-85,289);
+      ctx3.lineTo(-75,289);
+      ctx3.stroke();
+      ctx3.beginPath();
+      ctx3.fillStyle = '#565656';
       
 
-      ctx1.stroke();
+      //Escrevendo o texto da cota do desenho 3
+      ctx3.fillText((d1-(alamb*(xa/2))).toFixed(2) + " cm",-75,200)
+      ctx3.stroke();
+
 
   }
 
