@@ -169,95 +169,215 @@
             <section>
                 <table>
                     <tr>
-                        <td>Informação</td>
-                        <td>Valor</td>
-                        <td>Unidade</td>
+                      <td>Informação</td>
+                      <td>Valor</td>
+                      <td>Unidade</td>
                     </tr>
-
+        
                     <tr>
-                        <td class="info" >Resistência característica à compressão do concreto </td>
-                        <td class="valor"><input type="number" name="fck" id="fck"></td>
-                        <td class="unidade">MPa</td>
+                      <td class="info">
+                        Resistência característica à compressão do concreto
+                      </td>
+                      <td class="valor">
+                        <input
+                          type="number"
+                          class="numero"
+                          name="fck"
+                          id="fck"
+                          value="20"
+                        />
+                      </td>
+                      <td class="unidade">MPa</td>
                     </tr>
-
+        
                     <tr>
-                        <td class="info" >Tensão de escoamento característica do aço </td>
-                        <td class="valor"><input type="number" name="fyk" id="fyk"></td>
-                        <td class="unidade">MPa</td>
+                      <td class="info">Tensão de escoamento característica do aço</td>
+                      <td class="valor">
+                        <input
+                          type="number"
+                          class="numero"
+                          name="fyk"
+                          id="fyk"
+                          value="500"
+                        />
+                      </td>
+                      <td class="unidade">MPa</td>
                     </tr>
-
+        
                     <tr>
-                        <td class="info" >Módulo de elasticidade do aço</td>
-                        <td class="valor"><input type="number" name="es" id="es"></td>
-                        <td class="unidade">GPa</td>
+                      <td class="info">Módulo de elasticidade do aço</td>
+                      <td class="valor">
+                        <input
+                          type="number"
+                          class="numero"
+                          name="es"
+                          id="es"
+                          value="200"
+                        />
+                      </td>
+                      <td class="unidade">GPa</td>
                     </tr>
-
+        
                     <tr>
-                        <td class="info" >Coeficiente parcial de segurança para o concreto</td>
-                        <td class="valor"><input type="number" name="gamac" id="gamac"></td>
-                        <td class="unidade"> --- </td>
+                      <td class="info">
+                        Coeficiente parcial de segurança para o concreto
+                      </td>
+                      <td class="valor">
+                        <input
+                          type="number"
+                          name="gamac"
+                          class="numero"
+                          id="gamac"
+                          value="1.4"
+                        />
+                      </td>
+                      <td class="unidade">---</td>
                     </tr>
-
+        
                     <tr>
-                        <td class="info" >Coeficiente parcial de segurança para o aço</td>
-                        <td class="valor"><input type="number" name="gamas" id="gamas"></td>
-                        <td class="unidade"> --- </td>
+                      <td class="info">Coeficiente parcial de segurança para o aço</td>
+                      <td class="valor">
+                        <input
+                          type="number"
+                          name="gamas"
+                          class="numero"
+                          id="gamas"
+                          value="1.15"
+                        />
+                      </td>
+                      <td class="unidade">---</td>
                     </tr>
-
+        
                     <tr>
-                        <td class="info" >Coeficiente parcial de segurança para o momento</td>
-                        <td class="valor"><input type="number" name="gamaf" id="gamaf"></td>
-                        <td class="unidade"> --- </td>
+                      <td class="info">
+                        Coeficiente parcial de segurança para o momento
+                      </td>
+                      <td class="valor">
+                        <input
+                          type="number"
+                          name="gamaf"
+                          class="numero"
+                          id="gamaf"
+                          value="1.4"
+                        />
+                      </td>
+                      <td class="unidade">---</td>
                     </tr>
-
+        
                     <tr>
-                        <td class="info" >Coeficiente beta de redistribuição de momentos</td>
-                        <td class="valor"><input type="number" name="bduct" id="bduct"></td>
-                        <td class="unidade"> --- </td>
+                      <td class="info">
+                        Coeficiente beta de redistribuição de momentos
+                      </td>
+                      <td class="valor">
+                        <input
+                          type="number"
+                          name="bduct"
+                          class="numero"
+                          id="bduct"
+                          value="1"
+                        />
+                      </td>
+                      <td class="unidade">---</td>
                     </tr>
-
+        
                     <tr>
-                        <td class="info" >Largura da mesa da seção transversal</td>
-                        <td class="valor"><input type="number" name="bf" id="bf"></td>
-                        <td class="unidade"> cm </td>
+                      <td class="info">Largura da mesa da seção transversal</td>
+                      <td class="valor">
+                        <input
+                          type="number"
+                          class="numero"
+                          name="bf"
+                          id="bf"
+                          value="60"
+                        />
+                      </td>
+                      <td class="unidade">cm</td>
                     </tr>
-
+        
                     <tr>
-                        <td class="info" >Espessura da mesa da seção transversal</td>
-                        <td class="valor"><input type="number" name="hf" id="hf"></td>
-                        <td class="unidade"> cm </td>
+                      <td class="info">Espessura da mesa da seção transversal</td>
+                      <td class="valor">
+                        <input
+                          type="number"
+                          class="numero"
+                          name="hf"
+                          id="hf"
+                          value="9"
+                        />
+                      </td>
+                      <td class="unidade">cm</td>
                     </tr>
-
+        
                     <tr>
-                        <td class="info" >Largura da alma da seção transversal</td>
-                        <td class="valor"><input type="number" name="b" id="b"></td>
-                        <td class="unidade"> cm </td>
+                      <td class="info">Largura da alma da seção transversal</td>
+                      <td class="valor">
+                        <input
+                          type="number"
+                          class="numero"
+                          name="b"
+                          id="b"
+                          value="12"
+                        />
+                      </td>
+                      <td class="unidade">cm</td>
                     </tr>
-
+        
                     <tr>
-                        <td class="info" >Altura da seção transversal</td>
-                        <td class="valor"><input type="number" name="h" id="h">
-                        <td class="unidade"> cm </td>
+                      <td class="info">Altura da seção transversal</td>
+                      <td class="valor">
+                        <input
+                          type="number"
+                          class="numero"
+                          name="h"
+                          id="h"
+                          value="40"
+                        />
+                      </td>
+                      <td class="unidade">cm</td>
                     </tr>
-
+        
                     <tr>
-                        <td class="info" >Altura útil da seção transversal</td>
-                        <td class="valor"><input type="number" name="d" id="d">
-                        <td class="unidade"> cm </td>
+                      <td class="info">Altura útil da seção transversal</td>
+                      <td class="valor">
+                        <input
+                          type="number"
+                          class="numero"
+                          name="d"
+                          id="d"
+                          value="36"
+                        />
+                      </td>
+                      <td class="unidade">cm</td>
                     </tr>
-
+        
                     <tr>
-                        <td class="info" >Parâmetro d'</td>
-                        <td class="valor"><input type="number" name="dl" id="dl">
-                        <td class="unidade"> cm </td>
+                      <td class="info">Parâmetro d'</td>
+                      <td class="valor">
+                        <input
+                          type="number"
+                          class="numero"
+                          name="dl"
+                          id="dl"
+                          value="4"
+                        />
+                      </td>
+                      <td class="unidade">cm</td>
                     </tr>
-
+        
                     <tr>
-                        <td class="info" >Momento fletor de serviço em kN.m</td>
-                        <td class="valor"><input type="number" name="amk" id="amk">
-                        <td class="unidade"> KN.m </td>
+                      <td class="info">Momento fletor de serviço em kN.m</td>
+                      <td class="valor">
+                        <input
+                          type="number"
+                          class="numero"
+                          name="amk"
+                          id="amk"
+                          value="107.14"
+                        />
+                      </td>
+                      <td class="unidade">KN.m</td>
                     </tr>
-                </table>
+                  </table>
 
                 <div id="conteinerbotao">
                     <td><input type="button" value="Calcular" onclick="calcular()"> </td>
