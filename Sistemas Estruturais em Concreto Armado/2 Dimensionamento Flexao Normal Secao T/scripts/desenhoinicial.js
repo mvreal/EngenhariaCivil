@@ -12,32 +12,32 @@ ctx3.translate(150,0);
 ctx1.beginPath();
 ctx1.strokeStyle = 'black'
 ctx1.lineWidth="2";
-ctx1.moveTo(-120,60);
-ctx1.lineTo(120,60);
-ctx1.lineTo(120,96);
-ctx1.lineTo(24,96);
-ctx1.lineTo(24,220);
-ctx1.lineTo(-24,220);
-ctx1.lineTo(-24,96);
-ctx1.lineTo(-120,96);
-ctx1.lineTo(-120,60);
+ctx1.moveTo(-95,60);
+ctx1.lineTo(145,60);
+ctx1.lineTo(145,96);
+ctx1.lineTo(49,96);
+ctx1.lineTo(49,220);
+ctx1.lineTo(-1,220);
+ctx1.lineTo(-1,96);
+ctx1.lineTo(-95,96);
+ctx1.lineTo(-95,60);
 ctx1.stroke();
 
 ctx2.beginPath();
 ctx2.strokeStyle = 'black'
 ctx2.lineWidth="2";
-ctx2.moveTo(-49,80);
-ctx2.lineTo(0,80);
-ctx2.lineTo(0,224);
-ctx2.lineTo(140,224);
-ctx2.moveTo(-49,80);
-ctx2.lineTo(-49,88);
-ctx2.moveTo(-28,80);
-ctx2.lineTo(-28,88);
-ctx2.moveTo(140,224);
-ctx2.lineTo(140,216);
-ctx2.moveTo(29,224);
-ctx2.lineTo(29,216);
+ctx2.moveTo(-49,60);
+ctx2.lineTo(0,60);
+ctx2.lineTo(0,204);
+ctx2.lineTo(140,204);
+ctx2.moveTo(-49,60);
+ctx2.lineTo(-49,68);
+ctx2.moveTo(-28,60);
+ctx2.lineTo(-28,68);
+ctx2.moveTo(140,204);
+ctx2.lineTo(140,196);
+ctx2.moveTo(29,204);
+ctx2.lineTo(29,196);
 ctx2.stroke()
 
 

@@ -135,10 +135,11 @@ dados.forEach((valores) => {
         aas = asmin
     }
     // Verificação de erros e saída de resultados
-    while (fck == 0 || fyk == 0 || es == 0 || gamac == 0 || gamas == 0 || gamaf == 0 || bduct == 0 || b == 0 || bf == 0 || hf == 0 || h == 0 || d == 0 || dl == 0 || amk == 0) {
+
+    while (fck == 0 || 2*dl>=b || 2*dl >=bf || fyk == 0 || es == 0 || gamac == 0 || gamas == 0 || gamaf == 0 || bduct == 0 || b == 0 || bf == 0 || hf == 0 || h == 0 || d == 0 || dl == 0 || amk == 0) {
         test = 2
         window.alert('[ERRO] Problema na inserção dos dados de entrada!')
-        break
+        return
     }    
     if (test == 1) {
         res.innerHTML = `<strong>${aviso}</strong>`
