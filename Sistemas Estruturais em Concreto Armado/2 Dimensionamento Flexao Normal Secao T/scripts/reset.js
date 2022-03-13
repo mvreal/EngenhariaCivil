@@ -32,6 +32,9 @@ d=d*ea
 x = x*ea
 dl = dl*ea
 
+criardiv2.innerText = (epc).toFixed(3);
+criardiv5.innerText = (eps).toFixed(3);
+
 
 ctx1.clearRect(-300, -300, 600, 600);
 ctx2.clearRect(-300, -300, 600, 600);
@@ -124,12 +127,12 @@ if(asl>0){
 ctx2.beginPath()
 ctx2.strokeStyle = 'black'
 ctx2.setLineDash([0, 0])
-ctx2.moveTo(-49,inicialy);
+ctx2.moveTo(-eu*14,inicialy);
 ctx2.lineTo(0,inicialy);
 ctx2.lineTo(0,inicialy+h-dl);
 ctx2.lineTo(140,inicialy+h-dl);
-ctx2.moveTo(-49,inicialy);
-ctx2.lineTo(-49,inicialy+8);
+ctx2.moveTo(-eu*14,inicialy);
+ctx2.lineTo(-eu*14,inicialy+8);
 ctx2.moveTo(-28,inicialy);
 ctx2.lineTo(-28,inicialy+8);
 ctx2.moveTo(140,inicialy+h-dl);
@@ -137,5 +140,28 @@ ctx2.lineTo(140,inicialy+h-dl-8);
 ctx2.moveTo(29,inicialy+h-dl);
 ctx2.lineTo(29,inicialy+h-dl-8);
 ctx2.stroke()
+
+//Linha da deformação do concreto e do aço para o desenho 2 
+ctx2.beginPath()
+ctx2.strokeStyle = 'blue'
+ctx2.setLineDash([5, 5])
+ctx2.moveTo(-epc*14,inicialy);
+ctx2.lineTo(eps*14,inicialy+h-dl);
+ctx2.stroke()
+
+//linha neutra no desenho 2
+ctx2.beginPath()
+ctx2.strokeStyle = '#808080'
+ctx2.setLineDash([5, 5])
+ctx2.moveTo(-175,inicialy+x)
+ctx2.lineTo(175,inicialy+x)
+ctx2.font="bold 12px Arial"
+ctx2.fillStyle = '#808080'
+ctx2.stroke()
+
+
+
+
+
 }
 

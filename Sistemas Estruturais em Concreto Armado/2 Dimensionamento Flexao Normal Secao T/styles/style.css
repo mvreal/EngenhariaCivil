@@ -208,8 +208,8 @@ background-color: rgba(170, 173, 196, 0.4);
     display: flex;
     width: 80px;
     height: 25px;
-    bottom:80px;
-    right: 20px;
+    top:150px;
+    left: 270px;
     border:1px solid black;
     font-size: 14px;
 }

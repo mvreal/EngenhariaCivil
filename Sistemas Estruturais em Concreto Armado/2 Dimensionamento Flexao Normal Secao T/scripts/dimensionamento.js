@@ -72,7 +72,7 @@ dados.forEach((valores) => {
         if (ami <= amif) {
             omega = 1 - Math.sqrt(1 - 2 * ami)
             qsi = (1 - Math.sqrt(1 - 2 * ami)) / alamb;
-            x = Math.min(qsi*d,qsilim*d)
+            x = Math.min(qsi*d,qsilim*d)            
         } else {
             ami0 = amif + (ami - amif) / betaw
             omega = betaf * (1 - betaw) + betaw * (1 - Math.sqrt(1 - 2 * ami0))
@@ -83,8 +83,8 @@ dados.forEach((valores) => {
     } else {
         // Armadura dupla
         x = qsilim*d
-        qsia = eu / (eu + 10)
-        if (qlim < qsia) {
+        qsi = eu / (eu + 10)
+        if (qlim < qsi) {
              // Evitando armadura dupla no domínio 2
             var test = 1
             var aviso = "Aumentar a seção transversal!"
@@ -109,10 +109,28 @@ dados.forEach((valores) => {
         if (esl < 0) {
             tsl = -tsl
         }
-        // Cálculo das taxas mecânicas de armadura
+     // Cálculo das taxas mecânicas de armadura
         omega1 = (ami - amilim) * fyd / ((1 - delta) * tsl)
         omega = rcclim + (ami - amilim) / (1 - delta)
     }
+    if (qsi*d > qsilim*d) {
+        dominio = "3";
+        ruptura = " A ruptura acontece no concreto";
+        eps = (eu * ((d-x)/x));
+        epc = eu;
+      }
+      else {
+        dominio = "2";
+        ruptura = "A ruptura acontece no aço";
+        eps = 10;
+        epc = (10 * x) / (d - x);
+      }
+      if(epc>eu){
+        dominio = "3";
+        epc = eu; 
+        ruptura = " A ruptura acontece no concreto";
+        eps = (eu * ((d-x)/x));
+      }
     // Cálculo das áreas de aço
     asl = omega1 * bf * d * tcd / fyd
     aas = omega * bf * d * tcd / fyd
@@ -134,6 +152,11 @@ dados.forEach((valores) => {
     if (aas < asmin) {
         aas = asmin
     }
+
+    
+
+
+
     // Verificação de erros e saída de resultados
 
     while (fck == 0 || 2*dl>=b || 2*dl >=bf || fyk == 0 || es == 0 || gamac == 0 || gamas == 0 || gamaf == 0 || bduct == 0 || b == 0 || bf == 0 || hf == 0 || h == 0 || d == 0 || dl == 0 || amk == 0) {

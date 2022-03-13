@@ -48,8 +48,6 @@ function segundodesenho() {
         ruptura = " A ruptura acontece no concreto";
         eps = (eu * ((d-xa)/xa));
       }
-          
-
     }
 
     if(fyk1==500){
