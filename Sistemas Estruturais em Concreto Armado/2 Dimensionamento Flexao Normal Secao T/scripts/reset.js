@@ -38,6 +38,7 @@ criardiv5.innerText = (eps).toFixed(3);
 
 ctx1.clearRect(-300, -300, 600, 600);
 ctx2.clearRect(-300, -300, 600, 600);
+ctx3.clearRect(-300, -300, 600, 600);
 
 //Valor inicial em y no desenho
 var inicialy = 60 
@@ -133,8 +134,8 @@ ctx2.lineTo(0,inicialy+h-dl);
 ctx2.lineTo(140,inicialy+h-dl);
 ctx2.moveTo(-eu*14,inicialy);
 ctx2.lineTo(-eu*14,inicialy+8);
-ctx2.moveTo(-28,inicialy);
-ctx2.lineTo(-28,inicialy+8);
+ctx2.moveTo(-eo*14,inicialy);
+ctx2.lineTo(-eo*14,inicialy+8);
 ctx2.moveTo(140,inicialy+h-dl);
 ctx2.lineTo(140,inicialy+h-dl-8);
 ctx2.moveTo(29,inicialy+h-dl);
@@ -159,9 +160,68 @@ ctx2.font="bold 12px Arial"
 ctx2.fillStyle = '#808080'
 ctx2.stroke()
 
+//Desenhando o valor do momento resultante na figura 3
+ctx3.beginPath();
+ctx3.fillStyle="black";
+ctx3.font="bold 14px Arial"
+ctx3.fillText("M",50,inicialy+h/2);
+ctx3.font="bold 12px Arial";
+ctx3.fillText("Rd",61,inicialy+5+h/2);
+ctx3.fillText((amd/100)+"kN.m",85,inicialy+3+h/2);
+ctx3.stroke();
 
+//Seção do desenho 3
 
+ctx3.beginPath()
+ctx3.strokeStyle = 'black'
+ctx3.lineWidth="2"
+ctx3.setLineDash([0, 0])
+ctx3.moveTo(-20,inicialy)
+ctx3.lineTo(-20,inicialy+hf)
+ctx3.lineTo(-80,inicialy+hf)
+ctx3.lineTo(-80,inicialy)
+ctx3.lineTo(-20,inicialy)
+ctx3.moveTo(-20,inicialy+hf)
+ctx3.lineTo(-20,inicialy+h)
+ctx3.lineTo(-80,inicialy+h)
+ctx3.lineTo(-80,inicialy+hf)
+ctx3.stroke()
 
+//forças de tração e compressão da armadura
+//Divide por 10 para transformar em kN
+resTracao = aas * fyd / 10
+resCompressaoAco = asl * fyd / 10 
+ctx3.fillStyle = '#000080'
+ctx3.strokeStyle = '#000080'
+if(asl>0){
+ctx3.beginPath()
+ctx3.fillRect(-20,inicialy+dl,-40, 5)
+ctx3.moveTo(40,inicialy+dl+2.5);
+ctx3.lineTo(-20,inicialy+dl+2.5);
+ctx3.lineTo(-15,inicialy+dl+7.5);
+ctx3.moveTo(-20,inicialy+dl+2.5);
+ctx3.lineTo(-15,inicialy+dl-2.5);
+ctx3.font="bold 12px Arial";
+
+ctx3.fillText(resCompressaoAco.toFixed(2) + " kN",45,inicialy+dl+1.5*ea);
+}
+ctx3.stroke()
+
+ctx3.beginPath()
+ctx3.lineWidth = "2";
+ctx3.strokeStyle = '#7F0000';
+ctx3.fillStyle = '#7F0000';
+ctx3.fillRect(-20,inicialy+h-dl,-40, 5);
+ctx3.moveTo(-20,inicialy+h-dl+2.5);
+ctx3.lineTo(40,inicialy+h-dl+2.5);
+ctx3.lineTo(35,inicialy+h-dl-2.5);
+ctx3.moveTo(40,inicialy+h-dl+2.5);
+ctx3.lineTo(35,inicialy+h-dl+7.5);
+ctx3.font="bold 12px Arial";
+ctx3.fillText(resTracao.toFixed(2) + " kN",45,inicialy+h-dl+1.5*ea);
+ctx3.stroke();
+
+console.log(h/ea)
 
 }
 

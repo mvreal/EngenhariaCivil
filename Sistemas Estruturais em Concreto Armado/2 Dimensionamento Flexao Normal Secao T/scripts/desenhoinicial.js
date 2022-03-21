@@ -40,4 +40,34 @@ ctx2.moveTo(29,204);
 ctx2.lineTo(29,196);
 ctx2.stroke()
 
+//RetÂngulo do desenho 3
+ctx3.beginPath();
+ctx3.setLineDash([]);
+ctx3.strokeStyle = 'black'
+ctx3.lineWidth="2";
+ctx3.moveTo(-80,60);
+ctx3.lineTo(-20,60);
+ctx3.lineTo(-20,220);
+ctx3.lineTo(-80,220);
+ctx3.lineTo(-80,60)
+ctx3.moveTo(-20,96);
+ctx3.lineTo(-80,96);
+ctx3.stroke()
+
+//Cabo do momento do desenho 3
+ctx3.beginPath();
+ctx3.arc(45,140,40,1.5*Math.PI,2.5*Math.PI);
+ctx3.stroke();
+    
+//Ponta do momento do desenho 3
+ctx3.beginPath();
+ctx3.setLineDash([]);
+ctx3.moveTo(45,88);
+ctx3.lineTo(45,110);
+ctx3.lineTo(25,99);
+ctx3.lineTo(45,88)
+ctx3.stroke();
+    
+
+
 

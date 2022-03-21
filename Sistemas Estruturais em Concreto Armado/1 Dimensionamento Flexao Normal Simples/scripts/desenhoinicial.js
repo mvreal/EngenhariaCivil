@@ -78,7 +78,8 @@ function desenhoinicial(){
     ctx3.lineTo(25,159);
     ctx3.lineTo(45,148)
     ctx3.stroke();
-    
     }
+
+
 
     desenhoinicial();

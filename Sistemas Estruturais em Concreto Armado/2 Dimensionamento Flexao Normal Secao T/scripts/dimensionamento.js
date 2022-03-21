@@ -19,13 +19,17 @@ dados.forEach((valores) => {
     eu = 3.5
     qlim = 0.8 * bduct - 0.35
     qsilim = 0.45
+    eo = 2
   } else {
     alamb = 0.8 - (fck - 50) / 400;
     alfac = 0.85 * (1 - (fck - 50) / 200)
     eu = 2.6 + 35 * ((90 - fck) / 100) ** 4
     qlim = 0.8 * bduct - 0.45
     qsilim = 0.35
+    eo = ((2 + 0.085 * ((fck - 50)**0.53)))
   }
+  console.log(eo)
+  
 
   //Conversão de unidades para KN e cm
     amk = 100 * amk;

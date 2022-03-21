@@ -16,12 +16,13 @@ function segundodesenho() {
   
     //Concreto do tipo 1
     if (fck <= 50) {
-      eu = 3.5/1000;
-      eo = 0.002;
+      eu = 3.5/1000
+      eo = 0.002
     } else {
-      eu = (2.6 + 35 * ((90 - fck) / 100) ** 4)/1000;
-      eo = (2 + 0.0085 * ((fck1 - 50)**0.53))/1000;
+      eu = (2.6 + 35 * ((90 - fck) / 100) ** 4)/1000
+      eo = ((2 + 0.085 * ((fck - 50)**0.53)))/1000
     }
+  
   
     //Verificar se a posição da linha neutra está acima do limite permitido pela NBR
     if (fck <= 50) {

@@ -10,7 +10,7 @@ function dimensionamento() {
 
   // Entrada de dados
   var fck = document.getElementById("fck");
-   fyk = document.getElementById("fyk");
+  fyk = document.getElementById("fyk");
   var es = document.getElementById("es");
   var gamac = document.getElementById("gamac");
   var gamas = document.getElementById("gamas");
@@ -23,16 +23,17 @@ function dimensionamento() {
   var amk = document.getElementById("amk");
   fck1 = Number(fck.value);
   fyk1 = Number(fyk.value);
-  var es1 = Number(es.value);
-  var gamac1 = Number(gamac.value);
-  var gamas1 = Number(gamas.value);
-  var gamaf1 = Number(gamaf.value);
-  var bduct1 = Number(bduct.value);
+  es1 = Number(es.value);
+  gamac1 = Number(gamac.value);
+  gamas1 = Number(gamas.value);
+  gamaf1 = Number(gamaf.value);
+  bduct1 = Number(bduct.value);
   b1 = Number(b.value);
   h1 = Number(h.value);
   d1 = Number(d.value);
-  var dl1 = Number(dl.value);
-  var amk1 = Number(amk.value);
+  dl1 = Number(dl.value);
+  amk1 = Number(amk.value);
+  
   // Parâmetros do diagrama retangular
   if (fck1 <= 50) {
     alamb = 0.8;
@@ -152,4 +153,5 @@ function dimensionamento() {
 
 
   segundodesenho();
+  passoapasso();
 }
