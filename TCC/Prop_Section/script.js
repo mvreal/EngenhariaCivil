@@ -189,7 +189,7 @@ function showImage(checkedFormTransversal){
         break
     }
 }      
-
+var resposta = []
 let btnCalc = document.getElementById('btnCalc')
 btnCalc.addEventListener('click',()=>{
 
@@ -222,24 +222,22 @@ btnCalc.addEventListener('click',()=>{
     })
 
     resetMassage(message)
-    
     switch(checkedFormTransversal) {
 
         case 'retangulo':
             var [b,h] = numberInputs
-            verificacaoVigaRet(resArea,resInerciaBaricentricaX,b,h)
+            resposta = verificacaoVigaRet(resArea,resInerciaBaricentricaX,b,h)
         break
 
         case 'triangulo':
             var [bf,hf,bw,h,bmis,hmis] = numberInputs
-            verificacaoVigaT(resArea,resInerciaBaricentricaX,bf,hf,bw,h,bmis,hmis,message)
-
+            resposta = verificacaoVigaT(resArea,resInerciaBaricentricaX,bf,hf,bw,h,bmis,hmis,message)
         break
 
         case 'i':
             var [bf,hf,bw,h,bi,hi,bmissup,hmissup,bmisinf,hmisinf] = numberInputs
-            verificacaoVigaI(resArea,resInerciaBaricentricaX,bf,hf,bw,h,bi,hi,bmissup,hmissup,bmisinf,hmisinf,message)
-        break
+            resposta = verificacaoVigaI(resArea,resInerciaBaricentricaX,bf,hf,bw,h,bi,hi,bmissup,hmissup,bmisinf,hmisinf,message)
+            break
 
         case 'ditto':
             
@@ -263,7 +261,15 @@ function verificacaoVigaRet(resArea,resInerciaBaricentricaX,b,h){
     if(h == ""){erro("A altura da viga (h) não foi definida");return}
 
     sucess(message)
-
+    return {
+        tipo:'Retângular',
+        area: area,
+        ixg: ixg,
+        dados:{
+            b: b,
+            h: h
+        }
+    }
 }
 
     
@@ -304,7 +310,19 @@ function verificacaoVigaT(resArea,resInerciaBaricentricaX,bf,hf,bw,h,bmis,hmis,m
     let ixg = ixgMesa + ixgAlma + ixgMisula + ixgMisula
 
     resInerciaBaricentricaX.innerText = decimalNotationToCientificNotation(ixg)
-
+    return {
+        tipo:'T',
+        area: area,
+        ixg: ixg,
+        dados:{
+            bf: bf,
+            hf: hf,
+            bw: bw,
+            h: h,
+            bmis: bmis,
+            hmis: hmis
+        }
+    }
 }
 
 function verificacaoVigaI(resArea,resInerciaBaricentricaX,bf,hf,bw,h,bi,hi,bmissup,hmissup,bmisinf,hmisinf,message){
@@ -374,7 +392,23 @@ function verificacaoVigaI(resArea,resInerciaBaricentricaX,bf,hf,bw,h,bi,hi,bmiss
     let ixg = (ixgMesaSuperior + ixgMesaInferior + ixgAlma + (2 * ixgMisulaSuperior) + (2 * ixgMisulainferior))
 
     resInerciaBaricentricaX.innerText = decimalNotationToCientificNotation(ixg)
-
+    return {
+        tipo:'I',
+        area: area,
+        ixg: ixg,
+        dados:{
+            bf: bf,
+            hf: hf,
+            bw: bw,
+            h: h,
+            bi: bi,
+            hi: hi,
+            bmissup: bmissup,
+            hmissup: hmissup,
+            bmisins: bmisinf,
+            hmisinf: hmisinf
+        }
+    }
 }
 
 
@@ -425,7 +459,7 @@ function decimalNotationToCientificNotation(number, intereger = 3, float = 2){
 
 let btnSave = document.getElementById('btnSave')
 btnSave.addEventListener('click',()=>{
-    
+    console.log(resposta)
     let titleSave = document.getElementById('titleSave')
     let message = document.querySelectorAll('.message')
     let tableSave = document.getElementById('tableSave')
@@ -436,8 +470,10 @@ btnSave.addEventListener('click',()=>{
         let createThead = document.createElement('thead')
         let createTr = document.createElement('tr')
         let createTh = [document.createElement('th'),document.createElement('th'),document.createElement('th'),document.createElement('th')]
+        var createTbody = document.createElement('tbody')
 
         tableSave.appendChild(createThead)
+        tableSave.appendChild(createTbody)
         createThead.appendChild(createTr)
         createTh.forEach((element)=>{
             createTr.appendChild(element)
@@ -445,12 +481,18 @@ btnSave.addEventListener('click',()=>{
 
         createTh[0].innerText = "Número"
         createTh[1].innerText = "Figura"
-        createTh[2].innerText = "Área"
-        createTh[3].innerText = "Ixg"
+        createTh[2].innerText = "Área (cm²)"
+        createTh[3].innerText = "Ixg (cm⁴)"
+        createTh[2].classList.add('mediumInput')
+        createTh[3].classList.add('mediumInput')
+
+
     }
 
     if(message[1].innerText == "Os parâmetros da seção foram calculados com sucesso"){
+
         let createTr = document.createElement('tr')
+        
         let createTd = [document.createElement('td'),document.createElement('td'),document.createElement('td'),document.createElement('td')]
 
         tableSave.appendChild(createTr)
