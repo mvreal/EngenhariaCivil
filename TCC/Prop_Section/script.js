@@ -99,10 +99,21 @@ function insertCell(){
 }
 
 function insertInputs(){
+    let resArea = document.getElementById('resArea')
+    let InerciaBaricentricaX = document.getElementById('InerciaBaricentricaX')
+    let message = document.querySelectorAll('.message')
     let allDataCell = document.querySelectorAll('#inputsObrigatorios>tbody>tr>td,#inputsOpcionais>tbody>tr>td')
+    
     for(let i = 0; i<allDataCell.length; i++){
         if((i+2) % 3 == 0){
             allDataCell[i].innerHTML = "<input type='number' min='0' class='numberInput'></input>"
+            allDataCell[i].addEventListener('change',()=>{
+                resArea.innerText = ''
+                InerciaBaricentricaX.innerText = ''
+            
+                message[0].innerHTML=''
+                message[1].innerHTML='Todos os alertas estarão aqui!'
+            })
         }
     }
     
@@ -181,7 +192,7 @@ function showImage(checkedFormTransversal){
         break
 
         case 'i':
-            ctnimg.innerHTML = "<img class='middleImg' src='./images/middle/i.svg'</img>"
+            ctnimg.innerHTML = "<img class='middleImg' src='./images/middle/i.png'</img>"
         break
 
         case 'ditto':
@@ -263,6 +274,7 @@ function verificacaoVigaRet(resArea,resInerciaBaricentricaX,b,h){
     sucess(message)
     return {
         tipo:'Retângular',
+        slug:"&#9608",
         area: area,
         ixg: ixg,
         dados:{
@@ -311,7 +323,8 @@ function verificacaoVigaT(resArea,resInerciaBaricentricaX,bf,hf,bw,h,bmis,hmis,m
 
     resInerciaBaricentricaX.innerText = decimalNotationToCientificNotation(ixg)
     return {
-        tipo:'T',
+        tipo:"T",
+        slug:"T",
         area: area,
         ixg: ixg,
         dados:{
@@ -394,6 +407,7 @@ function verificacaoVigaI(resArea,resInerciaBaricentricaX,bf,hf,bw,h,bi,hi,bmiss
     resInerciaBaricentricaX.innerText = decimalNotationToCientificNotation(ixg)
     return {
         tipo:'I',
+        slug:"&#9014",
         area: area,
         ixg: ixg,
         dados:{
@@ -421,7 +435,7 @@ document.addEventListener('keydown',function (e) {
     
 function sucess(){
     let message = document.querySelectorAll('.message')
-    message[0].innerHTML = "<img src=./images/icons/ok.svg>"
+    message[0].innerHTML = "<img src=./images/icons/ok.png>"
     message[1].innerHTML = "Os parâmetros da seção foram calculados com sucesso"
     return message[1].innerHTML
 }
@@ -431,7 +445,7 @@ function erro(resposta){
     let resArea = document.getElementById('resArea')
     let InerciaBaricentricaX = document.getElementById('InerciaBaricentricaX')
     
-    message[0].innerHTML = "<img src=./images/icons/danger.svg>" 
+    message[0].innerHTML = "<img src=./images/icons/danger.png>" 
     message[1].innerHTML = resposta
 
     resArea.innerHTML = ""
@@ -457,12 +471,38 @@ function decimalNotationToCientificNotation(number, intereger = 3, float = 2){
     return number.toFixed(2);
 }
 
+var resetResults = ()=>{
+    let resArea = document.getElementById('resArea')
+    let InerciaBaricentricaX = document.getElementById('InerciaBaricentricaX')
+    let message = document.querySelectorAll('.message')
+
+    resArea.innerText = ''
+    InerciaBaricentricaX.innerText = ''
+
+    message[0].innerHTML=''
+    message[1].innerHTML='Todos os alertas estarão aqui!'
+}
+
+
+var respostasSalvas = []
+var contadorDeRespostasSalvas = 0
+
 let btnSave = document.getElementById('btnSave')
 btnSave.addEventListener('click',()=>{
-    console.log(resposta)
+
+
+    try{
+        document.querySelector('input[name="inputSecaoTrasnversal"]:checked').value
+      }  
+        catch(e){
+            erro("A seção transversal não foi definida, clique em uma das imagens")
+            return
+        }
+
     let titleSave = document.getElementById('titleSave')
     let message = document.querySelectorAll('.message')
     let tableSave = document.getElementById('tableSave')
+    
 
 
     if((titleSave.innerText == '') && (message[1].innerText == "Os parâmetros da seção foram calculados com sucesso")){
@@ -474,6 +514,7 @@ btnSave.addEventListener('click',()=>{
 
         tableSave.appendChild(createThead)
         tableSave.appendChild(createTbody)
+        createTbody.classList.add('textAlignCenter')
         createThead.appendChild(createTr)
         createTh.forEach((element)=>{
             createTr.appendChild(element)
@@ -490,16 +531,38 @@ btnSave.addEventListener('click',()=>{
     }
 
     if(message[1].innerText == "Os parâmetros da seção foram calculados com sucesso"){
+    
 
         let createTr = document.createElement('tr')
-        
         let createTd = [document.createElement('td'),document.createElement('td'),document.createElement('td'),document.createElement('td')]
+        respostasSalvas.push(resposta)
+        let getTBody = document.querySelector('#tableSave>tbody')
+        
 
-        tableSave.appendChild(createTr)
-            createTd.forEach((element)=>{
+        getTBody.appendChild(createTr)
+        createTd.forEach((element)=>{
             createTr.appendChild(element)
         })
 
+        let getUpdateTr = document.querySelectorAll('#tableSave>tbody>tr')[contadorDeRespostasSalvas]
+        let getUpdateTd = getUpdateTr.querySelectorAll('td')
+
+        getUpdateTd[0].innerHTML = contadorDeRespostasSalvas+1
+        getUpdateTd[1].innerHTML = respostasSalvas[contadorDeRespostasSalvas].slug
+        getUpdateTd[2].innerHTML = decimalNotationToCientificNotation(respostasSalvas[contadorDeRespostasSalvas].area)
+        getUpdateTd[3].innerHTML = decimalNotationToCientificNotation(respostasSalvas[contadorDeRespostasSalvas].ixg)
+
+        if(respostasSalvas[contadorDeRespostasSalvas].slug == "T"){
+            getUpdateTd[1].classList.add('mediumText')
+        }
+        contadorDeRespostasSalvas++
+
+        
     }
 
+})
+
+document.getElementById('nextApp').addEventListener('click',()=>{
+     
+    console.log(respostasSalvas)
 })

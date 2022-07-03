@@ -20,8 +20,8 @@ input{
 }
 
 hr{
-    border: 1px solid rgb(94, 148, 193);
-    box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.6);
+    border: 1px solid black;
+    
 }
 
 .mediumInput{
@@ -43,21 +43,17 @@ hr{
     max-height: 94px;
     overflow: auto;
     position: relative;
-    border-collapse: separate;
 }
 
 #tableSave>thead>tr>th{
-   position:sticky;
-   top: 0;
-   background-color: rgb(94, 148, 193);
-   border: 1px solid black;
-   box-shadow: inset 0 .5px 0 rgb(94, 148, 193), inset 0 -0.5px 0 rgb(94, 148, 193);
-   
-   
-   
+    position:sticky;
+    top: -1px;
+    color:black;
+    border: .1px solid black
 }
 
-#tableSave>tbody{
+#tableSave thead th{
+    background: linear-gradient(to top,black, black 1px, rgb(94, 148, 193) 1px, rgb(94, 148, 193) 100%);
     
 }
 
@@ -117,7 +113,7 @@ table{
 }
 
 #optionalTitle{
-    color:rgb(11, 118, 148)
+    color:black
 }
 
 #mainctn{
@@ -125,6 +121,7 @@ table{
     height: 700px;
     border: 1px solid black;
     position: relative;
+    background-image: url(./images/bg/div/1.jpg);
 }
 
 #tableLongitudinal{
@@ -210,6 +207,10 @@ td{
     border-right: 1px black solid;
   }
 
+  .textAlignCenter{
+    text-align: center;
+  }
+
   #MessageText{
     width: 250px;
     padding-left: 3px;
@@ -229,6 +230,9 @@ td{
     text-align: left;
   }
 
+  .mediumText{
+    font-size: 15px;
+  }
 
   #ctnFinal{
       position: absolute;
@@ -266,3 +270,8 @@ button:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
     background-color: rgb(3,152,158);
   }
+
+#nextApp{
+    margin-top: 10px;
+    color: white;
+}

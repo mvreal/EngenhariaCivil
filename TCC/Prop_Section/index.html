@@ -15,19 +15,19 @@
                 <form id="formTransversal">
                     <label>
                         <input type="radio" class="sectionInput" id="secRetangulo" name="inputSecaoTrasnversal" value="retangulo">
-                        <img class='inicialImg' src="./images/initial/rec.png">
+                        <img class='inicialImg' src="./images/initial/rec.svg">
                     </label>
                     <label>
                         <input type="radio" class="sectionInput" id="secTriangulo" name="inputSecaoTrasnversal"  value="triangulo">
-                        <img class='inicialImg' src="./images/initial/tri.png">
+                        <img class='inicialImg' src="./images/initial/tri.svg">
                     </label>
                     <label>
                         <input type="radio" class="sectionInput" id="secDitto" name="inputSecaoTrasnversal"  value="i">
-                        <img class='inicialImg' src="./images/initial/i.png">
+                        <img class='inicialImg' src="./images/initial/i.svg">
                     </label>
                     <label>
                         <input type="radio" class="sectionInput" id="secDitto" name="inputSecaoTrasnversal"  value="ditto">
-                        <img class='inicialImg' src="./images/initial/ditto.png">
+                        <img class='inicialImg' src="./images/initial/ditto.svg">
                     </label>
                 </form>
             </div>
@@ -56,54 +56,57 @@
                 <img width="300px"></img>
             </div>
         </div>  
-        <div id="ctn3" class="absolute">
-            <hr id="separator2">
-            <div id="results">
-                <div>
-                    <h3>Resultados</h3>
+        <div>
+            <div id="ctn3" class="absolute">
+                <hr id="separator2">
+                <div id="results">
                     <div>
+                        <h3>Resultados</h3>
                         <div>
-                            <table id="tableResults1" class="tableResults">
+                            <div>
+                                <table id="tableResults1" class="tableResults">
+                                        <tr class="resultsline">
+                                            <td class="resultsTitle">A</td>
+                                            <td class="resNumber" id="resArea"></td>
+                                            <td>cm²</td>
+                                        </tr>
+                                </table>
+                            </div>
+                            <div>
+                                <table class="tableResults">
                                     <tr class="resultsline">
-                                        <td class="resultsTitle">A</td>
-                                        <td class="resNumber" id="resArea"></td>
-                                        <td>cm²</td>
+                                        <td class="resultsTitle">Ixg</td>
+                                        <td class="resNumber" id="InerciaBaricentricaX"></td>
+                                        <td>cm⁴</td>
                                     </tr>
-                            </table>
-                        </div>
-                        <div>
-                            <table class="tableResults">
-                                <tr class="resultsline">
-                                    <td class="resultsTitle">Ixg</td>
-                                    <td class="resNumber" id="InerciaBaricentricaX"></td>
-                                    <td>cm⁴</td>
-                                </tr>
-                            </table>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div id="saveParams">
+                    <div id="ctnTitleSave">
+                        <h3 id="titleSave"></h3>
+                    </div>
+                    <div id="ctnSaveTable">
+                        <table id="tableSave"></table>
+                    </div>
+                </div>  
             </div>
-            <div id="saveParams">
-                <div id="ctnTitleSave">
-                    <h3 id="titleSave"></h3>
-                </div>
-                <div id="ctnSaveTable">
-                    <table id="tableSave"></table>
-                </div>
-            </div>  
         </div>
     
         <div id="message">
-            <div id="MessageIcon" class="message"></div>
-            <div id="MessageText" class="bold message">Todos os alertas estarão aqui!</div>
-
+            <div id="MessageIcon" class="message">
+            </div>
+            <div id="MessageText" class="bold message">Todos os alertas estarão aqui!
+            </div>
         </div>
         <div id="ctnFinal">
             <button id="btnCalc" class="btnFinal">Calcular</button>
             <button id="btnSave" class="btnFinal">Salvar</button>
         </div>
     </div>
-    
+    <button id="nextApp">Abrir próxima Aplicação</button>
     <script src="./script.js"></script>
 </body>
 </html>
