@@ -603,10 +603,54 @@ function sucesso(){
     getMessage[1].innerHTML = "Os dados de entrada foram inseridos com sucesso!"
 }
 
+
+
+
+
+
+
+
+
+
+let i = 0;
+let resultados = [];
 let btnSave =document.querySelector('#btnSave')
     btnSave.addEventListener('click',()=>{
     let tabelaResultados = document.querySelector('#tabelaResultados')
+    let inputs = document.querySelectorAll('.inputCalc')
+    let selectSelecionado = document.getElementById('selectCargas')
+
+    let valorSelecionado = selectSelecionado.options[selectSelecionado.selectedIndex].value;
+
+    let arrInputs = [["Figura",valorSelecionado]];
+    inputs.forEach((element)=>{
+        arrInputs.push([
+            element.name,
+            element.value
+        ])
+    })
     let novaLinha = tabelaResultados.insertRow()
     let novaCelula = novaLinha.insertCell()
-        console.log(combinacoes)
+ 
+    resultados.push(arrInputs)
+
+    if(i == 0){
+        document.getElementById('tituloTabelaResultados').innerText = "Resultados Salvos"
+    }
+
+
+    novaCelula.innerHTML = "Id: " + i + "; "
+    + resultados[i][0][0]+": " + resultados[i][0][1] +"; "
+    + resultados[i][1][0]+": " + resultados[i][1][1] + " m;  "
+    + resultados[i][2][0]+": " + resultados[i][2][1] + " kN/m;  "
+    + resultados[i][3][0]+": " + resultados[i][3][1] + " kN/m;  "
+    + resultados[i][4][0]+": " + resultados[i][4][1] + " kN/m;  "
+    + resultados[i][5][0]+": " + resultados[i][5][1] + ";  "
+    + resultados[i][6][0]+": " + resultados[i][6][1] + ";  "
+    + resultados[i][7][0]+": " + resultados[i][7][1] + ";  "
+    + resultados[i][8][0]+": " + resultados[i][8][1] + ";  "
+    + resultados[i][9][0]+": " + resultados[i][9][1] + ";  "
+    
+    i++
+    console.log(resultados)
 })

@@ -46,6 +46,15 @@ body{
     
 }
 
+#ctn3{
+    width: 600px;
+    text-align: center;
+}
+
+#tabelaResultados{
+    text-align: center;
+}
+
 #tableCoeficientesServico{
     margin: auto 0;
 }
