@@ -610,8 +610,7 @@ function sucesso(){
 
 
 
-
-
+//Código para salvar os dados e apresentar na seção "Dados Salvos"
 let i = 0;
 let resultados = [];
 let btnSave =document.querySelector('#btnSave')
@@ -619,7 +618,6 @@ let btnSave =document.querySelector('#btnSave')
     let tabelaResultados = document.querySelector('#tabelaResultados')
     let inputs = document.querySelectorAll('.inputCalc')
     let selectSelecionado = document.getElementById('selectCargas')
-
     let valorSelecionado = selectSelecionado.options[selectSelecionado.selectedIndex].value;
 
     let arrInputs = [["Figura",valorSelecionado]];
@@ -635,9 +633,10 @@ let btnSave =document.querySelector('#btnSave')
     resultados.push(arrInputs)
 
     if(i == 0){
-        document.getElementById('tituloTabelaResultados').innerText = "Resultados Salvos"
+        let titulotabelaResultados = document.getElementById('tituloTabelaResultados')
+        titulotabelaResultados.innerText = "Informações Salvas"
+        tabelaResultados.classList.add('tabelaEstilizada')
     }
-
 
     novaCelula.innerHTML = "Id: " + i + "; "
     + resultados[i][0][0]+": " + resultados[i][0][1] +"; "
@@ -654,3 +653,15 @@ let btnSave =document.querySelector('#btnSave')
     i++
     console.log(resultados)
 })
+
+
+//Funcionalidade para apagar os desenhos sempre que há uma mudança nos inputs
+let pegarInputs = document.querySelectorAll('input[type=number]')
+
+pegarInputs.forEach((element)=>{
+    element.addEventListener('change',()=>{
+        console.log('mudou')
+        document.querySelector('#ctn2').style.display = 'none'
+    })
+})
+
