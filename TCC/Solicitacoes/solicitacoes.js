@@ -55,7 +55,7 @@ let ctnDuvida = document.querySelector('#textoDuvida')
 let ctnMensagemDuvida = document.querySelector('#ctnMensagemDuvida')
 
 ctnIconDuvida.forEach((element,index)=>{
-    element.addEventListener('mouseover',(event)=>{
+    element.addEventListener('click',(event)=>{
         if(index == 0){ctnDuvida.innerHTML = "O vão compreende a distância entre o centro do apoio esquerdo até o centro do apoio direito"}
         if(index == 1){ctnDuvida.innerHTML = "'g<sub>1</sub>' corresponde ao peso próprio da viga, calculada com base na área definida na Tela: Propriedades Geométricas da Seção, para selecionar um valor é necessário escolher uma das figuras salvas"}
         if(index == 2){ctnDuvida.innerHTML = "'g<sub>2</sub>' corresponde ao somatório dos demais pesos próprios que não sejam da viga"}
@@ -70,14 +70,14 @@ ctnIconDuvida.forEach((element,index)=>{
         ctnMensagemDuvida.style.left = (event.screenX-10) + 'px'
         ctnMensagemDuvida.style.border = '1px solid black'
         
-        element.addEventListener('mouseout',()=>{
-            setTimeout(()=>{
-                ctnDuvida.innerHTML = ""
-                ctnMensagemDuvida.style.border = 'none'
-            },500)
-        })
+        setTimeout(() => {
+            ctnDuvida.innerHTML = ""
+        ctnMensagemDuvida.style.border = 'none'
+        }, 8000);
+       
     })
 })
+
 
 getSelect = document.getElementById('selectCargas')
 var primeiroCarregamentoCompleto = []
@@ -606,15 +606,14 @@ function sucesso(){
 
 
 
-
-
-
-
 //Código para salvar os dados e apresentar na seção "Dados Salvos"
 let i = 0;
 let resultados = [];
 let btnSave =document.querySelector('#btnSave')
     btnSave.addEventListener('click',()=>{
+    
+    if(document.querySelector('#ctn2').style.display == 'none'){erro("É necessário calcular as combinações antes de salvar"); return}
+
     let tabelaResultados = document.querySelector('#tabelaResultados')
     let inputs = document.querySelectorAll('.inputCalc')
     let selectSelecionado = document.getElementById('selectCargas')
