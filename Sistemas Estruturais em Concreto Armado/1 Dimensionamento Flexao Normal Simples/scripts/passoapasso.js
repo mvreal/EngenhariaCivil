@@ -1,3 +1,5 @@
+document.addEventListener('DOMContentLoaded',esconderhr)
+
 function passoapasso(){
 
     //Passo 1
@@ -101,32 +103,107 @@ function passoapasso(){
     p3res = document.getElementById('p3res')
     if(ami <= amilim){
         p3res.innerHTML = "Como: &#181<sub>lim</sub> >= &#181, deve-se utilizar armadura simples"
+        armaduraSimples();
     }else{
         p3res.innerHTML = "Como: &#181 >= &#181<sub>lim</sub>, deve-se utilizar armadura dupla"
+        armaduraDupla();
     }
+
+}
 
     //Passo 4 
-    buttonP4 = document.getElementById('buttonP4')
-    if(ami <= amilim){
+    function armaduraSimples(){
+        let buttonP4 = document.getElementById('buttonP4')
         buttonP4.innerText="Passo 4: Determinar a área mínima da armadura tracionada"
-    }else{
-        buttonP4.innerText="Passo 4: Determinar as áreas mínimas das armaduras"
+
+        let info4_1 = document.getElementById('info4_1')
+        info4_1.innerHTML = '&#958'
+    
+        let info4_1_3_1parcial = '(1 - 2 x &#181)'
+        
+        let info4_1_3_1 = document.getElementById('info4_1_3_1')
+        let info4_1_3_2 = document.getElementById('info4_1_3_2')
+        info4_1_3_1.innerHTML = '1 - &#8730' + info4_1_3_1parcial
+        info4_1_3_2.innerHTML = '&#955'
+    
+        let info4_2 = document.getElementById('info4_2')
+        info4_2.innerHTML = '&#958'
+    
+        let info4_2_1 = document.getElementById('info4_2_1')
+        info4_2_1.innerHTML = qsi.toFixed(2).toString().replace(".", ",")
+
+        let info4_3 = document.getElementById('info4_3')
+        info4_3.innerHTML = 'A <sub>s</sub>'
+
+        let info4_3_1 = document.getElementById('info4_3_1')
+        info4_3_1.innerHTML = '&#955 x &#958 x b x d'
+
+        // let info4_3_1_1 = document.getElementById('info4_3_1_1')
+        // console.log(info4_3_1_1)
+        // info4_3_1_1.innerHTML = '&#963<sub>cd</sub>'
     }
 
-    info4_1 = document.getElementById('info4_1')
-    info4_1.innerHTML = '&#958'
 
-    info4_1_3_1parcial = '(1 - 2 x &#181)'
+
+
+
+
+
+
+
+
+
+    // //Passo 4 
+    // function armaduraSimples(){
+    //     buttonP4 = document.getElementById('buttonP4')
+    //     if(ami <= amilim){
+    //         buttonP4.innerText="Passo 4: Determinar a área mínima da armadura tracionada"
+    //     }else{
+    //         buttonP4.innerText="Passo 4: Determinar as áreas mínimas das armaduras"
+    //     }
     
-    info4_1_3_1 = document.getElementById('info4_1_3_1')
-    info4_1_3_2 = document.getElementById('info4_1_3_2')
-    info4_1_3_1.innerHTML = '1 - &#8730' + info4_1_3_1parcial
-    info4_1_3_2.innerHTML = '&#955'
-
-    info4_2 = document.getElementById('info4_2')
-    info4_2.innerHTML = '&#958'
-
-    info4_2_1 = document.getElementById('info4_2_1')
-    info4_2_1.innerHTML = qsi.toFixed(2).toString().replace(".", ",")
+    //     info4_1 = document.getElementById('info4_1')
+    //     info4_1.innerHTML = '&#958'
     
+    //     info4_1_3_1parcial = '(1 - 2 x &#181)'
+        
+    //     info4_1_3_1 = document.getElementById('info4_1_3_1')
+    //     info4_1_3_2 = document.getElementById('info4_1_3_2')
+    //     info4_1_3_1.innerHTML = '1 - &#8730' + info4_1_3_1parcial
+    //     info4_1_3_2.innerHTML = '&#955'
+    
+    //     info4_2 = document.getElementById('info4_2')
+    //     info4_2.innerHTML = '&#958'
+    
+    //     info4_2_1 = document.getElementById('info4_2_1')
+    //     info4_2_1.innerHTML = qsi.toFixed(2).toString().replace(".", ",")
+    // }
+
+
+
+
+
+
+
+
+
+
+function esconderhr(){
+
+    let all_tag_hr = document.querySelectorAll('hr')
+    let hr_aparecer = document.querySelectorAll('.hr-aparecer')
+
+    all_tag_hr.forEach((element)=>{
+        element.style.display = 'none'
+    })
+    hr_aparecer.forEach((element)=>{
+        element.style.display = 'block'
+    })
+}
+
+function mostrarhr(){
+    let all_tag_hr = document.querySelectorAll('hr')
+    all_tag_hr.forEach((element)=>{
+        element.style.display = 'block'
+    })
 }
