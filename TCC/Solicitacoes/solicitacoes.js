@@ -575,7 +575,7 @@ function verificarInputs(){
 
     getInputs.forEach((element)=>{
         if(Number(element.value) == 0){
-            getMessage[0].innerHTML = "<img src=./images/icons/danger.png>" 
+            getMessage[0].innerHTML = "<img src=./images/icons/danger.svg>" 
             getMessage[1].innerHTML = element.name + ' não foi inserido'
             deuErro = true
         }    
@@ -592,14 +592,14 @@ function verificarInputs(){
 
 function erro(mensagemDeTexto){
     let getMessage = document.querySelectorAll('.message')
-    getMessage[0].innerHTML = "<img src=./images/icons/danger.png>" 
+    getMessage[0].innerHTML = "<img src=./images/icons/danger.svg>" 
     getMessage[1].innerHTML = mensagemDeTexto
 }
 
 function sucesso(){
     
     let getMessage = document.querySelectorAll('.message')
-    getMessage[0].innerHTML = "<img src=./images/icons/ok.png>"
+    getMessage[0].innerHTML = "<img src=./images/icons/ok.svg>"
     getMessage[1].innerHTML = "Os dados de entrada foram inseridos com sucesso!"
 }
 

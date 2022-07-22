@@ -138,9 +138,11 @@ function passoapasso(){
         let info4_3_1 = document.getElementById('info4_3_1')
         info4_3_1.innerHTML = '&#955 x &#958 x b x d'
 
-        // let info4_3_1_1 = document.getElementById('info4_3_1_1')
-        // console.log(info4_3_1_1)
-        // info4_3_1_1.innerHTML = '&#963<sub>cd</sub>'
+        console.log(document.getElementById('info4_3_1_1'))
+         
+         
+         
+         //info4_3_1_1.innerHTML = '&#963<sub>cd</sub>'
     }
 
 

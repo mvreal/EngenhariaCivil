@@ -25,6 +25,8 @@ body{
     height: 750px;
     border: 1px solid black;
     position: relative;
+    /**Será adicionada uma margem que depois deve ser removida, é apenas para que se consiga tirar print da tela**/
+    margin: 5px;
 }
 
 .textCenter{

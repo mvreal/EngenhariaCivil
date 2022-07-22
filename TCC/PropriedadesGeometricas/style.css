@@ -121,7 +121,10 @@ table{
     height: 700px;
     border: 1px solid black;
     position: relative;
-    background-image: url(./images/bg/div/1.jpg);
+    /**Lembrar de tirar essa margem depois, é apenas para o print do TCC**/
+    margin-top: 5px;
+    margin-left: 5px;
+    /**background-image: url(./images/bg/div/1.jpg);**/
 }
 
 #tableLongitudinal{
