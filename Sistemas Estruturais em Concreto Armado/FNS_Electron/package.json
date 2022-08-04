@@ -1,0 +1,11 @@
+{
+  "name": "fns_electron",
+  "version": "1.0.0",
+  "description": "Software desketop para cálculo de vigas sujeitas a flexão normal simples, será dimensionada a arumadura longitudinal, e os gráficos referente ao domínio de deformação ",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bruno Santos",
+  "license": "ISC"
+}
