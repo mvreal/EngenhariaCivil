@@ -4,8 +4,11 @@
   "description": "Software desketop para cálculo de vigas sujeitas a flexão normal simples, será dimensionada a arumadura longitudinal, e os gráficos referente ao domínio de deformação ",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron ."
   },
   "author": "Bruno Santos",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^20.0.1"
+  }
 }
