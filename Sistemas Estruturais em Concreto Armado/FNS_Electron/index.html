@@ -2,15 +2,60 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Página de teste</title>
+    <title>FNS - FURG</title>
     <link rel="stylesheet" href="./src/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/style.css">
 </head>
 
-<body>
+<body >
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-auto">
+            <div class="col">
+                <h6 class="text-center"> Propriedades da Seção</h6>
+                <div class="col">
+                    
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <img id="img-viga-retangular" src="./src/images/vigaretangular.png">
+                        </div>
+                        <div class="col">
+                            <table class="table table-dark">
+                                <thead>
+                                </thead>
+                                <tbody class="text-center">
+                                    <tr>
+                                        <td class="col-md-auto">b</td>
+                                        <td class="col-md-auto"><input type="number" value="15" class="form-select-sm form-control"></td>
+                                        <td class="col-md-auto">cm</td>
+                                        <td class="col-md-auto"><button type="button" class="btn btn-outline-warning">?</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-auto">h</td>
+                                        <td class="col-md-auto"><input type="number" value="40" class="form-select-sm form-control"></td>
+                                        <td class="col-md-auto">cm</td>
+                                        <td class="col-md-auto"><button type="button" class="btn btn-outline-warning">?</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-auto">d</td>
+                                        <td class="col-md-auto"><input type="number" value="36" class="form-select-sm form-control"></td>
+                                        <td class="col-md-auto">cm</td>
+                                        <td class="col-md-auto"><button type="button" class="btn btn-outline-warning">?</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col">
+                <h6 class="text-center"> Propriedades dos Materiais</h6>
                 <table class="table table-dark">
                     <thead>
                     </thead>
@@ -34,7 +79,8 @@
                                 </select>
                             </td>
                             <td class="col-md-auto">MPa</td>
-                            <td class="col-md-auto"><button type="button" class="btn btn-outline-warning">?</button></td>
+                            <td class="col-md-auto"><button type="button" class="btn btn-outline-warning">?</button>
+                            </td>
                         </tr>
                         <tr>
                             <td class="col-md-auto">f<sub>yk</sub></td>
@@ -43,13 +89,46 @@
                                     <option value="2">600 (CA-60)</option>
                                 </select></td>
                             <td class="col-md-auto">MPa</td>
-                            <td class="col-md-auto"><button type="button" class="btn btn-outline-warning">?</button></td>
+                            <td class="col-md-auto"><button type="button" class="btn btn-outline-warning">?</button>
+                            </td>
                         </tr>
                         <tr>
                             <td class="col-md-auto">E</td>
-                            <td class="col-md-auto"><input type="number" value="200" class="form-select-sm form-control"></td>
-                            <td class="col-md-auto">MPa</td>
-                            <td class="col-md-auto"><button type="button" class="btn btn-outline-warning">?</button></td>
+                            <td class="col-md-auto"><input type="number" value="200"
+                                    class="form-select-sm form-control"></td>
+                            <td class="col-md-auto">GPa</td>
+                            <td class="col-md-auto"><button type="button" class="btn btn-outline-warning">?</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col">
+                <h6 class="text-center"> Coeficientes Parciais de Segurança</h6>
+                <table class="table table-dark">
+                    <thead>
+                    </thead>
+                    <tbody class="text-center">
+                        <tr>
+                            <td class="col-md-auto">&#936<sub>c</sub></td>
+                            <td class="col-md-auto"><input type="number" value="1.4" class="form-select-sm form-control"></td>
+                            <td class="col-md-auto">--</td>
+                            <td class="col-md-auto"><button type="button" class="btn btn-outline-warning">?</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-auto">&#936<sub>s</sub></td>
+                            <td class="col-md-auto"><input type="number" value="1.15" class="form-select-sm form-control"></td>
+                            <td class="col-md-auto">--</td>
+                            <td class="col-md-auto"><button type="button" class="btn btn-outline-warning">?</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-auto">&#936<sub>f</sub></td>
+                            <td class="col-md-auto"><input type="number" value="1.4" class="form-select-sm form-control"></td>
+                            <td class="col-md-auto">--</td>
+                            <td class="col-md-auto"><button type="button" class="btn btn-outline-warning">?</button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
