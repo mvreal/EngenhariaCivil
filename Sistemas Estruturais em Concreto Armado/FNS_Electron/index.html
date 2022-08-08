@@ -1,67 +1,70 @@
 <!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>FNS - FURG</title>
-    <link rel="stylesheet" href="./src/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="/style.css">
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <link href="../../../Bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="./app.css" rel="stylesheet">
 </head>
 
-<body class="bg-dark">
+<body class="bg-dark mx-5">
 
-    <div class="container-fluid">
+    <div class="container-fluid mt-1">
         <div class="row text-nowrap">
-            <div class="col col-12 .col-sm-12 .col-md-12 col-lg-6 col-xxl-6">
-                <h6 class=" text-light text-center"> Propriedades da Seção</h6>
-                <hr class="border border-light">
-                <div class="col">
-                    
-                </div>
-                <div class="col">
-                    <div class="row">
-                        <div class="col text-center">
-                            <img id="img-viga-retangular" src="./src/images/vigaretangular.svg">
-                        </div>
-                        <div class="col">
-                            <table class="table table-dark">
+            <div class="col col-12 col-sm-6 .col-md-7 col-lg-5 col-xxl-3">
+                <h6 class=" text-center text-light"> Propriedades da Seção</h6>
+                <hr class="border border-light my-1">
 
-                                <tbody class="text-center">
-                                    <tr>
-                                        <td class="col-md-auto">b</td>
-                                        <td class="col-md-auto"><input type="number" value="15" class="form-select-sm form-control"></td>
-                                        <td class="col-md-auto">cm</td>
-                                        <td class="col-md-auto"><button type="button" class="btn btn-outline-warning">?</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-md-auto">h</td>
-                                        <td class="col-md-auto"><input type="number" value="40" class="form-select-sm form-control"></td>
-                                        <td class="col-md-auto">cm</td>
-                                        <td class="col-md-auto"><button type="button" class="btn btn-outline-warning">?</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-md-auto">d</td>
-                                        <td class="col-md-auto"><input type="number" value="36" class="form-select-sm form-control"></td>
-                                        <td class="col-md-auto">cm</td>
-                                        <td class="col-md-auto"><button type="button" class="btn btn-outline-warning">?</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                <div class="row">
+                    <div class="col-3">
+                        <img src="./src/images/vigaretangular.svg">
+                    </div>
+                    <div class="col-9">
+                        <table class="table table-dark table-sm align-middle">
+                            <tbody class="text-center">
+                                <tr>
+                                    <td class="col-3">h</td>
+                                    <td class="col-5"><input type="number" value="40"
+                                            class=" form-control form-control-sm text-center "></td>
+                                    <td class="col-2">cm</td>
+                                    <td class="col-2"><button type="button" class="btn btn-outline-warning btn-sm"
+                                        data-bs-container="body" data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="left"
+                                        data-bs-content="Altura da viga retangular">?</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>b</td>
+                                    <td><input type="number" value="15" class="form-control form-control-sm text-center"></td>
+                                    <td>cm</td>
+                                    <td><button type="button" class="btn btn-outline-warning btn-sm"
+                                        data-bs-container="body" data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="left"
+                                        data-bs-content="Largura da viga retangular">?</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>d</td>
+                                    <td><input type="number" value="36" class=" form-control form-control-sm text-center "></td>
+                                    <td>cm</td>
+                                    <td><button type="button" class="btn btn-outline-warning btn-sm"
+                                        data-bs-container="body" data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="left"
+                                        data-bs-content="Altura efetiva da viga retangular, calculada através da altura total (h) menos o cobrimento e menos metade da seção trasnversal da armadura (h = d + d')">?</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-                
+
             </div>
-            <div class="col col-12 .col-sm-6 .col-md-6 col-lg-3 col-xxl-3">
-                <h6 class="text-light text-center"> Propriedades dos Materiais</h6>
-                <hr class="border border-light">
-                <table class="table table-dark">
+            <div class="col col-12 col-sm-6 .col-md-5 col-lg-4 col-xxl-3">
+                <h6 class="text-center text-light"> Propriedades dos Materiais</h6>
+                <hr class="border border-light my-1">
+                <table class="table table-dark table-sm align-middle">
                     <tbody class="text-center">
                         <tr>
-                            <td class="col-md-auto">f<sub>ck</sub></td>
-                            <td class="col-md-auto"><select class="form-select-sm form-select">
+                            <td class="col-3">f<sub>ck</sub></td>
+                            <td class="col-5"><select class=" form-select form-select-sm text-center">
                                     <option selected value="1">20</option>
                                     <option value="2">25</option>
                                     <option value="3">30</option>
@@ -77,55 +80,92 @@
                                     <option value="13">90</option>
                                 </select>
                             </td>
-                            <td class="col-md-auto">MPa</td>
-                            <td class="col-md-auto"><button type="button" class="btn btn-outline-warning">?</button>
+                            <td class="col-2">MPa</td>
+                            <td class="col-2"><button type="button" class="btn btn-outline-warning btn-sm"
+                                data-bs-container="body" data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="left"
+                                data-bs-content="Resistência característica a compressão do concreto">?</button>
                             </td>
                         </tr>
                         <tr>
-                            <td class="col-md-auto">f<sub>yk</sub></td>
-                            <td class="col-md-auto"><select class="form-select-sm form-select">
+                            <td>f<sub>yk</sub></td>
+                            <td class=""><select class=" form-select form-select-sm text-center">
                                     <option selected value="1">500 (CA-50)</option>
                                     <option value="2">600 (CA-60)</option>
                                 </select></td>
-                            <td class="col-md-auto">MPa</td>
-                            <td class="col-md-auto"><button type="button" class="btn btn-outline-warning">?</button>
+                            <td>MPa</td>
+                            <td><button type="button" class="btn btn-outline-warning btn-sm"
+                                data-bs-container="body" data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="left"
+                                data-bs-content="Tensão de escoamento característica do aço">?</button>
                             </td>
                         </tr>
                         <tr>
-                            <td class="col-md-auto">E</td>
-                            <td class="col-md-auto"><input type="number" value="200"
-                                    class="form-select-sm form-control"></td>
-                            <td class="col-md-auto">GPa</td>
-                            <td class="col-md-auto"><button type="button" class="btn btn-outline-warning">?</button>
+                            <td>E</td>
+                            <td class=""><input type="number" value="200" class=" form-control form-control-sm text-center "></td>
+                            <td>GPa</td>
+                            <td><button type="button" class="btn btn-outline-warning btn-sm"
+                                data-bs-container="body" data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="left"
+                                data-bs-content="Modulo de Elasticidade do aço">?</button>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <div class="col col-12 .col-sm-6 .col-md-6 col-lg-3 col-xxl-3">
-                <h6 class="text-light text-center"> Coeficientes Parciais de Segurança</h6>
-                <hr class="border border-light">
-                <table class="table table-dark">
+            <div class="col col-12 col-sm-6 .col-md-6 col-lg-3 col-xxl-3">
+                <h6 class="text-center text-light"> Coeficientes Parciais de Segurança</h6>
+                <hr class="border border-light my-1">
+                <table class="table table-dark table-sm align-middle">
                     <tbody class="text-center">
                         <tr>
-                            <td class="col-md-auto">&#936<sub>c</sub></td>
-                            <td class="col-md-auto"><input type="number" value="1.4" class="form-select-sm form-control"></td>
-                            <td class="col-md-auto">--</td>
-                            <td class="col-md-auto"><button type="button" class="btn btn-outline-warning">?</button>
+                            <td class="col-3">&#936<sub>c</sub></td>
+                            <td class="col-5"><input type="number" value="1.4" class=" form-control form-control-sm text-center "></td>
+                            <td class="col-2">--</td>
+                            <td class="col-2"><button type="button" class="btn btn-outline-warning btn-sm"
+                                data-bs-container="body" data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="left"
+                                data-bs-content="Coeficiente parcial de segurança para o concreto">?</button>
                             </td>
                         </tr>
                         <tr>
-                            <td class="col-md-auto">&#936<sub>s</sub></td>
-                            <td class="col-md-auto"><input type="number" value="1.15" class="form-select-sm form-control"></td>
-                            <td class="col-md-auto">--</td>
-                            <td class="col-md-auto"><button type="button" class="btn btn-outline-warning">?</button>
+                            <td>&#936<sub>s</sub></td>
+                            <td><input type="number" value="1.15" class="form-control form-control-sm text-center"></td>
+                            <td>--</td>
+                            <td><button type="button" class="btn btn-outline-warning btn-sm"
+                                data-bs-container="body" data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="left"
+                                data-bs-content="Coeficiente parcial de segurança para o aço">?</button>
                             </td>
                         </tr>
                         <tr>
-                            <td class="col-md-auto">&#936<sub>f</sub></td>
-                            <td class="col-md-auto"><input type="number" value="1.4" class="form-select-sm form-control"></td>
-                            <td class="col-md-auto">--</td>
-                            <td class="col-md-auto"><button type="button" class="btn btn-outline-warning">?</button>
+                            <td>&#936<sub>f</sub></td>
+                            <td><input type="number" value="1.4" class=" form-control form-control-sm text-center "></td>
+                            <td>--</td>
+                            <td><button type="button" class="btn btn-outline-warning btn-sm"
+                                data-bs-container="body" data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="left"
+                                data-bs-content="Coeficiente parcial de segurança para o momento">?</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col col-12 col-sm-6 .col-md-6 col-lg-4 offset-lg-4 col-xxl-3 offset-xxl-0">
+                <h6 class="text-center text-light"> Esforços</h6>
+                <hr class="border border-light my-1">
+                <table class="table table-dark table-sm align-middle">
+                    <tbody class="text-center">
+                        <tr>
+                            <td class="col-3">M. F. S.</td>
+                            <td class="col-5"><input type="number" value="100" class=" form-control form-control-sm text-center "></td>
+                            <td class="col-2">kNm</td>
+                            <td class="col-2"><button type="button" class="btn btn-outline-warning btn-sm"
+                                data-bs-container="body" data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="left"
+                                data-bs-content="Momento fletor de serviço">?</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-3">Coef. Beta</td>
+                            <td class="col-5"><input type="number" value="1" class=" form-control form-control-sm text-center "></td>
+                            <td class="col-2">--</td>
+                            <td class="col-2"><button type="button" class="btn btn-outline-warning btn-sm"
+                                data-bs-container="body" data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="left"
+                                data-bs-content="Coeficiente beta de redistribuição de momentos">?</button>
                             </td>
                         </tr>
                     </tbody>
@@ -134,7 +174,16 @@
         </div>
     </div>
 
-    <script src="./src/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="../../../Bootstrap/bootstrap.bundle.min.js"></script>
+
+    <script>
+        //Ativando Popovers - Bootstrap
+
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+            return new bootstrap.Popover(popoverTriggerEl)
+        })
+    </script>
 </body>
 
 </html>
