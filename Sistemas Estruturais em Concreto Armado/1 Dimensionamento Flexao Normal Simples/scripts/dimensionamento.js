@@ -7,7 +7,7 @@ function dimensionamento() {
     //Essa variável só é definida no final do processo, de modo que haverá o reset quando o operador apertar o calcular da segunda vez em diante
     desenhoinicial();
   }
-    mostrarhr();
+  mostrarhr();
 
   // Entrada de dados
   var fck = document.getElementById("fck");
@@ -34,7 +34,7 @@ function dimensionamento() {
   d1 = Number(d.value);
   dl1 = Number(dl.value);
   amk1 = Number(amk.value);
-  
+
   // Parâmetros do diagrama retangular
   if (fck1 <= 50) {
     alamb = 0.8;
@@ -56,22 +56,29 @@ function dimensionamento() {
   // Resistências de cálculo
   fcd = fck / gamac1;
   tcd = alfac * fcd;
-  
+
   fyd = fyk / gamas1;
   amd = gamaf1 * amk;
-  
+
+
+
   // Parâmetro geométrico
   delta = dl1 / d1;
   // Momento limite
   amilim = alamb * qlim * (1 - 0.5 * alamb * qlim);
   // Momento reduzido solicitante
   ami = amd / (b1 * d1 * d1 * tcd);
+
+
+
   if (ami <= amilim) {
     // Armadura simples
-   qsi = (1 - Math.sqrt(1 - 2 * ami)) / alamb;
+    qsi = (1 - Math.sqrt(1 - 2 * ami)) / alamb;
 
     aas = (alamb * qsi * b1 * d1 * tcd) / fyd;
     asl = 0;
+
+
   } else {
     // Armadura dupla
     qsia = eu / (eu + 10);
@@ -99,6 +106,9 @@ function dimensionamento() {
     if (esl < 0) {
       tsl = -tsl;
     }
+
+
+    console.log(esl, ess, eyd, tsl)
 
     // Cálculo das áreas de aço quando armadura dupla
     asl = ((ami - amilim) * b1 * d1 * tcd) / ((1 - delta) * tsl);

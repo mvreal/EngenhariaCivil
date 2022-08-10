@@ -8,19 +8,19 @@
     <link href="./app.css" rel="stylesheet">
 </head>
 
-<body class="bg-dark mx-5">
+<body class="bg-dark">
 
-    <div class="container-fluid mt-1">
+    <div class="container-xxl mt-1">
         <div class="row text-nowrap">
             <div class="col col-12 col-sm-6 .col-md-7 col-lg-5 col-xxl-3">
                 <h6 class=" text-center text-light"> Propriedades da Seção</h6>
                 <hr class="border border-light my-1">
 
                 <div class="row">
-                    <div class="col-3">
+                    <div class="col-4">
                         <img src="./src/images/vigaretangular.svg">
                     </div>
-                    <div class="col-9">
+                    <div class="col-8">
                         <table class="table table-dark table-sm align-middle">
                             <tbody class="text-center">
                                 <tr>
@@ -66,7 +66,7 @@
                             <td class="col-3">f<sub>ck</sub></td>
                             <td class="col-5"><select id="info-fck" class=" form-select form-select-sm text-center info">
                                     <option selected value="20">20</option>
-                                    <option value="25">25</option>
+                                    <option value="25" selected>25</option>
                                     <option value="30">30</option>
                                     <option value="35">35</option>
                                     <option value="40">40</option>
@@ -91,8 +91,8 @@
                         <tr>
                             <td>f<sub>yk</sub></td>
                             <td class=""><select id="info-fyk" class="form-select form-select-sm text-center info">
-                                    <option selected value="1">500 (CA-50)</option>
-                                    <option value="2">600 (CA-60)</option>
+                                    <option selected value="500">500 (CA-50)</option>
+                                    <option value="600">600 (CA-60)</option>
                                 </select></td>
                             <td>MPa</td>
                             <td><button type="button" class="btn btn-outline-warning btn-sm"
@@ -154,7 +154,7 @@
                     <tbody class="text-center">
                         <tr>
                             <td class="col-3">M. F. S.</td>
-                            <td class="col-5"><input type="number" id="info-MFS" value="100" class="form-control form-control-sm text-center info"></td>
+                            <td class="col-5"><input type="number" id="info-MFS" value="30" class="form-control form-control-sm text-center info"></td>
                             <td class="col-2">kNm</td>
                             <td class="col-2"><button type="button" class="btn btn-outline-warning btn-sm"
                                 data-bs-container="body" data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="left"
@@ -173,9 +173,9 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col col-lg-2 offset-lg-3 col-xxl-2 offset-xxl-5">
+            <div class="col col-sm-4 offset-sm-4 col-lg-2 offset-lg-3 col-xxl-2 offset-xxl-5">
                 <div class="row text-center">
-                    <button class="btn text-light btn-sucess">Btn</button>
+                    <button id="botao-principal" class="btn btn-outline-warning">Calcular</button>
                 </div>
             </div>
         </div>
@@ -183,6 +183,7 @@
 
     <script src="../../../Bootstrap/bootstrap.bundle.min.js"></script>
     <script src="./scripts/index/main.js"></script>
+    <script src="./scripts/index/events.js"></script>
 
     <script>
         //Ativando Popovers - Bootstrap
