@@ -7,7 +7,7 @@ function dimensionamento() {
     //Essa variável só é definida no final do processo, de modo que haverá o reset quando o operador apertar o calcular da segunda vez em diante
     desenhoinicial();
   }
-  mostrarhr();
+
 
   // Entrada de dados
   var fck = document.getElementById("fck");

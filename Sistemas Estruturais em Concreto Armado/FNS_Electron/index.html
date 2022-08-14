@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8" />
-    <title>Document</title>
+    <title>DNS - FURG</title>
     <link href="../../../Bootstrap/bootstrap.min.css" rel="stylesheet">
     <link href="./app.css" rel="stylesheet">
 </head>
@@ -180,19 +180,29 @@
             </div>
         </div>
 
-        <div class="row text-nowrap text-light mt-5">
+        <div class="row border border-warning text-nowrap text-center text-light mt-5 pt-3">
             <div class="col col-lg-4">
                 <h6>Seção</h6>
-                <canvas id="desenho1" width="300px" height="400px"></canvas>
+                <canvas id="desenho1" width="300px" height="360px"></canvas>
 
             </div>
             <div class="col col-lg-4">
                 <h6>Deformação</h6>
-                <canvas id="desenho2" width="300px" height="400px"></canvas>
+                <canvas id="desenho2" width="300px" height="360px"></canvas>
             </div>
             <div class="col col-lg-4">
                 <h6>Tensão e Resultantes</h6>
-                <canvas id="desenho3" width="300px" height="400px"></canvas>
+                <canvas id="desenho3" width="300px" height="360px"></canvas>
+            </div>
+        </div>
+
+        <div class="row border border-warning">
+            <div class="col">
+                <div class="row text-light" id="resultados">
+                    <div id="resDominio" class="col">Domínio:</div>
+                    <div id="resAco" class="col">Área de aço:</div>
+                    <div id="res1" class="col"></div>
+                  </div>
             </div>
         </div>
     </div>
@@ -200,6 +210,8 @@
     <script src="../../../Bootstrap/bootstrap.bundle.min.js"></script>
     <script src="./scripts/index/main.js"></script>
     <script src="./scripts/index/events.js"></script>
+    <script src="./scripts/index/desenhoinicial.js"></script>
+    <script src="./scripts/index/reset.js"></script>
 
     <script>
         //Ativando Popovers - Bootstrap
