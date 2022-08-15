@@ -94,6 +94,8 @@ function dimensionar() {
     let asc = Number(asl.toFixed(2))
 
     console.log(ast, asc)
+    let textoRes = document.getElementById('resAco')
+    textoRes.innerHTML = "Áreas de aço - " + " Tracionada: " + ast + " cm², Comprimida: " + asc + " cm²"
 
     //FIM DA PRIMEIRA ETAPA E INÍCIO DA SEGUNDA
 
@@ -166,7 +168,7 @@ function dimensionar() {
     //Fazendo o desenho 2 novamente apos a inserção de dados 14 pixels para cada 1/1000
     ctx2.beginPath();
     ctx2.setLineDash([]);
-    ctx2.strokeStyle = 'black'
+    ctx2.strokeStyle = '#d3d3d3'
     ctx2.lineWidth = "2";
     ctx2.moveTo(-eu * 14000, 80);
     ctx2.lineTo(0, 80);
@@ -191,14 +193,14 @@ function dimensionar() {
     ctx2.stroke()
 
     ctx2.font = "bold 12px Montserrat";
-    ctx2.fillText((eu * 1000).toFixed(2), -60, 70);
-    ctx2.fillText((eo * 1000).toFixed(2), -25, 70);
+    ctx2.fillText((eu * 1000).toFixed(2)+'‰', -60, 70);
+    ctx2.fillText((eo * 1000).toFixed(2)+'‰', -25, 70);
 
     if (fyk == 500 || fyk == 600) {
-        ctx2.fillText((eoaco * 1000).toFixed(2), 20, 270);
+        ctx2.fillText((eoaco * 1000).toFixed(2)+'‰', 20, 270);
     }
 
-    ctx2.fillText(10, 130, 270);
+    ctx2.fillText(10+'‰', 130, 270);
 
 
 
@@ -345,7 +347,7 @@ function dimensionar() {
 
     //Desenhando o valor do momento resultante na figura 3
     ctx3.beginPath();
-    ctx3.fillStyle = "black";
+    ctx3.fillStyle = "#d3d3d3";
     ctx3.font = "bold 14px Arial"
     ctx3.fillText("M", 50, 200);
     ctx3.font = "bold 12px Arial";
@@ -358,7 +360,7 @@ function dimensionar() {
     ctx1.setLineDash([]);
 
     //Criando a cota da linha neutra 
-    ctx1.strokeStyle = 'black';
+    ctx1.strokeStyle = '#d3d3d3';
     ctx1.moveTo(70, 80);
     ctx1.lineTo(70, 80 + ((230 * Math.min(xa, xlim)) / h));
     ctx1.moveTo(65, 80);
@@ -381,7 +383,7 @@ function dimensionar() {
 
     //Fazendo a cota do desenho 3
     ctx3.beginPath();
-    ctx3.strokeStyle = 'black';
+    ctx3.strokeStyle = 'white';
     ctx3.moveTo(-80, 80 + alamb * (230 * Math.min(xa, xlim)) / (2 * h));
     ctx3.lineTo(-80, 289);
     ctx3.moveTo(-75, 80 + alamb * (230 * Math.min(xa, xlim)) / (2 * h));
