@@ -93,9 +93,19 @@ function dimensionar() {
     let ast = Number(aas.toFixed(2))
     let asc = Number(asl.toFixed(2))
 
-    console.log(ast, asc)
-    let textoRes = document.getElementById('resAco')
-    textoRes.innerHTML = "Áreas de aço - " + " Tracionada: " + ast + " cm², Comprimida: " + asc + " cm²"
+    //Textos e respostas
+
+    let textosRespostas = {
+        'tracao':[document.getElementById('txtTracionada'),document.getElementById('resAreaTracionada')],
+        'compressao':[document.getElementById('txtComprimida'),document.getElementById('resAreaComprimida')]
+    }
+
+
+
+    textosRespostas['tracao'][0].innerText = 'Tracionada: '
+    textosRespostas['compressao'][0].innerText = 'Comprimida: '
+    textosRespostas['tracao'][1].innerText = ast + " cm², "
+    textosRespostas['compressao'][1].innerText = asc + " cm²"
 
     //FIM DA PRIMEIRA ETAPA E INÍCIO DA SEGUNDA
 
