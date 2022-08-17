@@ -210,7 +210,7 @@ function dimensionar() {
         ctx2.fillText((eoaco * 1000).toFixed(2)+'‰', 20, 270);
     }
 
-    ctx2.fillText(10+'‰', 130, 270);
+    ctx2.fillText(10+'‰', 125, 270);
 
 
 
