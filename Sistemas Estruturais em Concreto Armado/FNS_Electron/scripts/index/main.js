@@ -100,8 +100,6 @@ function dimensionar() {
         'compressao':[document.getElementById('txtComprimida'),document.getElementById('resAreaComprimida')]
     }
 
-
-
     textosRespostas['tracao'][0].innerText = 'Tracionada: '
     textosRespostas['compressao'][0].innerText = 'Comprimida: '
     textosRespostas['tracao'][1].innerText = ast + " cm², "
@@ -164,7 +162,6 @@ function dimensionar() {
     } else if (fyk == 600) {
         eoaco = 2.48 / 1000;
     } else {
-
         console.log("Não foi utilizado aço CA-50 nem CA-60, o aço utilizado foi: " + fyk)
     }
 
@@ -262,17 +259,17 @@ function dimensionar() {
     //Escrevendo area de aço tracionada na figura 1
 
     ctx1.beginPath();
-    ctx1.fillStyle = "#7F0000";
+    ctx1.fillStyle = "#FF6464";
     ctx1.fillRect(-20, 287, 40, 5);
 
     ctx1.font = "bold 12px Montserrat";
-    ctx1.fillText(aas.toFixed(2) + ' cm²', -26, 282);
+    ctx1.fillText(aas.toFixed(2) + ' cm²', -22, 282);
 
     //Escrevendo a área de aço comprimida na figura 1, desenha apenas se estiver com armadura dupla
 
     if (asl > 0) {
         ctx1.beginPath();
-        ctx1.fillStyle = "#000080";
+        ctx1.fillStyle = "#6464FF";
         ctx1.fillRect(-20, 103, 40, 5);
 
         ctx1.font = "bold 12px Montserrat";
@@ -285,6 +282,19 @@ function dimensionar() {
     ctx2.lineWidth = "1";
     ctx2.moveTo(-epc * 14000, 80);
     ctx2.lineTo(eps * 14000, 287);
+    ctx2.stroke();
+
+    //Escrevendo a deformação do concreto e aço - Desenho 2
+    ctx2.beginPath();
+    ctx2.fillStyle = 'white'
+    ctx2.font = "bold 16px Arial";
+    ctx2.fillText((epc*1000).toFixed(2)+'‰',-120,100);
+    ctx2.stroke();
+
+    ctx2.beginPath();
+    ctx2.fillStyle = 'white'
+    ctx2.font = "bold 16px Arial";
+    ctx2.fillText((eps*1000).toFixed(2)+'‰',-120,280);
     ctx2.stroke();
 
     //escrevendo LN
@@ -315,8 +325,8 @@ function dimensionar() {
     //Fazendo a representação da armadura no desenho 3 e colocando a resultante
     ctx3.beginPath();
     ctx3.lineWidth = "2";
-    ctx3.strokeStyle = '#7F0000';
-    ctx3.fillStyle = '#7F0000';
+    ctx3.strokeStyle = '#FF6464';
+    ctx3.fillStyle = '#FF6464';
     ctx3.fillRect(-20, 287, -40, 5);
     ctx3.moveTo(-20, 289);
     ctx3.lineTo(40, 289);
@@ -336,8 +346,8 @@ function dimensionar() {
         resCompressaoAco = asl * fyd / 10; //Divide por 10 para transformar em kN
         resCompressao = resTracao - resCompressaoAco
         ctx3.beginPath();
-        ctx3.fillStyle = '#000080';
-        ctx3.strokeStyle = '#000080';
+        ctx3.fillStyle = '#6464FF';
+        ctx3.strokeStyle = '#6464FF';
         ctx3.fillRect(-20, 103, -40, 5);
         ctx3.moveTo(40, 105);
         ctx3.lineTo(-20, 105);
