@@ -102,7 +102,7 @@ function dimensionar() {
 
     textosRespostas['tracao'][0].innerText = 'Tracionada: '
     textosRespostas['compressao'][0].innerText = 'Comprimida: '
-    textosRespostas['tracao'][1].innerText = ast + " cm², "
+    textosRespostas['tracao'][1].innerText = ast + " cm² "
     textosRespostas['compressao'][1].innerText = asc + " cm²"
 
     //FIM DA PRIMEIRA ETAPA E INÍCIO DA SEGUNDA
