@@ -1,489 +1,445 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <!-- Dimensionamento de seções retangulares à flexão normal simples -->
-    <!-- ############################################################## -->
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Flexão Normal - Dimensionamento</title>
-    <link href="./styles/estilo.css" rel="stylesheet" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
-    />
-  </head>
 
-  <body>
-    <div id="principal">
-      <div id="esquerda">
-        <h1 class="h2">Dimensionamento à flexão normal simples</h1>
+<head>
+  <!-- Dimensionamento de seções retangulares à flexão normal simples -->
+  <!-- ############################################################## -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flexão Normal - Dimensionamento</title>
+  <link href="./styles/estilo.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+</head>
 
-        <section>
-          <table>
-            <thead>
-              <tr>
-                <td>Informação</td>
-                <td>Valor</td>
-                <td>Unidade</td>
-              </tr>
-            </thead>
+<body>
+  <div id="principal">
+    <div id="esquerda">
+      <h1 class="h2">Dimensionamento à flexão normal simples</h1>
 
+      <section>
+        <table>
+          <thead>
             <tr>
-              <td class="info">
-                Resistência característica à compressão do concreto
-              </td>
-              <td class="valor">
-                <input type="number" name="fck" id="fck" value="25" />
-              </td>
-              <td class="unidade">MPa</td>
+              <td>Informação</td>
+              <td>Valor</td>
+              <td>Unidade</td>
             </tr>
+          </thead>
 
-            <tr>
-              <td class="info">Tensão de escoamento característica do aço</td>
-              <td class="valor">
-                <input type="number" name="fyk" id="fyk" value="500" />
-              </td>
-              <td class="unidade">MPa</td>
-            </tr>
-
-            <tr>
-              <td class="info">Módulo de elasticidade do aço</td>
-              <td class="valor">
-                <input type="number" name="es" id="es" value="200" />
-              </td>
-              <td class="unidade">GPa</td>
-            </tr>
-
-            <tr>
-              <td class="info">
-                Coeficiente parcial de segurança para o concreto
-              </td>
-              <td class="valor">
-                <input type="number" name="gamac" id="gamac" value="1.4" />
-              </td>
-              <td class="unidade">---</td>
-            </tr>
-
-            <tr>
-              <td class="info">Coeficiente parcial de segurança para o aço</td>
-              <td class="valor">
-                <input type="number" name="gamas" id="gamas" value="1.15" />
-              </td>
-              <td class="unidade">---</td>
-            </tr>
-
-            <tr>
-              <td class="info">
-                Coeficiente parcial de segurança para o momento
-              </td>
-              <td class="valor">
-                <input type="number" name="gamaf" id="gamaf" value="1.4" />
-              </td>
-              <td class="unidade">---</td>
-            </tr>
-
-            <tr>
-              <td class="info">
-                Coeficiente beta de redistribuição de momentos
-              </td>
-              <td class="valor">
-                <input type="number" name="bduct" id="bduct" value="1" />
-              </td>
-              <td class="unidade">---</td>
-            </tr>
-
-            <tr>
-              <td class="info">Largura da seção transversal</td>
-              <td class="valor">
-                <input type="number" name="b" id="b" value="15" />
-              </td>
-              <td class="unidade">cm</td>
-            </tr>
-
-            <tr>
-              <td class="info">Altura da seção transversal</td>
-              <td class="valor">
-                <input type="number" name="h" id="h" value="40" />
-              </td>
-              <td class="unidade">cm</td>
-            </tr>
-
-            <tr>
-              <td class="info">Altura útil da seção transversal</td>
-              <td class="valor">
-                <input type="number" name="d" id="d" value="36" />
-              </td>
-              <td class="unidade">cm</td>
-            </tr>
-
-            <tr>
-              <td class="info">Parâmetro d'</td>
-              <td class="valor">
-                <input type="number" name="dl" id="dl" value="4" />
-              </td>
-              <td class="unidade">cm</td>
-            </tr>
-
-            <tr>
-              <td class="info">Momento fletor de serviço</td>
-              <td class="valor">
-                <input type="number" name="amk" id="amk" value="30" />
-              </td>
-              <td class="unidade">KN.m</td>
-            </tr>
-          </table>
-
-          <div id="conteinerbotao">
-            <td>
-              <input
-                type="button"
-                value="Calcular"
-                onclick="dimensionamento()"
-              />
+          <tr>
+            <td class="info">
+              Resistência característica à compressão do concreto
             </td>
-          </div>
-        </section>
-      </div>
+            <td class="valor">
+              <input type="number" name="fck" id="fck" value="25" />
+            </td>
+            <td class="unidade">MPa</td>
+          </tr>
 
-      <div id="direita">
-        <div id="ctndesenhos">
-          <div id="ctndesenho1">
-            <p class="tituloquadro">SEÇÃO</p>
-            <canvas id="desenho1" width="300px" height="400px"></canvas>
-          </div>
-          <div id="ctndesenho2">
-            <p class="tituloquadro">DEFORMAÇÃO</p>
-            <div id="ctncanvas">
-              <canvas id="desenho2" width="300px" height="400px"></canvas>
-            </div>
-          </div>
-          <div id="ctndesenho3">
-            <p class="tituloquadro">
-              TENSÃO &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESULTANTES
-            </p>
-            <canvas id="desenho3" width="300px" height="400px"></canvas>
+          <tr>
+            <td class="info">Tensão de escoamento característica do aço</td>
+            <td class="valor">
+              <input type="number" name="fyk" id="fyk" value="500" />
+            </td>
+            <td class="unidade">MPa</td>
+          </tr>
+
+          <tr>
+            <td class="info">Módulo de elasticidade do aço</td>
+            <td class="valor">
+              <input type="number" name="es" id="es" value="200" />
+            </td>
+            <td class="unidade">GPa</td>
+          </tr>
+
+          <tr>
+            <td class="info">
+              Coeficiente parcial de segurança para o concreto
+            </td>
+            <td class="valor">
+              <input type="number" name="gamac" id="gamac" value="1.4" />
+            </td>
+            <td class="unidade">---</td>
+          </tr>
+
+          <tr>
+            <td class="info">Coeficiente parcial de segurança para o aço</td>
+            <td class="valor">
+              <input type="number" name="gamas" id="gamas" value="1.15" />
+            </td>
+            <td class="unidade">---</td>
+          </tr>
+
+          <tr>
+            <td class="info">
+              Coeficiente parcial de segurança para o momento
+            </td>
+            <td class="valor">
+              <input type="number" name="gamaf" id="gamaf" value="1.4" />
+            </td>
+            <td class="unidade">---</td>
+          </tr>
+
+          <tr>
+            <td class="info">
+              Coeficiente beta de redistribuição de momentos
+            </td>
+            <td class="valor">
+              <input type="number" name="bduct" id="bduct" value="1" />
+            </td>
+            <td class="unidade">---</td>
+          </tr>
+
+          <tr>
+            <td class="info">Largura da seção transversal</td>
+            <td class="valor">
+              <input type="number" name="b" id="b" value="15" />
+            </td>
+            <td class="unidade">cm</td>
+          </tr>
+
+          <tr>
+            <td class="info">Altura da seção transversal</td>
+            <td class="valor">
+              <input type="number" name="h" id="h" value="40" />
+            </td>
+            <td class="unidade">cm</td>
+          </tr>
+
+          <tr>
+            <td class="info">Altura útil da seção transversal</td>
+            <td class="valor">
+              <input type="number" name="d" id="d" value="36" />
+            </td>
+            <td class="unidade">cm</td>
+          </tr>
+
+          <tr>
+            <td class="info">Parâmetro d'</td>
+            <td class="valor">
+              <input type="number" name="dl" id="dl" value="4" />
+            </td>
+            <td class="unidade">cm</td>
+          </tr>
+
+          <tr>
+            <td class="info">Momento fletor de serviço</td>
+            <td class="valor">
+              <input type="number" name="amk" id="amk" value="30" />
+            </td>
+            <td class="unidade">KN.m</td>
+          </tr>
+        </table>
+
+        <div id="conteinerbotao">
+          <td>
+            <input type="button" value="Calcular" onclick="dimensionamento()" />
+          </td>
+        </div>
+      </section>
+    </div>
+
+    <div id="direita">
+      <div id="ctndesenhos">
+        <div id="ctndesenho1">
+          <p class="tituloquadro">SEÇÃO</p>
+          <canvas id="desenho1" width="300px" height="400px"></canvas>
+        </div>
+        <div id="ctndesenho2">
+          <p class="tituloquadro">DEFORMAÇÃO</p>
+          <div id="ctncanvas">
+            <canvas id="desenho2" width="300px" height="400px"></canvas>
           </div>
         </div>
-        <div id="resultados">
-          <div id="resDominio" class="texto">Domínio:</div>
-          <div id="resAco" class="texto">Área de aço:</div>
-          <div id="res1" class="texto"></div>
+        <div id="ctndesenho3">
+          <p class="tituloquadro">
+            TENSÃO &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESULTANTES
+          </p>
+          <canvas id="desenho3" width="300px" height="400px"></canvas>
+        </div>
+      </div>
+      <div id="resultados">
+        <div id="resDominio" class="texto">Domínio:</div>
+        <div id="resAco" class="texto">Área de aço:</div>
+        <div id="res1" class="texto"></div>
+      </div>
+    </div>
+  </div>
+  <div id="calculos" class="container-fluid">
+    <h2 id="titulocalculos">Metodologia para realizar o dimensionamento:</h2>
+    <div class="accordion" id="accordionDFNS">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Passo 1: Parâmetros do diagrama retangular
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+          data-bs-parent="#accordionDFNS">
+          <div class="accordion-body">
+            <div class="mb-4" id="textp1"></div>
+            <div class="row">
+              <div class="col-1 col-sm-auto">&#955&nbsp&nbsp</div>
+              <div class="col-1 col-sm-auto igual">=</div>
+              <div class="col-10 col-sm-auto" id="p1lambda"></div>
+            </div>
+            <div class="row">
+              <div class="col-1 col-sm-auto">&#945<sub>c</sub></div>
+              <div class="col-1 col-sm-auto igual">=</div>
+              <div class="col-10 col-sm-auto" id="p1alfac"></div>
+            </div>
+            <div class="row">
+              <div class="col-1 col-sm-auto">&#958<sub>lim</sub></div>
+              <div class="col-1 col-sm-auto igual">=</div>
+              <div class="col-6 col-sm-auto" id="p1xi"></div>
+            </div>
+            <div class="row">
+              <div class="col-1 col-sm-auto">&#958<sub>lim</sub></div>
+              <div class="col-1 col-sm-auto igual">=</div>
+              <div class="col-6 col-sm-auto" id="p1resxi"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Passo 2: Determinar os esforços resistêntes e momento fletor de cálculo
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+          data-bs-parent="#accordionDFNS">
+          <div class="accordion-body">
+            <strong>Determinação das resistências de cálculo</strong><br />
+            <div>
+              <div class="row g-2">
+                <div class="col-1 col-sm-auto">
+                  f<sub>cd</sub>
+                </div>
+                <div class="col-1 col-sm-auto">=</div>
+                <div class="col-1 col-sm-auto">
+                  <div class="col-6">f<sub>ck</sub></div>
+                  <hr class="hr-aparecer m-0">
+                  <div class="col-6">&#947<sub>c</sub> </div>
+                </div>
+                <div class="col-1 col-sm-auto igual"></div>
+                <div class="col-1 col-sm-auto">
+                  <div class="col-6 col-sm-auto" id="p1fck"></div>
+                  <hr class="hr-aparecer m-0">
+                  <div class="col-6 col-sm-auto" id="p1gamac"></div>
+                </div>
+                <div class="col-1 col-sm-auto igual"></div>
+                <div class="col-4 col-sm-auto" id="fcksobreyc"></div>
+              </div>
+              <div class="mt-2">Convertendo de MPa para KN/cm²:</div>
+              <div class="row g-2 mb-4">
+                <div class="col-1 col-sm-auto" id="p1fcd"></div>
+                <div class="col-1 col-sm-auto igual"></div>
+                <div class="col-4 col-sm-auto" id="fcksobreycsobre10"></div>
+              </div>
+              <div class="row g-2">
+                <div class="col-1 col-sm-auto" id="p2sigmacd">&#963<sub>cd</sub></div>
+                <div class="col-1 col-sm-auto igual"> = </div>
+                <div class="col-3 col-sm-auto"> &#945<sub>c</sub> x f<sub>cd</sub> </div>
+                <div class="col-1 col-sm-auto igual"></div>
+                <div class="col-4 col-sm-auto igual" id="alfacxfcd"></div>
+              </div>
+              <div class="row g-2 mb-4">
+                <div class="col-1 col-sm-auto">&#963<sub>cd</sub></div>
+                <div class="col-1 col-sm-auto igual"> = </div>
+                <div class="col-4 col-sm-auto" id="p2ressigmacd"></div>
+              </div>
+              <div class="row g-2">
+                <div class="col-1 col-sm-auto">f<sub>yd</sub></div>
+                <div class="col-1 col-sm-auto igual"> = </div>
+                <div class="col-1 col-sm-auto">
+                  <div class="col-12 col-sm-auto">f<sub>yk</sub></div>
+                  <hr class="hr-aparecer m-0">
+                  <div class="col-12 col-sm-auto"> &#947<sub>s</sub></div>
+                </div>
+                <div class="col-1 col-sm-auto igual"></div>
+                <div class="col-1 col-sm-auto" id="p2calcfyd">
+                  <div class="col-12 col-sm-auto" id="p2fyk"></div>
+                  <hr class="hr-aparecer m-0">
+                  <div class="col-12 col-sm-auto" id="p2gamas"></div>
+                </div>
+              </div>
+              <div class="row g-2 mb-4">
+                <div class="col-1 col-sm-auto">f<sub>yd</sub></div>
+                <div class="col-1 col-sm-auto igual"> = </div>
+                <div class="col-4 col-sm-auto" id="p2resfydsobregamas"></div>
+              </div>
+              <strong>Determinação dos esforços solicitantes de cálculo</strong><br />
+              <div class="row g-2">
+                <div class="col-1 col-sm-auto">M<sub>d</sub></div>
+                <div class="col-1 col-sm-auto igual"> = </div>
+                <div class="col-3 col-sm-auto "> M<sub>k</sub> x &#947<sub>f</sub></div>
+                <div class="col-1 col-sm-auto igual"> = </div>
+                <div class="col-4 col-sm-auto" id="p2calcMd"></div>
+              </div>
+              <div class="row g-2">
+                <div class="col-1 col-sm-auto">M<sub>d</sub></div>
+                <div class="col-1 col-sm-auto igual">=</div>
+                <div class="col-3 col-sm-auto " id="resMd"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Passo 3: Descobrir se deve-se utilizar armadura simples ou dupla
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+          data-bs-parent="#accordionDFNS">
+          <div class="accordion-body">
+            <div class="row g-2 text-center mb-2">
+              <div class="col-1 col-sm-auto">&#181</div>
+              <div class="col-1 col-sm-auto igual"> = </div>
+              <div class="col-4 col-sm-auto">
+                <div class="col-12 col-sm-auto">M<sub>d</sub></div>
+                <hr class="hr-aparecer m-0">
+                <div class="col-12 col-sm-auto">b x d² x &#963<sub>cd</sub></div>
+              </div>
+              <div class="col-1 col-sm-auto igual"> = </div>
+              <div class="col-5 col-sm-auto" id="p3calcmi">
+                <div class="col-12 col-sm-auto" id="p3calcmisup"></div>
+                <hr class="hr-aparecer m-0">
+                <div class="col-12 col-sm-auto" id="p3calcmiinf"></div>
+              </div>
+            </div>
+            <div class="row g-2 text-center">
+              <div class="col-1 col-sm-auto">&#181</div>
+              <div class="col-1 col-sm-auto igual"> = </div>
+              <div class="col-2 col-sm-auto" id="p3resmi"></div>
+            </div>
+            <div class="row">
+              <div class="col-1 col-sm-auto">&#181<sub>lim</sub></div>
+              <div class="col-1 col-sm-auto igual">=</div>
+              <div class="col-8 col-sm-auto">&#955 x &#958<sub>lim</sub> x (1-0,5 x &#955 x &#958<sub>lim</sub>) </div>
+            </div>
+            <div class="row">
+              <div class="col-1 col-sm-auto">&#181<sub>lim</sub></div>
+              <div class="col-1 col-sm-auto igual">=</div>
+              <div class="col-10 col-sm-auto" id="p3calcmilim"></div>
+            </div>
+            <div class="row">
+              <div class="col-1 col-sm-auto">&#181<sub>lim</sub></div>
+              <div class="col-1 col-sm-auto igual">=</div>
+              <div class="col-2 col-sm-auto" id="p3resmilim"></div>
+            </div>
+            <div class="row mt-3">
+              <div id="p3res"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFour">
+          <button id="buttonP4" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            Passo 4: Determinar a(s) área(s) mínima(s) de(as) armadura(s)
+          </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+          data-bs-parent="#accordionDFNS">
+          <div class="accordion-body">
+
+            <div class="row">
+              <div class="col-1 col-sm-auto" id="info4_1"></div>
+              <div class="col-1 col-sm-auto igual"></div>
+              <div class="col-5 col-sm-auto text-center" id="info4_1_3">
+                <div class="col-12 col-sm-auto text-center" id="info4_1_3_1"></div>
+                <hr class="hr-aparecer m-0">
+                <div class="col-12 col-sm-auto text-center" id="info4_1_3_2"></div>
+              </div>
+
+              <div class="row">
+                <div class="col-1 col-sm-auto" id="info4_2"></div>
+                <div class="col-1 col-sm-auto igual"></div>
+                <div class="col-1 col-sm-auto" id="info4_2_1"></div>
+              </div>
+
+              <div class="row">
+                <div class="col-1 col-sm-auto" id="info4_3"></div>
+                <div class="col-1 col-sm-auto igual"></div>
+
+                <div class="col-5 col-sm-auto" id="info4_3_1">
+                  <div>
+                    <div class="col-12 col-sm-auto text-center" id="info4_3_1_1"></div>
+                    <hr class="hr-aparecer m-0">
+                    <div class="col-12 col-sm-auto text-center" id="info4_3_3_2"></div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-1 col-sm-auto" id="info4_4"></div>
+                <div class="col-1 col-sm-auto igual"></div>
+                <div class="col-5 col-sm-auto">
+                  <div>
+                    <div class="col-1 col-sm-auto" id="info4_4_1_1"></div>
+                    <hr class="hr-aparecer m-0">
+                    <div class=" col-sm-auto text-center" id="info4_4_1_2"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-1 col-sm-auto" id="info4_5"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
 
-
-
-    <div id="calculos" class="container-fluid">
-      <h2 id="titulocalculos">Metodologia para realizar o dimensionamento:</h2>
-      <div class="accordion" id="accordionDFNS">
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingOne">
-            <button
-              class="accordion-button collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseOne"
-              aria-expanded="true"
-              aria-controls="collapseOne"
-            >
-              Passo 1: Parâmetros do diagrama retangular
-            </button>
-          </h2>
-          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionDFNS">
-            <div class="accordion-body">
-              <div class="mb-4" id="textp1"></div>
-              <div class="row">
-                <div class="col-1 col-sm-auto">&#955&nbsp&nbsp</div>
-                <div class="col-1 col-sm-auto igual">=</div>
-                <div class="col-10 col-sm-auto" id="p1lambda"></div> 
-              </div>
-              <div class="row">
-                <div class="col-1 col-sm-auto">&#945<sub>c</sub></div>
-                <div class="col-1 col-sm-auto igual">=</div>
-                <div class="col-10 col-sm-auto" id="p1alfac"></div> 
-              </div> 
-              <div class="row">
-                <div class="col-1 col-sm-auto">&#958<sub>lim</sub></div>
-                <div class="col-1 col-sm-auto igual">=</div>
-                <div class="col-6 col-sm-auto" id="p1xi"></div>
-              </div> 
-              <div class="row">
-                <div class="col-1 col-sm-auto">&#958<sub>lim</sub></div>
-                <div class="col-1 col-sm-auto igual">=</div>
-                <div class="col-6 col-sm-auto" id="p1resxi"></div>
-              </div> 
-            </div>
+    <footer>
+      <p>
+        Rotinas computacionais adaptadas do livro: Programas para
+        dimensionamento e verificação de concreto armado - José Milton de Araújo
+      </p>
+      <div id="creditos">
+        <h3>Desenvolvedores:</h3>
+        <div id="autores">
+          <div class="rec"></div>
+          <div id="autor1" class="nome">
+            <p class="mb-0">Márcio Wrague Moura</p>
+            <p class="titulo">Professor EE - FURG</p>
+          </div>
+          <div class="rec"></div>
+          <div id="autor2" class="nome">
+            <p class="mb-0">Bruno Teixeira Santos</p>
+            <p class="titulo">Acadêmico EE - FURG</p>
           </div>
         </div>
+      </div>
+    </footer>
 
-        
+    <script src="./scripts/reset.js"></script>
+    <script src="./scripts/criandodivs.js"></script>
+    <script src="./scripts/desenhoinicial.js"></script>
+    <script src="./scripts/dimensionamento.js"></script>
+    <script src="./scripts/segundodesenho.js"></script>
+    <script src="./scripts/passoapasso.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+      </script>
+</body>
 
-
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingTwo">
-            <button
-              class="accordion-button collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseTwo"
-              aria-expanded="false"
-              aria-controls="collapseTwo">
-              Passo 2: Determinar os esforços resistêntes e momento fletor de cálculo
-            </button>
-          </h2>
-          <div
-            id="collapseTwo"
-            class="accordion-collapse collapse"
-            aria-labelledby="headingTwo"
-            data-bs-parent="#accordionDFNS">
-            <div class="accordion-body">
-              <strong>Determinação das resistências de cálculo</strong><br/>
-              <div>
-                <div class="row g-2"> 
-                  <div class="col-1 col-sm-auto">
-                    f<sub>cd</sub>
-                  </div> 
-                  <div class="col-1 col-sm-auto">=</div>    
-                  <div class="col-1 col-sm-auto">
-                    <div class="col-6">f<sub>ck</sub></div> 
-                    <hr class="hr-aparecer m-0">
-                    <div class="col-6">&#947<sub>c</sub> </div>   
-                  </div> 
-                  <div class="col-1 col-sm-auto igual"></div> 
-                  <div class="col-1 col-sm-auto">
-                    <div class="col-6 col-sm-auto" id="p1fck"></div> 
-                      <hr class="m-0">
-                      <div class="col-6 col-sm-auto" id="p1gamac"></div> 
-                  </div>
-                    <div class="col-1 col-sm-auto igual"></div> 
-                    <div class="col-4 col-sm-auto" id="fcksobreyc"></div>
-                    </div>
-                    <div class="mt-2">Convertendo de MPa para KN/cm²:</div>
-                    <div class="row g-2 mb-4">
-                      <div class="col-1 col-sm-auto" id="p1fcd"></div>
-                      <div class="col-1 col-sm-auto igual"></div> 
-                      <div class="col-4 col-sm-auto" id="fcksobreycsobre10"></div>
-                    </div> 
-                    <div class="row g-2">
-                      <div class="col-1 col-sm-auto" id="p2sigmacd">&#963<sub>cd</sub></div>
-                      <div class="col-1 col-sm-auto igual"> = </div> 
-                      <div class="col-3 col-sm-auto"> &#945<sub>c</sub> x f<sub>cd</sub> </div>
-                      <div class="col-1 col-sm-auto igual"></div> 
-                      <div class="col-4 col-sm-auto igual" id="alfacxfcd"></div> 
-                    </div>  
-                    <div class="row g-2 mb-4">
-                      <div class="col-1 col-sm-auto">&#963<sub>cd</sub></div>
-                      <div class="col-1 col-sm-auto igual"> = </div> 
-                      <div class="col-4 col-sm-auto" id="p2resfcd"></div> 
-                    </div>
-                    <div class="row g-2">
-                      <div class="col-1 col-sm-auto">f<sub>yd</sub></div>
-                      <div class="col-1 col-sm-auto igual"> = </div> 
-                      <div class="col-1 col-sm-auto">
-                        <div class="col-12 col-sm-auto">f<sub>yk</sub></div> 
-                        <hr class="hr-aparecer m-0">
-                        <div class="col-12 col-sm-auto"> &#947<sub>s</sub></div> 
-                      </div> 
-                      <div class="col-1 col-sm-auto igual"></div> 
-                      <div class="col-1 col-sm-auto" id="p2calcfyd">
-                        <div class="col-12 col-sm-auto" id="p2fyk"></div>
-                        <hr class="m-0">
-                        <div class="col-12 col-sm-auto" id="p2gamas"></div>
-                      </div> 
-                    </div> 
-                    <div class="row g-2 mb-4">
-                      <div class="col-1 col-sm-auto">f<sub>yd</sub></div>
-                      <div class="col-1 col-sm-auto igual"> = </div> 
-                      <div class="col-4 col-sm-auto" id="p2resfydsobregamas"></div> 
-                    </div>   
-                    <strong>Determinação dos esforços solicitantes de cálculo</strong><br/>
-                    <div class="row g-2">
-                      <div class="col-1 col-sm-auto">M<sub>d</sub></div>
-                      <div class="col-1 col-sm-auto igual"> = </div> 
-                      <div class="col-3 col-sm-auto "> M<sub>k</sub> x &#947<sub>f</sub></div>
-                      <div class="col-1 col-sm-auto igual"> = </div> 
-                      <div class="col-4 col-sm-auto" id="p2calcMd"></div> 
-                    </div> 
-                    <div class="row g-2">
-                      <div class="col-1 col-sm-auto">M<sub>d</sub></div>
-                      <div class="col-1 col-sm-auto igual">=</div> 
-                      <div class="col-3 col-sm-auto " id="resMd"></div> 
-                    </div> 
-                  </div>
-                </div>
-                </div>
-              </div>
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingThree">
-                        <button
-                          class="accordion-button collapsed"
-                          type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#collapseThree"
-                          aria-expanded="false"
-                          aria-controls="collapseThree">
-                          Passo 3: Descobrir se deve-se utilizar armadura simples ou dupla
-                        </button>
-                      </h2>
-                      <div
-                        id="collapseThree"
-                        class="accordion-collapse collapse"
-                        aria-labelledby="headingThree"
-                        data-bs-parent="#accordionDFNS">
-                        <div class="accordion-body">
-                          <div class="row g-2 text-center mb-2">
-                            <div class="col-1 col-sm-auto">&#181</div> 
-                            <div class="col-1 col-sm-auto igual"> = </div> 
-                            <div class="col-4 col-sm-auto">
-                              <div class="col-12 col-sm-auto">M<sub>d</sub></div>
-                              <hr class="hr-aparecer m-0">
-                              <div class="col-12 col-sm-auto">b x d² x &#963<sub>cd</sub></div>
-                            </div> 
-                            <div class="col-1 col-sm-auto igual"> = </div> 
-                            <div class="col-5 col-sm-auto" id="p3calcmi">
-                              <div class="col-12 col-sm-auto" id="p3calcmisup"></div>
-                              <hr class="m-0">
-                              <div class="col-12 col-sm-auto" id="p3calcmiinf"></div>
-                            </div>
-                          </div>
-                          <div class="row g-2 text-center">
-                          <div class="col-1 col-sm-auto">&#181</div> 
-                          <div class="col-1 col-sm-auto igual"> = </div> 
-                          <div class="col-2 col-sm-auto" id="p3resmi"></div>
-                        </div>
-                        <div class="row">
-                          <div class="col-1 col-sm-auto">&#181<sub>lim</sub></div>
-                          <div class="col-1 col-sm-auto igual">=</div>
-                          <div class="col-8 col-sm-auto">&#955 x &#958<sub>lim</sub> x (1-0,5 x &#955 x &#958<sub>lim</sub>) </div>
-                        </div>
-                        <div class="row">
-                        <div class="col-1 col-sm-auto">&#181<sub>lim</sub></div>
-                        <div class="col-1 col-sm-auto igual">=</div>
-                        <div class="col-10 col-sm-auto" id="p3calcmilim"></div>
-                        </div>
-                        <div class="row">
-                          <div class="col-1 col-sm-auto">&#181<sub>lim</sub></div>
-                          <div class="col-1 col-sm-auto igual">=</div>
-                          <div class="col-2 col-sm-auto" id="p3resmilim"></div>
-                        </div>
-                        <div class="row mt-3">
-                          <div id="p3res"></div>
-                        </div>
-                      </div>
-                      </div>
-                    </div>
-
-
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingFour">
-                        <button id="buttonP4"
-                          class="accordion-button collapsed"
-                          type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#collapseFour"
-                          aria-expanded="false"
-                          aria-controls="collapseFour">
-                          Passo 4: Determinar a(s) área(s) mínima(s) de(as) armadura(s)
-                        </button>
-                      </h2>
-                      <div
-                        id="collapseFour"
-                        class="accordion-collapse collapse"
-                        aria-labelledby="headingFour"
-                        data-bs-parent="#accordionDFNS">
-                        <div class="accordion-body">
-
-                          <div class="row">
-                            <div class="col-1 col-sm-auto" id="info4_1"></div>
-                            <div class="col-1 col-sm-auto igual"></div>
-                            <div class="col-5 col-sm-auto text-center" id="info4_1_3">
-                              <div class="col-12 col-sm-auto text-center" id="info4_1_3_1"></div>
-                              <hr class="m-0">
-                              <div class="col-12 col-sm-auto text-center" id="info4_1_3_2"></div>
-                            </div>
-
-                            <div class="row">
-                              <div class="col-1 col-sm-auto" id="info4_2"></div>
-                              <div class="col-1 col-sm-auto igual"></div>
-                              <div class="col-1 col-sm-auto" id="info4_2_1"></div>
-                            </div>
-
-                            <div class="row">
-                              <div class="col-1 col-sm-auto" id="info4_3"></div>
-                              <div class="col-1 col-sm-auto igual"></div>
-                              
-                              <div class="col-5 col-sm-auto" id="info4_3_1">
-                                <div>
-                                    <div class="col-12 col-sm-auto text-center" id="info4_3_1_1"></div>
-                                    <hr class="m-0">
-                                    <div class="col-12 col-sm-auto text-center" id="info4_3_3_2"></div>
-                                </div>
-                              </div>
-                            </div>
-
-                            <div class="row">
-                              <div class="col-1 col-sm-auto" id="info4_4"></div>
-                              <div class="col-1 col-sm-auto igual"></div>
-                              <div class="col-1 col-sm-auto" id="info4_4_1"></div>
-                            </div>
-
-
-
-
-
-
-
-
-
-
-                          </div>
-
-
-
-
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-              
-
-                <footer>
-                  <p>
-                  Rotinas computacionais adaptadas do livro: Programas para
-                  dimensionamento e verificação de concreto armado - José Milton de Araújo
-                  </p>
-                <div id="creditos">
-                  <h3>Desenvolvedores:</h3>
-                  <div id="autores">
-                  <div class="rec"></div>
-                  <div id="autor1" class="nome">
-                    <p class="mb-0">Márcio Wrague Moura</p>
-                    <p class="titulo">Professor EE - FURG</p>
-                  </div>
-                  <div class="rec"></div>
-                  <div id="autor2" class="nome">
-                    <p class="mb-0">Bruno Teixeira Santos</p>
-                    <p class="titulo">Acadêmico EE - FURG</p>
-                  </div>
-                </div>
-              </div>
-            </footer>
-
-            <script src="./scripts/reset.js"></script>
-            <script src="./scripts/criandodivs.js"></script>
-            <script src="./scripts/desenhoinicial.js"></script>
-            <script src="./scripts/dimensionamento.js"></script>
-            <script src="./scripts/segundodesenho.js"></script>
-            <script src="./scripts/passoapasso.js"></script>
-            <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-            crossorigin="anonymous">  
-            </script>
-  </body>
 </html>

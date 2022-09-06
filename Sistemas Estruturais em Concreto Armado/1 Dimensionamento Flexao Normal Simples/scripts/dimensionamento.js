@@ -17,7 +17,7 @@ function dimensionamento() {
   var gamas = document.getElementById("gamas");
   var gamaf = document.getElementById("gamaf");
   var bduct = document.getElementById("bduct");
-  var b = document.getElementById("b");
+  b = document.getElementById("b");
   var h = document.getElementById("h");
   var d = document.getElementById("d");
   var dl = document.getElementById("dl");

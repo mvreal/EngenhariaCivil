@@ -55,8 +55,8 @@ function passoapasso(){
     alfacxfcd = document.getElementById('alfacxfcd')
     alfacxfcd.innerText = alfac.toFixed(2).toString().replace(".", ",") + " x " +((fck1/gamac1)/10).toFixed(2).toString().replace(".", ",")
 
-    p2resfcd = document.getElementById('p2resfcd')
-    p2resfcd.innerText = (alfac*((fck1/gamac1)/10)).toFixed(2).toString().replace(".", ",") + ' kN/cm²'
+    p2ressigmacd = document.getElementById('p2ressigmacd')
+    p2ressigmacd.innerText = (alfac*((fck1/gamac1)/10)).toFixed(2).toString().replace(".", ",") + ' kN/cm²'
 
     p2fyk = document.getElementById('p2fyk')
     p2fyk.innerText = (fyk1/10).toString().replace(".", ",")
@@ -135,60 +135,24 @@ function passoapasso(){
         let info4_3 = document.getElementById('info4_3')
         info4_3.innerHTML = 'A <sub>s</sub>'
 
-        let info4_3_1 = document.getElementById('info4_3_1')
-        info4_3_1.innerHTML = '&#955 x &#958 x b x d'
+        let info4_3_1_1 = document.getElementById('info4_3_1_1')
+        info4_3_1_1.innerHTML = '&#955 x &#958 x b x d x σ<sub>cd</sub>'   //Pegar ocd do passo 2
 
-        console.log(document.getElementById('info4_3_1_1'))
+        let info4_3_3_2 = document.getElementById('info4_3_3_2')
+        info4_3_3_2.innerHTML = "f<sub>cd</sub>"
          
+        let info4_4 = document.getElementById('info4_4')
+        info4_4.innerHTML = 'A <sub>s</sub>'
+
+        let info4_4_1_1 = document.getElementById('info4_4_1_1')
+        info4_4_1_1.innerHTML = alamb.toFixed(2).toString().replace(".", ",") + " x " + qsi.toFixed(2).toString().replace(".", ",") + " x " + b1 + " x " + d1 + " x " + (alfac*((fck1/gamac1)/10)).toFixed(2).toString().replace(".", ",")
          
-         
-         //info4_3_1_1.innerHTML = '&#963<sub>cd</sub>'
-    }
-
-
-
-
-
-
-
-
-
-
-
-    // //Passo 4 
-    // function armaduraSimples(){
-    //     buttonP4 = document.getElementById('buttonP4')
-    //     if(ami <= amilim){
-    //         buttonP4.innerText="Passo 4: Determinar a área mínima da armadura tracionada"
-    //     }else{
-    //         buttonP4.innerText="Passo 4: Determinar as áreas mínimas das armaduras"
-    //     }
-    
-    //     info4_1 = document.getElementById('info4_1')
-    //     info4_1.innerHTML = '&#958'
-    
-    //     info4_1_3_1parcial = '(1 - 2 x &#181)'
+        let info4_4_1_2 = document.getElementById('info4_4_1_2')
+        info4_4_1_2.innerText = (fyk1/((gamas1*10))).toFixed(2)
         
-    //     info4_1_3_1 = document.getElementById('info4_1_3_1')
-    //     info4_1_3_2 = document.getElementById('info4_1_3_2')
-    //     info4_1_3_1.innerHTML = '1 - &#8730' + info4_1_3_1parcial
-    //     info4_1_3_2.innerHTML = '&#955'
-    
-    //     info4_2 = document.getElementById('info4_2')
-    //     info4_2.innerHTML = '&#958'
-    
-    //     info4_2_1 = document.getElementById('info4_2_1')
-    //     info4_2_1.innerHTML = qsi.toFixed(2).toString().replace(".", ",")
-    // }
-
-
-
-
-
-
-
-
-
+        let info4_5 = document.getElementById('info4_5')
+        info4_5.innerHTML = "Teremos armadura simples: A<sub>s</sub>= " + aas.toFixed(2) + " cm² e A'<sub>s</sub>= 0 cm² "
+    } 
 
 function esconderhr(){
 

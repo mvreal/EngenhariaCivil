@@ -29,26 +29,31 @@
                                             class="form-control form-control-sm text-center info"></td>
                                     <td class="col-2">cm</td>
                                     <td class="col-2"><button type="button" class="btn btn-outline-warning btn-sm"
-                                        data-bs-container="body" data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="left"
-                                        data-bs-content="Altura da viga retangular">?</button>
+                                            data-bs-container="body" data-bs-trigger="focus" data-bs-toggle="popover"
+                                            data-bs-placement="left"
+                                            data-bs-content="Altura da viga retangular">?</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>b</td>
-                                    <td><input type="number" value="15" id="info-b" class="form-control form-control-sm text-center info"></td>
+                                    <td><input type="number" value="15" id="info-b"
+                                            class="form-control form-control-sm text-center info"></td>
                                     <td>cm</td>
                                     <td><button type="button" class="btn btn-outline-warning btn-sm"
-                                        data-bs-container="body" data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="left"
-                                        data-bs-content="Largura da viga retangular">?</button>
+                                            data-bs-container="body" data-bs-trigger="focus" data-bs-toggle="popover"
+                                            data-bs-placement="left"
+                                            data-bs-content="Largura da viga retangular">?</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>d</td>
-                                    <td><input type="number" value="36" id="info-d'" class="form-control form-control-sm text-center info"></td>
+                                    <td><input type="number" value="36" id="info-d'"
+                                            class="form-control form-control-sm text-center info"></td>
                                     <td>cm</td>
                                     <td><button type="button" class="btn btn-outline-warning btn-sm"
-                                        data-bs-container="body" data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="left"
-                                        data-bs-content="Altura efetiva da viga retangular, calculada através da altura total (h) menos o cobrimento e menos metade da seção transversal da armadura (h = d + d')">?</button>
+                                            data-bs-container="body" data-bs-trigger="focus" data-bs-toggle="popover"
+                                            data-bs-placement="left"
+                                            data-bs-content="Altura útil da viga retangular, distância da borda mais comprimida ao centroide da armadura. H – (cobrimento + diâmetro da armadura transversal/estribos + metade do diâmetro da armadura longitudinal)">?</button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -64,7 +69,8 @@
                     <tbody class="text-center">
                         <tr>
                             <td class="col-3">f<sub>ck</sub></td>
-                            <td class="col-5"><select id="info-fck" class=" form-select form-select-sm text-center info">
+                            <td class="col-5"><select id="info-fck"
+                                    class=" form-select form-select-sm text-center info">
                                     <option selected value="20">20</option>
                                     <option value="25" selected>25</option>
                                     <option value="30">30</option>
@@ -84,8 +90,9 @@
                             </td>
                             <td class="col-2">MPa</td>
                             <td class="col-2"><button type="button" class="btn btn-outline-warning btn-sm"
-                                data-bs-container="body" data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="left"
-                                data-bs-content="Resistência característica a compressão do concreto">?</button>
+                                    data-bs-container="body" data-bs-trigger="focus" data-bs-toggle="popover"
+                                    data-bs-placement="left"
+                                    data-bs-content="Resistência característica a compressão do concreto">?</button>
                             </td>
                         </tr>
                         <tr>
@@ -95,18 +102,19 @@
                                     <option value="600">600 (CA-60)</option>
                                 </select></td>
                             <td>MPa</td>
-                            <td><button type="button" class="btn btn-outline-warning btn-sm"
-                                data-bs-container="body" data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="left"
-                                data-bs-content="Tensão de escoamento característica do aço">?</button>
+                            <td><button type="button" class="btn btn-outline-warning btn-sm" data-bs-container="body"
+                                    data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="left"
+                                    data-bs-content="Tensão de escoamento característica do aço">?</button>
                             </td>
                         </tr>
                         <tr>
                             <td>E</td>
-                            <td class=""><input type="number" id="info-E" value="200" class="form-control form-control-sm text-center info"></td>
+                            <td class=""><input type="number" id="info-E" value="200"
+                                    class="form-control form-control-sm text-center info"></td>
                             <td>GPa</td>
-                            <td><button type="button" class="btn btn-outline-warning btn-sm"
-                                data-bs-container="body" data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="left"
-                                data-bs-content="Modulo de Elasticidade do aço">?</button>
+                            <td><button type="button" class="btn btn-outline-warning btn-sm" data-bs-container="body"
+                                    data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="left"
+                                    data-bs-content="Modulo de Elasticidade do aço">?</button>
                             </td>
                         </tr>
                     </tbody>
@@ -119,29 +127,33 @@
                     <tbody class="text-center">
                         <tr>
                             <td class="col-3">&#936<sub>c</sub></td>
-                            <td class="col-5"><input type="number" id="info-qsi-c"  value="1.4" class="form-control form-control-sm text-center info"></td>
+                            <td class="col-5"><input type="number" id="info-qsi-c" value="1.4"
+                                    class="form-control form-control-sm text-center info"></td>
                             <td class="col-2">--</td>
                             <td class="col-2"><button type="button" class="btn btn-outline-warning btn-sm"
-                                data-bs-container="body" data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="left"
-                                data-bs-content="Coeficiente parcial de segurança para o concreto">?</button>
+                                    data-bs-container="body" data-bs-trigger="focus" data-bs-toggle="popover"
+                                    data-bs-placement="left"
+                                    data-bs-content="Coeficiente parcial de segurança para o concreto">?</button>
                             </td>
                         </tr>
                         <tr>
                             <td>&#936<sub>s</sub></td>
-                            <td><input type="number" id="info-qsi-s"  value="1.15" class="form-control form-control-sm text-center info"></td>
+                            <td><input type="number" id="info-qsi-s" value="1.15"
+                                    class="form-control form-control-sm text-center info"></td>
                             <td>--</td>
-                            <td><button type="button" class="btn btn-outline-warning btn-sm"
-                                data-bs-container="body" data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="left"
-                                data-bs-content="Coeficiente parcial de segurança para o aço">?</button>
+                            <td><button type="button" class="btn btn-outline-warning btn-sm" data-bs-container="body"
+                                    data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="left"
+                                    data-bs-content="Coeficiente parcial de segurança para o aço">?</button>
                             </td>
                         </tr>
                         <tr>
                             <td>&#936<sub>f</sub></td>
-                            <td><input type="number" id="info-qsi-f"  value="1.4" class="form-control form-control-sm text-center info"></td>
+                            <td><input type="number" id="info-qsi-f" value="1.4"
+                                    class="form-control form-control-sm text-center info"></td>
                             <td>--</td>
-                            <td><button type="button" class="btn btn-outline-warning btn-sm"
-                                data-bs-container="body" data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="left"
-                                data-bs-content="Coeficiente parcial de segurança para o momento">?</button>
+                            <td><button type="button" class="btn btn-outline-warning btn-sm" data-bs-container="body"
+                                    data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="left"
+                                    data-bs-content="Coeficiente parcial de segurança para o momento">?</button>
                             </td>
                         </tr>
                     </tbody>
@@ -154,20 +166,23 @@
                     <tbody class="text-center">
                         <tr>
                             <td class="col-3">M. F. S.</td>
-                            <td class="col-5"><input type="number" id="info-MFS" value="30" class="form-control form-control-sm text-center info"></td>
+                            <td class="col-5"><input type="number" id="info-MFS" value="30"
+                                    class="form-control form-control-sm text-center info"></td>
                             <td class="col-2">kNm</td>
                             <td class="col-2"><button type="button" class="btn btn-outline-warning btn-sm"
-                                data-bs-container="body" data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="left"
-                                data-bs-content="Momento fletor de serviço">?</button>
+                                    data-bs-container="body" data-bs-trigger="focus" data-bs-toggle="popover"
+                                    data-bs-placement="left" data-bs-content="Momento fletor de serviço">?</button>
                             </td>
                         </tr>
                         <tr>
                             <td class="col-3">Coef. Beta</td>
-                            <td class="col-5"><input type="number" id="info-Beta" value="1" class="form-control form-control-sm text-center info"></td>
+                            <td class="col-5"><input type="number" id="info-Beta" value="1"
+                                    class="form-control form-control-sm text-center info"></td>
                             <td class="col-2">--</td>
                             <td class="col-2"><button type="button" class="btn btn-outline-warning btn-sm"
-                                data-bs-container="body" data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="left"
-                                data-bs-content="Coeficiente beta de redistribuição de momentos">?</button>
+                                    data-bs-container="body" data-bs-trigger="focus" data-bs-toggle="popover"
+                                    data-bs-placement="left"
+                                    data-bs-content="Coeficiente beta de redistribuição de momentos">?</button>
                             </td>
                         </tr>
                     </tbody>
@@ -206,38 +221,52 @@
                         <span class="txt-blue text-shadow-white" id="resAreaComprimida"></span>
                     </span>
                     <div id="resDominio" class="col col-12 col-lg-6">Domínio:</div>
-                  </div>
+                </div>
             </div>
         </div>
+
+
     </div>
+
 
     <!--Offcanvas-->
 
-    <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-        Link with href
-      </a>
-      
-      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
-          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <div class="container-xxl">
+        <div class="text-center mt-3">
+            <a class="btn btn-outline-warning" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+                aria-controls="offcanvasExample">
+                Mais opções
+            </a>
         </div>
-        <div class="offcanvas-body">
-          <div>
-            Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
-          </div>
-          <div class="dropdown mt-3">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
-              Dropdown button
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </div>
+    </div>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample">
+        <div class="offcanvas-header pb-0">
+            <img src="./src/images/logos.png">
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-      </div>
+        <hr>
+        <div class="offcanvas-body pt-0 text-start">
+            <h6 class="mb-0"><strong>FLEXÃO NORMAL SIMPLES</strong></h6>
+            <!--Acordion-->
+            <div class="accordion mt-3" id="accordionExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      Memorial de Cálculo
+                    </button>
+                  </h2>
+                  <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <div class="d-grid gap-2">
+                            <button class="btn text-start" type="button">Dimensionamento das armaduras</button>
+                          </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <!--Fim Acordion-->
+    </div>
 
 
 

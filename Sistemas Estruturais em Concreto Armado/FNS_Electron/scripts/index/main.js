@@ -278,7 +278,7 @@ function dimensionar() {
 
     //Linha de deformação - Desenho 2 
     ctx2.beginPath();
-    ctx2.strokeStyle = '#0000ff'
+    ctx2.strokeStyle = "#FF6464"
     ctx2.lineWidth = "1";
     ctx2.moveTo(-epc * 14000, 80);
     ctx2.lineTo(eps * 14000, 287);
